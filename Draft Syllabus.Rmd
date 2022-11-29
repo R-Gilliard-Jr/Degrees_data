@@ -1,0 +1,35 @@
+---
+title: "Degrees Draft Syllabus"
+author: "Reggie Gilliard"
+date: "11/29/2022"
+output: html_document
+---
+
+# DegreesNYC Draft Syllabus {.tabset .tabset-fade .tabset-pills}
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Lessons {.tabset .tabset-fade .tabset-dropdown}
+
+### Lesson 1 - An introduction to R (what, why, how)
+
+1. What is R?
+2. Why use R?
+3. How do I install R?
+4. The tools of the class.
+
+```{r lesson1}
+
+```
+
+### Lesson 2 - Variables, data types, and operators
+
+1. What are variables and why are they useful?
+2. Assigning variables in R
+3. 
+
+```{r lesson2}
+
+```
