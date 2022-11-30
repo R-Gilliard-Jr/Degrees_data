@@ -2,10 +2,12 @@
 title: "Degrees Draft Syllabus"
 author: "Reggie Gilliard"
 date: "11/29/2022"
-output: html_document
+output:
+  html_document:
+    toc: TRUE
+    toc_depth: 2
+    toc_float: TRUE
 ---
-
-# DegreesNYC Draft Syllabus {.tabset .tabset-fade .tabset-pills}
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
@@ -13,23 +15,106 @@ knitr::opts_chunk$set(echo = TRUE)
 
 ## Lessons {.tabset .tabset-fade .tabset-dropdown}
 
-### Lesson 1 - An introduction to R (what, why, how)
+### Lesson 1 - An introduction to R (what, why, how) {.tabset .tabset-fade .tabset-pills}
+
+#### Topics Covered
 
 1. What is R?
 2. Why use R?
 3. How do I install R?
 4. The tools of the class.
 
+#### Lesson
+
+##### What is R?
+
+- Programming language used mostly for statisical analysis, data science, and data visualization
+<!-- FOR REGGIE: List other common uses -->
+- Many other uses
+
+##### Why use R?
+
+![R is a very common language in data science](./Lesson 1/r_prevalence.png)
+
+
+#### Helpful Links
+
 ```{r lesson1}
 
 ```
 
-### Lesson 2 - Variables, data types, and operators
+### Lesson 2 - Variables, data types, and operators {.tabset .tabset-fade .tabset-pills}
+
+#### Topics Covered
 
 1. What are variables and why are they useful?
-2. Assigning variables in R
-3. 
+2. Assigning variables in R (=, <-, ->)
+3. Data types
+    + The six basic data types.
+    + Character, numeric, and logical: the three most common types.
+4. Mathematical operators
+5. Logical operators
+
+#### Helpful Links
+
+1. [You can read more about the data types that we do not cover here.](https://www.programiz.com/r/data-types)
 
 ```{r lesson2}
 
 ```
+
+### Lesson 3 - Tidy data and dplyr {.tabset .tabset-fade .tabset-pills}
+
+#### Topics Covered
+
+1. The dplyr package
+2. Working in dplyr
+    + The pipe (%>%)
+    + Other useful dplyr functions
+3. Tidy data
+    + What is tidy data?
+    + Why is it useful?
+
+```{r lesson3}
+
+```
+
+### Lesson 4 - Vectors and lists {.tabset .tabset-fade .tabset-pills}
+
+#### Topics Covered
+
+1. What is a vector, what is a list?
+    + What is the difference? 
+<!-- (for Reggie: https://stackoverflow.com/questions/8594814/what-are-the-differences-between-vector-and-list-data-types-in-r) -->
+2. Why are vectors useful?
+3. Vectorized operations
+
+```{r lesson4}
+
+```
+
+### Lesson 5 - Conditionals and loops {.tabset .tabset-fade .tabset-pills}
+
+#### Topics Covered
+
+1. If/then conditionals and their use
+    + When to use them
+2. While loops
+    + When to use
+3. For loops
+    + When to use
+
+```{r lesson5}
+
+```
+
+### Lesson 6 - Functions {.tabset .tabset-fade .tabset-pills}
+
+1. What is a function?
+2. When to use functions.
+3. Writing functions in R.
+
+```{r lesson6}
+
+```
+
