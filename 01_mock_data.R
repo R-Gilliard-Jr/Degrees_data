@@ -10,6 +10,7 @@ rm(list = ls())
 root <- "D:/Documents/DegreesNYC/Degrees_data"
 pkgs <- c("tidyverse", "openxlsx", "glue", "assertr")
 invisible(sapply(pkgs, library, character.only = T))
+set.seed(564894)
 
 # Functions
 shell_expand <- function(data, var1, var2) {
@@ -47,13 +48,14 @@ shell <-
     child_var = ifelse(is.na(child_var), parent_var, child_var)
   ) %>%
   assert(not_na, parent_var, child_var) %>%
-  {map_dfr(.,
-          function(y) apply(intersections, 1, function(x) shell_expand(., x[1], x[2]))
-  )}
-
-map_dfr(shell,
-  ~ apply(intersections, 1, function(x) shell_expand(shell, x[1], x[2]))
-)
+  {rbind(.,
+    map_dfr(., function(y) apply(intersections, 1, function(x) shell_expand(., x[1], x[2])))
+  )} %>%
+  rowwise() %>%
+  mutate(id = paste0(sort(c(parent_var, child_var)), collapse = "")) %>%
+  distinct(id, .keep_all = T) %>%
+  mutate(id = factor(id))
+  
 
 # Merge in outcomes
 outcomes <- read.xlsx(glue("{root}/{specfile}"), sheet = "codebooks", rows = c(15:39)) %>%
@@ -65,6 +67,11 @@ outcomes <- read.xlsx(glue("{root}/{specfile}"), sheet = "codebooks", rows = c(1
 shell <- cbind(shell, outcomes)
 
 # Fill shell with random data
-shell %>%
-  rowwise() %>%
-  mutate(across(everything(), ~ ifelse(is.na(.), runif(1, min = .5, max = 1), .)))
+filled_shell <- 
+  shell %>%
+    rowwise() %>%
+    mutate(across(everything(), ~ ifelse(is.na(.), runif(1, min = .5, max = 1), .)),
+           de_ever = runif(1, min = 0, max = .5),
+           across(starts_with("coll_enr"), ~ runif(1, min = .2, max = .8)))
+
+write_csv(filled_shell, glue("{root}/mock_data.csv"))
