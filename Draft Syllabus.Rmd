@@ -11,6 +11,34 @@ output:
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
+pkgs <- c("tidyverse", "ggplot2", "haven", "kableExtra", "assertr", "pdftools")
+invisible(lapply(pkgs, library, character.only = T))
+```
+
+## Introduction
+
+![Welcome!](./Introduction/welcome.jpg) <br/>
+Welcome to the 2023 #DegreesNYC Introduction to Data Analysis Course! As you know, #DegreesNYC is on a mission to radically transform the NYC public school system at all levels. Collective impact and youth engagement are pillars of #DegreesNYC's mission and are the primary tools that the organization uses to further its mission. The folks at #DegreesNYC, however, are aware that the policy space in which they exist values quantitative evidence highly. The Data Fellowship is designed to democratize quantitative expertise, giving power to those who are closest to the issues #DegreesNYC addresses and most impacted by the current state of NYC education: students. This course is meant to give you an introduction to some of the skills you will need to find, manipulate, and analyze data using R. Our hope is that this will not only be enriching for you personally, but will better position you to make policy arguments in the future.
+
+During the course we are going to work primarily (exclusively?) in R and much of the work done using R will be done with R Markdown. Though there are many other languages used for data analysis (including Python, SAS, Stata, and SQL), we will not explore those. If you'd like to know more about one of them feel free to reach out to me and I am happy to share what I know or help point you to a starting place if I am inexperienced in the language myself. And it is okay to be inexperienced! Don't worry if you are not familiar with the language or with coding at all, this class and the Codecademy course that will supplement it are meant for beginners. If you do have experience with R and feel that the course is moving too slowly or that you are not being sufficiently challenged, we encourage you to 1) Add complexity to the examples and challenges presented in class or on Codecademy, 2) Visit some of the pages provided in the enrichment section of this syllabus, 3) read ahead in the syllabus and work on something that is at your level, or 4) focus extra time on your project.
+
+### About the instructor
+
+I am a Data Analytics Developer at Mathematica Policy Research. Before going to Mathematica I was a PhD student at Teachers College, Columbia University in the Economics and Education Program (I am currently on a leave of absence). Before my time at TC, I worked for the Research Alliance for New York City Schools. This is where my relationship with #DegreesNYC began. I have experience using SAS, SQL, Stata, R, and Python (as well as tools like Excel), but I am most well versed in R and Stata.
+
+### Plan for the course
+
+The course will be split into two units. Unit 1 is Learning. During the Learning Unit we will be focused on working through lessons. Each session will be split into two parts: 1) a fifteen minute mini-lesson delivered by me or another member of the #DegreesNYC team, 2) a Codecademy lesson. The mini-lessons are designed to align as closely as possible with the Codecademy lesson for the week to provide as much reinforcement and clarification on the topics that we will cover as possible.
+
+Unit 2 will be dedicated to a project...
+
+### Syllabus
+
+This syllabus will be the repository for everything course-related. Information about lessons, the project, and enrichment is all contained here. The table of contents in the top left has links to the content for units 1 and 2, the introduction, and enrichment activities. Within the Unit 1 header there are tabs for each of the XXXX lessons that we will work through during our time together. These lessons each also have tabs for the topics we will cover, the lesson itself, and any helpful links that you might want to explore. This document will be hosted publically on RPubs, but it is a living document. If anything changes or if there are problems with the URL leading to the syllabus, I will let you know as soon as possible.
+
+
+```{r intro_welcome}
+
 ```
 
 ## Lessons {.tabset .tabset-fade .tabset-dropdown}
@@ -26,22 +54,84 @@ knitr::opts_chunk$set(echo = TRUE)
 
 #### Lesson
 
-##### What is R?
+##### **What is R?**
 
-- Programming language used mostly for statisical analysis, data science, and data visualization
-<!-- FOR REGGIE: List other common uses -->
-- Many other uses
+- Fully realized programming language including loops, conditionals, and user-defined functions.
+- Strong data storage, manipulation, and visualization capabilities.
+- Suite of statistical packages and built-in functions.
 
-##### Why use R?
+##### **Why use R?**
 
 ![R is a very common language in data science](./Lesson 1/r_prevalence.png)
+R is one of the most common languages for data science and data analysis. This is because, with experience, one can take a project from beginning to end only using R. You can download data; manipulate it by creating new variables, dropping missing observations, etc.; perform statistical analysis; and visualize and output results. R, like Stata and SAS, has built-in statistical analysis functionality, but unlike those two languages it is 100% free and open source. There is a robust range of functions in base R, but the R community is very strong and has built a host of tools that make doing data analysis and visualization much easier than it is in base R (we will be working with one such suite of tools, the tidyverse/dplyr, in this class). If you are hoping to get a job doing analytic work, if you want advanced education in a social science field, if you want an introduction to coding/computer science, or if you are just looking to better understand quantitative analysis, R is a good place to begin.
 
+##### **How do I install R?**
+
+Perform the following series of steps
+
+1. Go to [The Comprehensive R Archive Network](https://cloud.r-project.org/)
+
+2. Click the link to download R for your operating system
+![](./Lesson 1/cranhome.jpg)
+
+3. Select base
+![](./Lesson 1/cranbase.png)
+
+4. Select the download link at the top of the screen.
+![](./Lesson 1/crandld.png)
+
+You should also install R Studio. Here is how you can do that:
+
+1. [Visit posit.co](https://posit.co/download/rstudio-desktop/)
+
+2. Click the download button in the upper right hand corner
+![](./Lesson 1/rstudiodwnld.png)
+
+3. Scroll down and select RStudio Desktop. Select download RStudio.
+![](./Lesson 1/rstudiodsk.png)
+
+
+4. Scroll down and select the appropriate installation for your operating system.
+![](./Lesson 1/rstudioinstl.png)
+
+##### **Class tools**
+
+As noted in the introduction, this class will use Codecademy to aid in learning basic coding skills in R and the basic R workflow. You will need a Codecademy account to retain your progress between sessions. You can register for one [here](https://www.codecademy.com/)
+<!-- Should I add in Git here? -->
+Another tool we will use throughout the class and one you will also be using in your Codecademy work is a suite of R packages called the Tidyverse. The Tidyverse is designed to make working with data easier and is commonly used in many organizations (we use it at Mathematica, for example). There are eight major packages in the Tidyverse as well as many other specialised packages, but the following are important for this class:
+
+1. ggplot2 - For visualizing data (i.e. creating graphs, and charts).
+2. dplyr - For cleaning data and provides access to the pipe (%>%) which you will make use of for many of your data cleaning tasks in this class.
+3. readr - For reading data sets with simple syntax.
+
+To install the Tidyverse, open R or RStudio and type *install.packages("tidyverse")* into the console.
+
+Finally, we will use R Markdown when creating your projects. R Markdown allows you to write code and text into the same document and have it rendered nicely as a word document, PDF, or html file. I used R Markdown to write this syllabus. Using R Markdown makes integrating visualizations, code, and analyses into your reports simple.
+
+That's it. You're all set up!
+
+##### **Getting help in R**
+
+While we are in class you can ask me questions and, of course, feel free to email me and other members of the #DegreesNYC team as you need support, but there are other things you can do to get answers before asking me or a classmate for help.
+
+1. If you are ever unsure what a function does you can type ?functionname into the console and a help file will pop up in the bottom right corner of your screen that has useful information about the function.
+
+```{r l1_e_ex1, eval=FALSE}
+?paste
+```
+
+2. If you are curious about an entire package you can type vignette(packagename) for more information about the package.
+
+```{r l1_e_ex2, eval=FALSE}
+vignette("dplyr")
+```
+
+3. If you need help resolving a more complex problem, try Google or another search engine first. There are many people working in R and many sites which aggregate responses to frequently asked questions. Stackoverflow is one that is well-known in the coding community and that I personally use regularly while at work.
 
 #### Helpful Links
 
-```{r lesson1}
-
-```
+* [Why use R](https://www.youtube.com/watch?v=9kYUGMg_14s)
+* [Exercises](https://www.w3schools.com/r/exercise.asp?filename=exercise_syntax1)
 
 ### Lesson 2 - Variables, data types, and operators {.tabset .tabset-fade .tabset-pills}
 
@@ -55,13 +145,207 @@ knitr::opts_chunk$set(echo = TRUE)
 4. Mathematical operators
 5. Logical operators
 
+#### Lesson
+
+##### **Printing output**
+
+There are many ways to output values in R so that you can see them. One of the easiest is just typing the value into the console.
+
+```{r l2_a_ex1}
+4
+"Hello"
+```
+
+Another way that is often used and more flexible than just writing in the console is to wrap the item you want to show in the *print* function.
+
+```{r l2_a_ex2}
+print(4)
+print("Hello")
+```
+
+##### **An introduction to variables**
+
+Variables in R are convenient ways to keep track of values. There are times when you will want to perform an operation. Let's work with the example of addition. You could do the following to add 4 twice:
+
+```{r l2_b_ex1}
+4 + 4
+```
+
+This is perfectly fine. But you could also use variables to add 4 twice like this:
+
+```{r l2_b_ex2}
+x <- 4
+x + x
+```
+
+Variables allow us to work with values dynamically and without the struggle of trying to remember all of the values that we are working with individually. Keeping the math theme, suppose you wanted to implement the quadratic formula which is written:<br/>
+![](./Lesson 2/quadratic_formula.png)<br/>
+
+And you are provided the following values:
+
+* a = 2
+* b = 4
+* c = 2
+
+You could do this directly with numbers, as in
+
+```{r l2_b_ex3}
+(-4 + sqrt(4^2 - 4*2*2))/(2*2)
+```
+
+Or it could be done using variables, as in
+
+```{r l2_b_ex4}
+a = 2
+b = 4
+2 -> c
+(-b + sqrt(b^2 - 4*a*c))/(2*a)
+```
+The advantage of the second option is that if the numbers you would like to enter into formula change, all you have to do is change them once, when assigning them, and you can use the formula again. In the first case, you would need to go through and make sure you've got all of the numbers entered into their correct locations carefully. The true power of variables will not be seen until we begin to work with for loops, but, for now, think of them as useful ways to store information.
+
+##### **Assigning variables in R**
+
+In the examples above I created four different variables: x, a, b, and c. I assigned values to those variables in three different ways: <-, =, ->. You can use any of these assignment operators to assign a value to a variable. To assign a value with the equal sign or the left-arrow the variable name should go the left-hand side of the operator and the value that you want to assign should be on the right-hand side.
+
+```{r l2_c_ex1}
+x <- 2
+print(paste("x equals:", x))
+y = 2023
+print(paste("y equals:", y))
+```
+
+There is also the right-arrow operator. If using this to assign a value to a variable, the value should be on the left-hand side and the name of the variable should be on the right-hand side.
+
+```{r l2_c_ex2}
+"Hello" -> z
+print(paste("z equals:", z))
+```
+
+There is nothing wrong with using any of the assignment operators so you should go with the one you are most comfortable with, especially as you learn. The industry standard, however, is to use the left-arrow unless there is good reason. This prevents confusion when you are trying to do a check for equality (==) and may be easier to read than the right-arrow.
+
+##### **Basic data types**
+
+There are 6 basic data types:
+
+1. Logical
+    + True/false data type (Boolean).
+2. Numeric
+    + All real numbers.
+3. Integer
+    + Real values without decimal points.
+4. Complex
+    + Imaginary values
+5. Character
+    + String values. These are values that contain non-numeric characters (such as letters).
+6. Raw
+    + Specifies values as raw bytes
+  
+In this class we will focus on the logical, numeric, and character data types. These are the three most common types. See the helpful links for more information about the types that we will not cover.
+
+###### **Logical**
+
+Data with class logical can only take on the value of true or false. Another name for this type of data is Boolean. In R, TRUE and FALSE are equivalent to 1 and 0 respectively. That means you can do things like add and subtract logical data even though they are not technically numeric.
+
+```{r l2_log_ex}
+x <- TRUE
+y <- FALSE
+z <- TRUE
+
+class(x)
+x + y
+x + z
+x - z
+```
+
+###### **Numeric**
+
+The numeric data type holds all real numbers. This means any number, including those with decimals and negatives, but excluding imaginary numbers. We have been working with real numbers throughout this lesson. Examples of real numbers include 4, -25, 1.33333, and pi.
+
+###### **Character**
+
+The character data type holds strings. Strings contain a series of characters. Here are some examples of character data:
+
+```{r l2_char_ex1}
+class("Hello")
+class("1234")
+```
+
+You will notice that even though the second string ("1234") contains only numbers R considers it of class character. This is important to remember because character variables and numeric vectors cannot be interacted with in the same ways:
+
+```{r l2_char_ex2}
+try("1" + "2")
+1 + 2
+```
+
+The first line of code throws an error, telling us that "1" and "2" are not numeric and therefore cannot be added. The second line of code returns what we expect, 3.
+
+##### **Mathematical operators**
+
+R is designed with statistical analysis in mind. Thus it is easy to do math in R. Most of the mathematical operators are intuitive, but there are some which you may not be familiar with.
+
+Addition, subtraction, multiplication, and division are all straightforward.
+
+```{r l2_math_ex1}
+2 + 2
+2 - 2
+2 * 2
+2/2
+```
+
+To exponentiate a number, use either ^ or **
+
+```{r l2_math_ex2}
+3^2
+3**2
+```
+
+There are also operators for the modulo of numbers and for integer division. The modulo returns the remainder when dividing two numbers. For example 3 modulo 2 is 1. The modulo operator is %%.
+
+```{r l2_math_ex3}
+3 %% 2
+6 %% 4
+```
+
+Integer division returns the integer portion of the result when dividing two numbers. For example 5 integer divided by 2 is 2. The integer division operator is %/%.
+
+```{r l2_math_ex4}
+5 %/% 2
+7 %/% 6
+```
+
+
+##### **Logical operators**
+
+You are also likely familiar with most of the logical operators. These are things in math which do not return a number, but rather return a value of true or false. Greater than (>), less than (<), greater than or equal to (>=), less than or equal to (<=), equal to (==), and not equal to (!=) are all available in R. Note that you must use 2 equal signs in R when you what to equate two things. One equal sign, as we discussed earlier, is for assigning values to variables.
+
+```{r l2_log_ex1}
+2 < 3
+3 > 2
+3 == 2
+3 != 2
+3 <= 2
+3 >= 2
+```
+
+There are also operators for *or* (|), *and* (&), and *not* (!).
+
+```{r l2_log_ex2}
+numlist <- c(1, 2, 3, 4, 5, 6, 7, 8, 9)
+# Or is one, the other, or both
+numlist[numlist < 3 | numlist > 7]
+
+# And is all
+numlist[numlist < 9 & numlist > 7]
+
+# Not negates whatever follows
+numlist[!(numlist >= 5)]
+```
+
+
 #### Helpful Links
 
-1. [You can read more about the data types that we do not cover here.](https://www.programiz.com/r/data-types)
-
-```{r lesson2}
-
-```
+* [You can read more about the data types that we do not cover here.](https://www.programiz.com/r/data-types)
+* [More information about operators](https://www.statmethods.net/management/operators.html)
 
 ### Lesson 3 - Tidy data and dplyr {.tabset .tabset-fade .tabset-pills}
 
@@ -74,6 +358,150 @@ knitr::opts_chunk$set(echo = TRUE)
 3. Tidy data
     + What is tidy data?
     + Why is it useful?
+    
+#### Lesson
+
+##### **Why dplyr?**
+
+One of R's strengths, that it is open source, is also what makes it difficult to learn. There are sometimes many ways to do the same thing with solutions coming from base R, as well as many different packages. For example, suppose we load the built-in R data set mtcars and want to view only cars with mpg > 20:
+
+```{r l3_1_ex1}
+# Print data set
+mtcars
+
+# Select cars with greater than 20 mpg using base R
+mtcars[mtcars$mpg > 20, ]
+
+# Select cars with greater than 20 mpg using dplyr
+filter(mtcars, mpg > 20)
+```
+
+You can see these two solutions are equivalent. Industry standards emerge for precisely this reason--to standardize workflows throughout the industry so that colleagues, collaborators, critics, and competitors can understand each others' code more easily. dplyr has become the industry standard for much of data analysis in R.
+
+dplyr provides a set of tools that make data cleaning and transformation more intuitive. You can read the package's vignette for more information. This lesson will explain the 8 functions outlined in the vignette, using the mtcars data set. I will also talk about the pipe and why it is a useful tool for data analysis and creating legible code.
+
+##### **%>% and dplyr functions**
+
+###### **%>%**
+
+There are eight basic dplyr functions (and many more that are available for more specialized operations), but one of the most useful  things in the dplyr package comes from a different package called magrittr: the %>% (pipe) operator.
+
+The pipe operator takes the result on the current line and inserts it into the first argument of the following line. For example 1+1 %>% sum(2) = 4.
+
+```{r l3_2_ex1}
+1+1 %>%
+  sum(2)
+```
+The pipe operator makes workflows cleaner while still being easy to follow by removing the need for many intermediate saving steps. To illustrate, here is how one could multiply mpg by 2 and divide cyl by 3 in both base R and dplyr.
+
+```{r l3_2_ex2}
+# In base R
+# First duplicate the data set
+mtcars2 <- mtcars
+# Then multiply mpg by 2
+mtcars2$mpg <- mtcars$mpg * 2
+# Then divide cyl by 3
+mtcars2$cyl <- mtcars$cyl/3
+print(mtcars2)
+
+# In dplyr
+mtcars2 <- mtcars %>%
+  mutate(mpg = mpg * 2,
+         cyl = cyl/3) %>%
+  print()
+```
+
+Again, the data sets are identical in the end, but in the dplyr case only one assignment operator was necessary. In base R, three were used. Also, in dplyr the data set mtcars is only referenced once and mtcars2 is only referenced when it is assigned. In base R, both data sets are referenced multiple times. The time savings and clarity that can come from using the pipe are not readily apparent from these simple examples, but as your work becomes more complex you will notice incorporating the pipe become more and more valuable.
+
+###### **filter**
+
+dplyr's filter function allows you to select rows meeting certain criteria. Suppose we are using the mtcars data set and only want to see cars with exactly 6 cylinders. Then with dplyr:
+
+```{r l3_2_ex3}
+mtcars %>%
+  filter(cyl == 6)
+```
+
+Or suppose we only wanted cars with 4 or more forward gears. Then
+
+```{r l3_2_ex4}
+mtcars %>%
+  filter(gear >= 4)
+```
+
+Combine filter with logical operators and other functions for more complex selection of observations. Like in this case where the data is subset to only cars made by Mazda:
+
+```{r l3_2_ex5}
+mtcars %>%
+  mutate(make = rownames(mtcars)) %>%
+  filter(grepl("Mazda", make))
+```
+
+###### **slice**
+
+Slice allows selecting rows by index. For example, to select rows 1, 3, and 5 of mtcars:
+
+```{r l3_2_ex6}
+mtcars %>%
+  slice(c(1, 3, 5))
+```
+
+Or to select all odd rows:
+
+```{r l3_2_ex7}
+mtcars %>%
+  slice(seq(1, nrow(mtcars), by = 2))
+```
+
+There are also helper functions to do things like select the first and last rows quickly:
+
+```{r l3_2_ex8}
+# First 5 rows
+slice_head(mtcars, n = 5)
+
+# Last 5 rows
+slice_tail(mtcars, n = 5)
+```
+
+###### **arrange**
+
+Arrange sorts data. You provide a column and, by default, it sorts the rows by that column in ascending order. Compare the following:
+
+```{r l3_2_ex9}
+mtcars
+mtcars %>%
+  arrange(mpg)
+```
+
+In the first case, the mtcars data set is in some arbitrary order. After using arrange, the rows are ordered from lowest to highest mpg. Wrapping the target columns in `desc()` will arrange rows in descending order:
+
+```{r l3_2_ex10}
+mtcars %>%
+  arrange(desc(mpg))
+```
+
+Providing multiple columns to arrange will break ties on preceding columns:
+
+```{r l3_2_ex11}
+mtcars %>%
+  arrange(mpg)
+
+mtcars %>%
+  arrange(mpg, disp)
+```
+
+In the second case, Lincoln Continental comes before Cadillac Fleetwood, because Lincoln Continental has the lower disp. Again, `desc()` could be applied. In this case, Cadillac Fleetwood comes first:
+
+```{r l3_2_ex12}
+mtcars %>%
+  arrange(mpg, desc(disp))
+```
+
+###### **select**
+###### **rename**
+###### **mutate**
+###### **relocate**
+###### **summarise**
 
 ```{r lesson3}
 
