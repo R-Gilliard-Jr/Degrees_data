@@ -498,14 +498,82 @@ mtcars %>%
 ```
 
 ###### **select**
+
+Select is among the most common dplyr verbs. It has a simple, but important function: selecting which variables should be kept in a data frame. For example, if we only want to keep the mpg variable from the mtcars data frame, we can do the following:
+
+```{r l3_2_ex13}
+mtcars %>%
+  select(mpg)
+```
+
+If instead, we'd like to keep multiple variables--say cylinders, gears, and carburetors:
+
+```{r l3_2_ex14}
+mtcars %>%
+  select(mpg, gear, carb)
+
+mtcars %>%
+  select(c("mpg", "gear", "carb"))
+
+mtcars %>%
+  select(c(mpg, gear, carb))
+```
+
+As shown above, columns can be provided as a comma separated list, a character vector, or a vector of objects. This is especially useful if, instead, you want to remove some variables from the data frame:
+
+```{r l3_2_ex15}
+mtcars %>%
+  select(-c("mpg", "gear", "carb"))
+```
+
+Now the variables of interest have been removed.
+
 ###### **rename**
+
+Sometimes column names are inconvenient to work with, not descriptive, or generally do not meet your needs. Rename can remedy this problem; use it when you want to rename a column in a data frame:
+
+```{r l3_2_ex16}
+mtcars %>%
+  rename(MilesPerGallon = mpg)
+```
+
+The new variable name is entered on the left-hand side of the equation, the old variable name on the right hand side. Multiple columns can be renamed at once by separating each expression with a comma:
+
+```{r l3_2_ex17}
+mtcars %>%
+  rename(MilesPerGallon = mpg,
+         Cylinders = cyl,
+         Carburetors = carb)
+```
+
+R has rules about how variables can be named (see `help(make.names)` for more information). In general, variable names cannot have non-alphanumeric characters, cannot begin with numbers, and cannot contain spaces. Still, if you would really like to (for example if you are creating a public-facing table), you can create non-syntactic names by wrapping them in backticks:
+
+```{r l3_2_ex18}
+mtcars %>%
+  rename(`Miles Per Gallon` = mpg)
+```
+
 ###### **mutate**
+
+Mutate allows you to modify and create columns in a data frame. You use mutate by writing the column name you'd like to modify/create on the left-hand side and an expression on the right-hand side of an expression. For example we can calculate the mpg to cyl ratio in mtcars:
+
+```{r l3_2_ex19}
+mtcars %>%
+  mutate(mpg_to_cyl = mpg/cyl)
+```
+
+As with rename, if we'd like to manipulate multiple variables in one call to mutate we can do that by separating expressions with a comma:
+
+```{r l3_2_ex20}
+mtcars %>%
+  mutate(mpg_to_cyl = mpg/cyl,
+         mpg_to_carb = mpg/carb,
+         carb_to_cyl = mpg_to_cyl/mpg_to_carb)
+```
+
+
 ###### **relocate**
 ###### **summarise**
-
-```{r lesson3}
-
-```
 
 ### Lesson 4 - Vectors and lists {.tabset .tabset-fade .tabset-pills}
 
