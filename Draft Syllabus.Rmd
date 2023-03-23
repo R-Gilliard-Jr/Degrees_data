@@ -633,7 +633,7 @@ text_data %>%
 
 This can come in handy in a variety of contexts such as working with survey data or parsing a pdf.
 
-#### **Tidy data**
+##### **Tidy data**
 
 In general, data sets that you come across while working or doing research will be messy. They will contain unexpected values, missingness, variables that are unclear, and other problems. To help make the irregularities of data more apparent and to shape data into a form that is easily analyzed, statisticians and programmers have created a set of rules for data collectively giving rise to the idea of tidy data. There are three important things to remember about tidy data (see `vignette("tidy-data")`, from which these rules are drawn):
 
