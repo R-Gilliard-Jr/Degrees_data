@@ -15,57 +15,57 @@ pkgs <- c("tidyverse", "ggplot2", "haven", "kableExtra", "assertr", "pdftools")
 invisible(lapply(pkgs, library, character.only = T))
 ```
 
-## Introduction
+# Introduction
 
 ![Welcome!](./Introduction/welcome.jpg) <br/>
-Welcome to the 2023 #DegreesNYC Introduction to Data Analysis Course! As you know, #DegreesNYC is on a mission to radically transform the NYC public school system at all levels. Collective impact and youth engagement are pillars of #DegreesNYC's mission and are the primary tools that the organization uses to further its mission. The folks at #DegreesNYC, however, are aware that the policy space in which they exist values quantitative evidence highly. The Data Fellowship is designed to democratize quantitative expertise, giving power to those who are closest to the issues #DegreesNYC addresses and most impacted by the current state of NYC education: students. This course is meant to give you an introduction to some of the skills you will need to find, manipulate, and analyze data using R. Our hope is that this will not only be enriching for you personally, but will better position you to make policy arguments in the future.
+Welcome to the 2023 #DegreesNYC R Course! As you know, #DegreesNYC is on a mission to radically transform the NYC public school system at all levels. Collective impact and youth engagement are pillars of #DegreesNYC's mission and are the primary tools that the organization uses to further its goals. The folks at #DegreesNYC, however, are aware that the policy space in which they exist values quantitative evidence highly. This course is meant to democratize quantitative expertise, by giving you an introduction to some of the skills you will need to find, manipulate, and analyze data using R. Our hope is that this will not only be enriching for you personally, but will better position you to make policy arguments in the future.
 
-During the course you are going to work primarily (exclusively?) in R and much of the work done using R will be done with R Markdown. Though there are many other languages used for data analysis (including Python, SAS, Stata, and SQL), you will not explore those. If you'd like to know more about one of them feel free to reach out to me and I am happy to share what I know or help point you to a starting place if I am inexperienced in the language myself. And it is okay to be inexperienced! Don't worry if you are not familiar with the language or with coding at all, this class and the Codecademy course that will supplement it are meant for beginners. If you do have experience with R and feel that the course is moving too slowly or that you are not being sufficiently challenged, you encourage you to 1) Add complexity to the examples and challenges presented in class or on Codecademy, 2) Visit some of the pages provided in the enrichment section of this syllabus, 3) read ahead in the syllabus and work on something that is at your level, or 4) focus extra time on your project.
+During the course you are going to work primarily in R and much of the work done using R will be done with R Markdown. Though there are many other languages used for data analysis (including Python, SAS, Stata, and SQL), you will not explore those. If you'd like to know more about one of them feel free to reach out to me and I am happy to share what I know or help point you to a starting place if I am inexperienced in the language myself. And it is okay to be inexperienced! Don't worry if you are not familiar with the language or with coding at all; this class and the Codecademy course that will supplement it are meant for beginners. If you do have experience with R and feel that the course is moving too slowly or that you are not being sufficiently challenged, I encourage you to 1) Add complexity to the examples and challenges presented in class or on Codecademy, 2) Visit some of the pages provided in the enrichment section of this syllabus, 3) read ahead in the syllabus and work on something that is at your level, or 4) focus extra time on your project.
 
-### About the instructor
+## About the instructor
 
-I am a Data Analytics Developer at Mathematica Policy Research. Before going to Mathematica I was a PhD student at Teachers College, Columbia University in the Economics and Education Program (I am currently on a leave of absence). Before my time at TC, I worked for the Research Alliance for New York City Schools. This is where my relationship with #DegreesNYC began. I have experience using SAS, SQL, Stata, R, and Python (as well as tools like Excel), but I am most well versed in R and Stata.
+I am a Data Analytics Developer at [Mathematica](https://www.mathematica.org/). Before going to Mathematica, I was a PhD student at Teachers College, Columbia University in the Economics and Education Program. Before that, I worked for the Research Alliance for New York City Schools. This is where my relationship with #DegreesNYC began. I have experience using SAS, SQL, Stata, R, and Python (as well as tools like Excel), but I am most well versed in R and Stata.
 
-### Plan for the course
+## Plan for the course
 
 The course will be split into two units. Unit 1 is Learning. During the Learning Unit you will be focused on working through lessons. Each session will be split into two parts: 1) a fifteen minute mini-lesson delivered by me or another member of the #DegreesNYC team, 2) a Codecademy lesson. The mini-lessons are designed to align as closely as possible with the Codecademy lesson for the week to provide as much reinforcement and clarification on the topics that you will cover as possible.
 
 Unit 2 will be dedicated to a project...
 
-### Syllabus
+## Syllabus
 
-This syllabus will be the repository for everything course-related. Information about lessons, the project, and enrichment is all contained here. The table of contents in the top left has links to the content for units 1 and 2, the introduction, and enrichment activities. Within the Unit 1 header there are tabs for each of the XXXX lessons that you will work through during our time together. These lessons each also have tabs for the topics you will cover, the lesson itself, and any helpful links that you might want to explore. This document will be hosted publically on RPubs, but it is a living document. If anything changes or if there are problems with the URL leading to the syllabus, I will let you know as soon as possible.
+This syllabus will be the repository for everything course-related. Information about lessons, the project, and enrichment is all contained here. The table of contents in the top left has links to the content for units 1 and 2, the introduction, and enrichment activities. Within the Unit 1 header there are tabs for each of the XXXX lessons that you will work through during our time together. These lessons each also have tabs for the topics you will cover, the lesson itself, and any helpful links that you might want to explore. This document will be hosted publicly on GitHub, but it is a living document. If anything changes or if there are problems with the URL leading to the syllabus, I will let you know as soon as possible.
 
 
 ```{r intro_welcome}
 
 ```
 
-## Lessons {.tabset .tabset-fade .tabset-dropdown}
+# Unit 1 - Learn R {.tabset .tabset-fade .tabset-dropdown}
 
-### Lesson 1 - An introduction to R (what, why, how) {.tabset .tabset-fade .tabset-pills}
+## Lesson 1 - An introduction to R (what, why, how) {.tabset .tabset-fade .tabset-pills}
 
-#### Topics Covered
+### Topics Covered
 
 1. What is R?
 2. Why use R?
 3. How do I install R?
 4. The tools of the class.
 
-#### Lesson
+### Lesson
 
-##### **What is R?**
+#### **What is R?**
 
-- Fully realized programming language including loops, conditionals, and user-defined functions.
+- Fully realized programming language including loops, conditionals, user-defined functions, and several object-oriented systems.
 - Strong data storage, manipulation, and visualization capabilities.
 - Suite of statistical packages and built-in functions.
 
-##### **Why use R?**
+#### **Why use R?**
 
 ![R is a very common language in data science](./Lesson 1/r_prevalence.png)
-R is one of the most common languages for data science and data analysis. This is because, with experience, one can take a project from beginning to end only using R. You can download data; manipulate it by creating new variables, dropping missing observations, etc.; perform statistical analysis; and visualize and output results. R, like Stata and SAS, has built-in statistical analysis functionality, but unlike those two languages it is 100% free and open source. There is a robust range of functions in base R, but the R community is very strong and has built a host of tools that make doing data analysis and visualization much easier than it is in base R (you will be working with one such suite of tools, the tidyverse/dplyr, in this class). If you are hoping to get a job doing analytic work, if you want advanced education in a social science field, if you want an introduction to coding/computer science, or if you are just looking to better understand quantitative analysis, R is a good place to begin.
+R is one of the most common languages for data science and data analysis. This is because, with experience, one can take a project from beginning to end only using R. You can download data; manipulate it by creating new variables, dropping missing observations, etc.; perform statistical analysis; and visualize and output results. R, like Stata and SAS, has built-in statistical analysis functionality, but unlike those two languages it is 100% free and open source. There is are a wide range of functions in base R, but the R community is very strong and has built a host of tools that make doing data analysis and visualization much easier than it is in base R (you will be working with one such suite of tools, the tidyverse/dplyr, in this class). If you are hoping to get a job doing analytic work, if you want advanced education in a social science field, if you want an introduction to coding/computer science, or if you are just looking to better understand quantitative analysis, R is a good place to begin.
 
-##### **How do I install R?**
+#### **How do I install R?**
 
 Perform the following series of steps
 
@@ -94,48 +94,48 @@ You should also install R Studio. Here is how you can do that:
 4. Scroll down and select the appropriate installation for your operating system.
 ![](./Lesson 1/rstudioinstl.png)
 
-##### **Class tools**
+#### **Class tools**
 
 As noted in the introduction, this class will use Codecademy to aid in learning basic coding skills in R and the basic R workflow. You will need a Codecademy account to retain your progress between sessions. You can register for one [here](https://www.codecademy.com/)
 <!-- Should I add in Git here? -->
-Another tool you will use throughout the class and one you will also be using in your Codecademy work is a suite of R packages called the Tidyverse. The Tidyverse is designed to make working with data easier and is commonly used in many organizations (you use it at Mathematica, for example). There are eight major packages in the Tidyverse as well as many other specialised packages, but the following are important for this class:
+Another tool you will use throughout the class and one you will also be using in your Codecademy work is a suite of R packages called the Tidyverse. The Tidyverse is designed to make working with data easier and is commonly used in many organizations (we use it at Mathematica, for example). There are eight major packages in the Tidyverse as well as many other specialized packages, but the following are important for this class:
 
 1. ggplot2 - For visualizing data (i.e. creating graphs, and charts).
-2. dplyr - For cleaning data and provides access to the pipe (%>%) which you will make use of for many of your data cleaning tasks in this class.
+2. dplyr - For cleaning data and provides access to the magrittr pipe (`%>%`) which you can make use of for many of your data cleaning tasks in this class (although R now has a built-in pipe: `|>`).
 3. readr - For reading data sets with simple syntax.
 
-To install the Tidyverse, open R or RStudio and type *install.packages("tidyverse")* into the console.
+To install the Tidyverse, open R or RStudio and type `install.packages("tidyverse")` into the console.
 
 Finally, you will use R Markdown when creating your projects. R Markdown allows you to write code and text into the same document and have it rendered nicely as a word document, PDF, or html file. I used R Markdown to write this syllabus. Using R Markdown makes integrating visualizations, code, and analyses into your reports simple.
 
 That's it. You're all set up!
 
-##### **Getting help in R**
+#### **Getting help in R**
 
 While you are in class you can ask me questions and, of course, feel free to email me and other members of the #DegreesNYC team as you need support, but there are other things you can do to get answers before asking me or a classmate for help.
 
-1. If you are ever unsure what a function does you can type ?functionname into the console and a help file will pop up in the bottom right corner of your screen that has useful information about the function.
+1. If you are ever unsure what a function does you can type `?functionname` or `help(functionname)` into the console and a help file will pop up (in the bottom right corner of your screen if you are using R Studio) that has useful information about the function.
 
 ```{r l1_e_ex1, eval=FALSE}
 ?paste
 ```
 
-2. If you are curious about an entire package you can type vignette(packagename) for more information about the package.
+2. If you are curious about an entire package you can type vignette(packagename) for more information about the package. Note that not all packages have a vignette.
 
 ```{r l1_e_ex2, eval=FALSE}
 vignette("dplyr")
 ```
 
-3. If you need help resolving a more complex problem, try Google or another search engine first. There are many people working in R and many sites which aggregate responses to frequently asked questions. Stackoverflow is one that is well-known in the coding community and that I personally use regularly while at work.
+3. If you need help resolving a more complex problem, try Google or another search engine first. There are many people working in R and many sites which aggregate responses to frequently asked questions. [Stackoverflow](https://stackoverflow.com/) is one that is well-known in the coding community and that I personally use regularly while at work. I encourage you to investigate solutions to your issues yourself first because you will retain more information when you've had to spend some time searching and iterating on your own.
 
-#### Helpful Links
+### Helpful Links
 
 * [Why use R](https://www.youtube.com/watch?v=9kYUGMg_14s)
 * [Exercises](https://www.w3schools.com/r/exercise.asp?filename=exercise_syntax1)
 
-### Lesson 2 - Variables, data types, and operators {.tabset .tabset-fade .tabset-pills}
+## Lesson 2 - Variables, data types, and operators {.tabset .tabset-fade .tabset-pills}
 
-#### Topics Covered
+### Topics Covered
 
 1. What are variables and why are they useful?
 2. Assigning variables in R (=, <-, ->)
@@ -145,9 +145,9 @@ vignette("dplyr")
 4. Mathematical operators
 5. Logical operators
 
-#### Lesson
+### Lesson
 
-##### **Printing output**
+#### **Printing output**
 
 There are many ways to output values in R so that you can see them. One of the easiest is just typing the value into the console.
 
@@ -156,16 +156,16 @@ There are many ways to output values in R so that you can see them. One of the e
 "Hello"
 ```
 
-Another way that is often used and more flexible than just writing in the console is to wrap the item you want to show in the *print* function.
+Another way that is often used is to wrap the item you want to show in the `print()` function.
 
 ```{r l2_a_ex2}
 print(4)
 print("Hello")
 ```
 
-##### **An introduction to variables**
+#### **An introduction to variables**
 
-Variables in R are convenient ways to keep track of values. There are times when you will want to perform an operation. Let's work with the example of addition. You could do the following to add 4 twice:
+Variables in R are convenient ways to keep track of values. There are times when you will want to perform an operation, save the value, perform some intermediate steps, and then use the original value that you saved. Let's work with the example of addition. You could do the following to add 4 twice:
 
 ```{r l2_b_ex1}
 4 + 4
@@ -178,7 +178,7 @@ x <- 4
 x + x
 ```
 
-Variables allow us to work with values dynamically and without the struggle of trying to remember all of the values that you are working with individually. Keeping the math theme, suppose you wanted to implement the quadratic formula which is written:<br/>
+Variables allow you to work with values dynamically and without the struggle of trying to remember all of the values that you are working with individually. Keeping the math theme, suppose you wanted to implement the quadratic formula which is written:<br/>
 ![](./Lesson 2/quadratic_formula.png)<br/>
 
 And you are provided the following values:
@@ -203,7 +203,7 @@ b = 4
 ```
 The advantage of the second option is that if the numbers you would like to enter into formula change, all you have to do is change them once, when assigning them, and you can use the formula again. In the first case, you would need to go through and make sure you've got all of the numbers entered into their correct locations carefully. The true power of variables will not be seen until you begin to work with for loops, but, for now, think of them as useful ways to store information.
 
-##### **Assigning variables in R**
+#### **Assigning variables in R**
 
 In the examples above I created four different variables: x, a, b, and c. I assigned values to those variables in three different ways: <-, =, ->. You can use any of these assignment operators to assign a value to a variable. To assign a value with the equal sign or the left-arrow the variable name should go the left-hand side of the operator and the value that you want to assign should be on the right-hand side.
 
@@ -221,9 +221,9 @@ There is also the right-arrow operator. If using this to assign a value to a var
 print(paste("z equals:", z))
 ```
 
-There is nothing wrong with using any of the assignment operators so you should go with the one you are most comfortable with, especially as you learn. The industry standard, however, is to use the left-arrow unless there is good reason. This prevents confusion when you are trying to do a check for equality (==) and may be easier to read than the right-arrow.
+There is nothing wrong with using any of the assignment operators so you should go with the one you are most comfortable with, especially as you learn. The industry standard, however, is to use the left-arrow unless there is good reason. This prevents confusion when you are trying to do a check for equality (`==`) and may be easier to read than the right-arrow. I will use the left-arrow exclusively throughout the remainder of this course.
 
-##### **Basic data types**
+#### **Basic data types**
 
 There are 6 basic data types:
 
@@ -236,15 +236,15 @@ There are 6 basic data types:
 4. Complex
     + Imaginary values
 5. Character
-    + String values. These are values that contain non-numeric characters (such as letters).
+    + String values. These are values that can contain non-numeric characters (such as letters).
 6. Raw
     + Specifies values as raw bytes
   
 In this class you will focus on the logical, numeric, and character data types. These are the three most common types. See the helpful links for more information about the types that you will not cover.
 
-###### **Logical**
+##### **Logical**
 
-Data with class logical can only take on the value of true or false. Another name for this type of data is Boolean. In R, TRUE and FALSE are equivalent to 1 and 0 respectively. That means you can do things like add and subtract logical data even though they are not technically numeric.
+Data with class logical can only take on the values of true or false. Another name for this type of data is Boolean. In R, `TRUE` and `FALSE` are equivalent to 1 and 0 respectively. That means you can do things like add and subtract logical data even though they are not technically numeric.
 
 ```{r l2_log_ex}
 x <- TRUE
@@ -257,11 +257,37 @@ x + z
 x - z
 ```
 
-###### **Numeric**
+##### **Numeric**
 
 The numeric data type holds all real numbers. This means any number, including those with decimals and negatives, but excluding imaginary numbers. We have been working with real numbers throughout this lesson. Examples of real numbers include 4, -25, 1.33333, and pi.
 
-###### **Character**
+```{r l2_num_ex1}
+class(4)
+```
+
+You might wonder how R can tell the difference between a numeric 4 and an integer 4. Mathematically, after all, 4 is both an integer and a real number. The way to pass an explicitly integer value to R is to append an `L` to the end of the number. For example:
+
+```{r l2_num_ex2}
+class(4L)
+class(1040L)
+```
+
+Appending an `L` will not convert a number which has a decimal into an integer:
+
+```{r l2_num_ex3}
+class(1.33L)
+```
+
+Finally, there are other functions that can convert from numeric to integer for you (and indeed convert between any of the types):
+
+```{r}
+x <- 4
+class(x)
+x <- as.integer(x)
+class(x)
+```
+
+##### **Character**
 
 The character data type holds strings. Strings contain a series of characters. Here are some examples of character data:
 
@@ -277,9 +303,20 @@ try("1" + "2")
 1 + 2
 ```
 
-The first line of code throws an error, telling us that "1" and "2" are not numeric and therefore cannot be added. The second line of code returns what you expect, 3.
+The first line of code throws an error, telling us that "1" and "2" are not numeric and therefore cannot be added. The second line of code returns what you expect, 3. Folks coming from other programming languages should note that string concatenation cannot be done with the `+` operator in R (although you could create an operator that does this yourself).
 
-##### **Mathematical operators**
+```{r l2_char_ex3}
+`%$$%` <- function(lhs, rhs) {
+  out <- paste0(lhs, rhs)
+  return(out)
+}
+
+"Hel" %$$% "lo"
+"How" %$$% " are" %$$% " you?"
+```
+
+
+#### **Mathematical operators**
 
 R is designed with statistical analysis in mind. Thus it is easy to do math in R. Most of the mathematical operators are intuitive, but there are some which you may not be familiar with.
 
@@ -314,9 +351,9 @@ Integer division returns the integer portion of the result when dividing two num
 ```
 
 
-##### **Logical operators**
+#### **Logical operators**
 
-You are also likely familiar with most of the logical operators. These are things in math which do not return a number, but rather return a value of true or false. Greater than (>), less than (<), greater than or equal to (>=), less than or equal to (<=), equal to (==), and not equal to (!=) are all available in R. Note that you must use 2 equal signs in R when you what to equate two things. One equal sign, as you discussed earlier, is for assigning values to variables.
+You are also likely familiar with most of the logical operators. These are things in math which do not return a number, but rather return a value of `TRUE` or `FALSE`. Greater than (`>`), less than (`<`), greater than or equal to (`>=`), less than or equal to (`<=`), equal to (`==`), and not equal to (`!=`) are all available in R. Note that you must use 2 equal signs in R when you want to equate two things. One equal sign, as we discussed earlier, is for assigning values to variables.
 
 ```{r l2_log_ex1}
 2 < 3
@@ -327,7 +364,7 @@ You are also likely familiar with most of the logical operators. These are thing
 3 >= 2
 ```
 
-There are also operators for *or* (|), *and* (&), and *not* (!).
+There are also operators for *or* (`|`), *and* (`&`), and *not* (`!`).
 
 ```{r l2_log_ex2}
 numlist <- c(1, 2, 3, 4, 5, 6, 7, 8, 9)
@@ -342,14 +379,15 @@ numlist[!(numlist >= 5)]
 ```
 
 
-#### Helpful Links
+### Helpful Links
 
-* [You can read more about the data types that you do not cover here.](https://www.programiz.com/r/data-types)
+* [You can read more about the data types that we do not cover here.](https://www.programiz.com/r/data-types)
 * [More information about operators](https://www.statmethods.net/management/operators.html)
+* [For a deeper dive into creating custom operators](https://adv-r.hadley.nz/functions.html#infix-functions)
 
-### Lesson 3 - Tidy data and dplyr {.tabset .tabset-fade .tabset-pills}
+## Lesson 3 - Tidy data and dplyr {.tabset .tabset-fade .tabset-pills}
 
-#### Topics Covered
+### Topics Covered
 
 1. The dplyr package
 2. Working in dplyr
@@ -359,9 +397,9 @@ numlist[!(numlist >= 5)]
     + What is tidy data?
     + Why is it useful?
     
-#### Lesson
+### Lesson
 
-##### **Why dplyr?**
+#### **Why dplyr?**
 
 One of R's strengths, that it is open source, is also what makes it difficult to learn. There are sometimes many ways to do the same thing with solutions coming from base R, as well as many different packages. For example, suppose you load the built-in R data set mtcars and want to view only cars with mpg > 20:
 
@@ -380,9 +418,9 @@ You can see these two solutions are equivalent. Industry standards emerge for pr
 
 dplyr provides a set of tools that make data cleaning and transformation more intuitive. You can read the package's vignette for more information. This lesson will explain the 8 functions outlined in the vignette, using the mtcars data set. I will also talk about the pipe and why it is a useful tool for data analysis and creating legible code.
 
-##### **%>% and dplyr functions**
+#### **%>% and dplyr functions**
 
-###### **%>%**
+##### **%>%**
 
 There are eight basic dplyr functions (and many more that are available for more specialized operations), but one of the most useful  things in the dplyr package comes from a different package called magrittr: the %>% (pipe) operator.
 
@@ -415,7 +453,7 @@ Again, the data sets are identical in the end, but in the dplyr case only one as
 
 Two additional notes: 1) For folks who are coming from other oriented programming languages it might be useful to think of the pipe as similar to method chaining. The two are not identical, but the comparison may be useful for understanding why the pipe is worthwhile. 2) More recent versions of R have a built-in pipe which does not have to be loaded from magrittr `|>`. You can turn that on by going to Tools > Global Options > Code and selecting "Use native pipe operator".
 
-###### **filter**
+##### **filter**
 
 dplyr's `filter()` function allows you to select rows meeting certain criteria. Suppose you are using the mtcars data set and only want to see cars with exactly 6 cylinders. Then with dplyr:
 
@@ -439,7 +477,7 @@ mtcars %>%
   filter(grepl("Mazda", make))
 ```
 
-###### **slice**
+##### **slice**
 
 `slice()` allows selecting rows by index. For example, to select rows 1, 3, and 5 of mtcars:
 
@@ -465,7 +503,7 @@ slice_head(mtcars, n = 5)
 slice_tail(mtcars, n = 5)
 ```
 
-###### **arrange**
+##### **arrange**
 
 `arrange()` sorts data. You provide a column and, by default, it sorts the rows by that column in ascending order. Compare the following:
 
@@ -502,7 +540,7 @@ mtcars %>%
   arrange(mpg, desc(disp))
 ```
 
-###### **select**
+##### **select**
 
 `select()` is among the most common dplyr verbs. It has a simple, but important function: selecting which variables should be kept in a data frame. For example, if you only want to keep the mpg variable from the mtcars data frame, you can do the following:
 
@@ -533,7 +571,7 @@ mtcars %>%
 
 Now the variables of interest have been removed.
 
-###### **rename**
+##### **rename**
 
 Sometimes column names are inconvenient to work with, not descriptive, or generally do not meet your needs. `rename()` can remedy this problem; use it when you want to rename a column in a data frame:
 
@@ -558,7 +596,7 @@ mtcars %>%
   rename(`Miles Per Gallon` = mpg)
 ```
 
-###### **mutate**
+##### **mutate**
 
 `mutate()` allows you to modify and create columns in a data frame. You use mutate by writing the column name you'd like to modify/create on the left-hand side and a value on the right-hand side of an expression. For example you can calculate the mpg to cyl ratio in mtcars:
 
@@ -586,7 +624,7 @@ mtcars %>%
 
 This example is not particularly useful, as you would probably never want to imply that all car makes have the same mpg, cyl, and carb, but it illustrates the power of across.
 
-###### **relocate**
+##### **relocate**
 
 `relocate()` allows you to move the location of columns in a data frame. You provide a series of columns that you would like to move and a column you would like to move them in front of (with `.before`) or behind (with `.after`). For example, to move the disp and hp columns before the mpg column you could do the following:
 
@@ -604,7 +642,7 @@ mtcars %>%
 
 `relocate()` is especially useful when outputting tables (where the order of variables is important).
 
-###### **summarize**
+##### **summarize**
 
 `summarize()` (or `summarise()`) collapses data given a set of grouping variables created by `group_by()` or other means. The most common use of `summarize()` is for calculating summary statistics:
 
@@ -633,7 +671,7 @@ text_data %>%
 
 This can come in handy in a variety of contexts such as working with survey data or parsing a pdf.
 
-##### **Tidy data**
+#### **Tidy data**
 
 In general, data sets that you come across while working or doing research will be messy. They will contain unexpected values, missingness, variables that are unclear, and other problems. To help make the irregularities of data more apparent and to shape data into a form that is easily analyzed, statisticians and programmers have created a set of rules for data collectively giving rise to the idea of tidy data. There are three important things to remember about tidy data (see `vignette("tidy-data")`, from which these rules are drawn):
 
@@ -643,9 +681,9 @@ In general, data sets that you come across while working or doing research will 
 
 As you begin to work with more sophisticated data sets, keep these rules in mind. Use the tools that you learn in this course and beyond to mold the data into a tidy data frame. Reshaping and massaging data may seem like time wasted working on something other than your analysis, but the time you spend organizing your data will be paid for by a more straightforward analytic process.
 
-### Lesson 4 - Vectors and lists {.tabset .tabset-fade .tabset-pills}
+## Lesson 4 - Vectors and lists {.tabset .tabset-fade .tabset-pills}
 
-#### Topics Covered
+### Topics Covered
 
 1. What is a vector, what is a list?
     + What is the difference? 
@@ -657,9 +695,9 @@ As you begin to work with more sophisticated data sets, keep these rules in mind
 
 ```
 
-### Lesson 5 - Conditionals and loops {.tabset .tabset-fade .tabset-pills}
+## Lesson 5 - Conditionals and loops {.tabset .tabset-fade .tabset-pills}
 
-#### Topics Covered
+### Topics Covered
 
 1. If/then conditionals and their use
     + When to use them
@@ -672,7 +710,7 @@ As you begin to work with more sophisticated data sets, keep these rules in mind
 
 ```
 
-### Lesson 6 - Functions {.tabset .tabset-fade .tabset-pills}
+## Lesson 6 - Functions {.tabset .tabset-fade .tabset-pills}
 
 1. What is a function?
 2. When to use functions.
