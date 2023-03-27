@@ -1,0 +1,76 @@
+- Class: meta
+  Course: Exercises
+  Lesson: Lesson 2
+  Author: your name goes here
+  Type: Standard
+  Organization: your organization's name goes here
+  Version: 2.4.5
+  
+- Class: text
+  Output: The following question is about printing output to the R console.
+
+- Class: text_question
+  Output: Print your first name to the R console.
+  CorrectAnswer: "YourNameHere"
+  AnswerTests: val_matches("\\w+")
+  Hint: Type your name in quotes.
+  
+- Class: text
+  Output: The following questions are about variable assignment.
+  
+- Class: mult_question
+  Output: Which of the following is not an assignment operator in R?
+  AnswerChoices: <-;=;==;->
+  CorrectAnswer: ==
+  AnswerTests: omnitest(correctVal= "==")
+  Hint: Think about how you test for equality in R.
+
+- Class: cmd_question
+  Output: Assign the value 3 to the variable z
+  CorrectAnswer: "z <- 3"
+  AnswerTests: expr_creates_var("z");omnitest(correctVal = 3)
+  Hint: Review the introduction to variables section.
+  
+- Class: text
+  Output: The following questions are about R's most common data types
+  
+- Class: cmd_question
+  Output: x <- TRUE, y <- FALSE, what is x + y?
+  CorrectAnswer: 1
+  AnswerTests: omnitest(correctVal = 1)
+  Hint: Remember that TRUE == 1 and FALSE == 0
+  
+- Class: mult_question
+  Output: Which of the following functions could you use to convert an object of class integer into an object of class numeric?
+  AnswerChoices: as.numeric;as.integer;as.character;as.logical
+  CorrectAnswer: as.numeric
+  AnswerTests: omnitest(correctVal = "as.numeric")
+  Hint: Try using ?functionname to see what some of these functions do.
+  
+- Class: mult_question
+  Output: x <- "Foo". What type does x have?
+  AnswerChoices: character;integer;raw;complex
+  CorrectAnswer: character
+  AnswerTests: omnitest(correctVal = "character")
+  Hint: Which type can contain non-alphanumeric characters?
+  
+- Class: text
+  Output: The following questions are about R's mathematical and logical operators.
+
+- Class: cmd_question
+  Output: What is the result of 5**3? 
+  CorrectAnswer: 125
+  AnswerTests: omnitest(correctVal=125)
+  Hint: The `**` operator is equivalent to exponentiation.
+
+- Class: cmd_question
+  Output: What does the following expression return 5 <= 20
+  CorrectAnswer: TRUE
+  AnswerTests: omnitest(correctVal=TRUE)
+  Hint: The expression returns a logical value, not a number.
+
+- Class: cmd_question
+  Output: What is 8 %% 3
+  CorrectAnswer: 2
+  AnswerTests: omnitest(correctVal=2)
+  Hint: The modulo operator returns the remainder when dividing the expression to its left-hand side by the expression to its right.

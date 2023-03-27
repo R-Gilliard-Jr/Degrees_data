@@ -1,0 +1,19 @@
+- Class: meta
+  Course: Exercises
+  Lesson: Lesson 1
+  Author: your name goes here
+  Type: Standard
+  Organization: your organization's name goes here
+  Version: 2.4.5
+
+- Class: cmd_question
+  Output: Try getting the help file for the function "cat"
+  CorrectAnswer: ?cat
+  AnswerTests: any_of_exprs("?cat", "help(cat)")
+  Hint: Try typing ? then the function you would like information about.
+  
+- Class: cmd_question
+  Output: Try getting the vignette for the package dplyr
+  CorrectAnswer: vignette("dplyr")
+  AnswerTests: omnitest(correctExpr = "vignette('dplyr')")
+  Hint: Try inserting the package name, in quotes, in the parentheses of the following expression - vignette()
