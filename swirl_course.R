@@ -9,4 +9,4 @@ lapply(pkgs, library, character.only = T)
 # Lesson 1
 new_lesson("Lesson 3", "Exercises")
 
-set_lesson()
+set_lesson(paste0(getwd(), "/Exercises/Lesson_3/lesson.yaml"))

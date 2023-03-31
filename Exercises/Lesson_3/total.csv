@@ -1,0 +1,101 @@
+DBN,School Name,Total Parent Response Rate,Total Student Response Rate,Total Teacher Response Rate,Collaborative Teachers Score,Effective School Leadership Score,Rigorous Instruction Score,Supportive Environment Score,Strong Family-Community Ties Score,Trust Score
+01M184,P.S. 184m Shuang Wen,0.69,0.982142857142857,0.93,N/A,N/A,N/A,N/A,N/A,N/A
+02M131,M.S. 131,0.31,0.748858447488584,0.72,N/A,N/A,N/A,N/A,N/A,N/A
+02M139,Stephen T. Mather Building Arts & Craftsmanship High School,0.16,0.652173913043478,0.97,N/A,N/A,N/A,N/A,N/A,N/A
+02M276,Battery Park City School,0.53,0.909433962264151,0.64,N/A,N/A,N/A,N/A,N/A,N/A
+02M296,High School of Hospitality Management,0.08,0.48936170212766,0.66,N/A,N/A,N/A,N/A,N/A,N/A
+02M316,"Urban Assembly School of Business for Young Women, the",0.51,0.407407407407407,1,N/A,N/A,N/A,N/A,N/A,N/A
+02M408,Professional Performing Arts High School,0.17,0.370786516853933,0.43,N/A,N/A,N/A,N/A,N/A,N/A
+02M411,Baruch College Campus High School,0.43,0.722916666666667,0.96,N/A,N/A,N/A,N/A,N/A,N/A
+02M427,Manhattan Academy For Arts & Language,0.42,0.61139896373057,1,N/A,N/A,N/A,N/A,N/A,N/A
+02M432,Murray Hill Academy,0.16,0.634854771784232,0.78,N/A,N/A,N/A,N/A,N/A,N/A
+02M438,International High School at Union Square,0.44,0.700964630225081,0.87,N/A,N/A,N/A,N/A,N/A,N/A
+02M449,Vanguard High School,0.1,0.514705882352941,0.75,N/A,N/A,N/A,N/A,N/A,N/A
+02M489,High School of Economics and Finance,0.14,0.687861271676301,0.64,N/A,N/A,N/A,N/A,N/A,N/A
+02M534,Harvest Collegiate High School,0.23,0.394736842105263,0.88,N/A,N/A,N/A,N/A,N/A,N/A
+02M544,Independence High School,0,0.00655737704918,0,N/A,N/A,N/A,N/A,N/A,N/A
+02M586,Harvey Milk High School,0.13,0.63265306122449,0.83,N/A,N/A,N/A,N/A,N/A,N/A
+02M600,The High School of Fashion Industries,0.2,0.860072376357057,0.69,N/A,N/A,N/A,N/A,N/A,N/A
+03M243,M.S. 243 Center School,1,0.903061224489796,1,N/A,N/A,N/A,N/A,N/A,N/A
+03M417,Frank McCourt High School,0.43,0.851758793969849,1,N/A,N/A,N/A,N/A,N/A,N/A
+03M479,Beacon High School,0.22,0.422222222222222,0.41,N/A,N/A,N/A,N/A,N/A,N/A
+03M859,Special Music School,0.38,0.761904761904762,0.76,N/A,N/A,N/A,N/A,N/A,N/A
+05M285,Harlem Renaissance High School,0.06,0.159722222222222,0.66,N/A,N/A,N/A,N/A,N/A,N/A
+05M670,Thurgood Marshall Academy for Learning and Social Change,0.12,0.591549295774648,0.4,N/A,N/A,N/A,N/A,N/A,N/A
+06M211,Inwood Early College for Health and Information Technologies,0.04,0.795454545454546,0.78,N/A,N/A,N/A,N/A,N/A,N/A
+06M223,The Mott Hall School,1,0.983739837398374,0.76,N/A,N/A,N/A,N/A,N/A,N/A
+06M462,The College Academy,0.71,0.848148148148148,0.73,N/A,N/A,N/A,N/A,N/A,N/A
+07X005,P.S. 5 Port Morris,0.55,0.908713692946058,0.96,N/A,N/A,N/A,N/A,N/A,N/A
+07X224,P.S./I.S. 224,0.56,0.470588235294118,0.76,N/A,N/A,N/A,N/A,N/A,N/A
+07X379,Jill Chaifetz Transfer High School,0.11,0.165354330708661,0.76,N/A,N/A,N/A,N/A,N/A,N/A
+07X527,Bronx Leadership Academy II High School,0.59,0.631818181818182,0.76,N/A,N/A,N/A,N/A,N/A,N/A
+07X600,Alfred E. Smith Career and Technical Education High School,0.12,0.322966507177034,0.39,N/A,N/A,N/A,N/A,N/A,N/A
+08X071,P.S. 071 Rose E. Scala,0.56,0.956140350877193,0.83,N/A,N/A,N/A,N/A,N/A,N/A
+08X269,Bronx Studio School for Writers and Artists,0.18,0.514237855946399,0.89,N/A,N/A,N/A,N/A,N/A,N/A
+08X348,Schuylerville Preparatory High School,0.05,0.676737160120846,1,N/A,N/A,N/A,N/A,N/A,N/A
+09X218,P.S./I.S. 218 Rafael Hernandez Dual Language Magnet School,0.05,0.996815286624204,0.97,N/A,N/A,N/A,N/A,N/A,N/A
+10X206,I.S. 206 Ann Mersereau,0.9,0.681818181818182,0.76,N/A,N/A,N/A,N/A,N/A,N/A
+10X254,I.S. 254,0.23,0.678733031674208,0.75,N/A,N/A,N/A,N/A,N/A,N/A
+10X268,Kingsbridge International High School,0.15,0.543165467625899,0.44,N/A,N/A,N/A,N/A,N/A,N/A
+10X280,P.S./M.S. 280 Mosholu Parkway,0.36,0.853383458646617,0.41,N/A,N/A,N/A,N/A,N/A,N/A
+10X353,World View High School,0.21,0.853195164075993,0.87,N/A,N/A,N/A,N/A,N/A,N/A
+11X532,Baychester Middle School,0.49,0.681978798586572,0.56,N/A,N/A,N/A,N/A,N/A,N/A
+13K351,The Urban Assembly Unison School,0.39,0.630208333333333,0.61,N/A,N/A,N/A,N/A,N/A,N/A
+13K419,"Science Skills Center High School for Science, Technology and the Creative Arts",0.25,0.799180327868853,0.88,N/A,N/A,N/A,N/A,N/A,N/A
+13K594,Gotham Professional Arts Academy,0.1,0.106060606060606,0.31,N/A,N/A,N/A,N/A,N/A,N/A
+14K126,John Ericsson Middle School 126,0.99,0.990825688073394,0.73,N/A,N/A,N/A,N/A,N/A,N/A
+15K462,John Jay School for Law,0.06,0.686936936936937,0.91,N/A,N/A,N/A,N/A,N/A,N/A
+16K669,Research and Service High School,0,0,0,N/A,N/A,N/A,N/A,N/A,N/A
+17K531,"School for Human Rights, The",0.13,0.645161290322581,0.47,N/A,N/A,N/A,N/A,N/A,N/A
+18K211,I.S. 211 John Wilson,0.08,0.730392156862745,0.55,N/A,N/A,N/A,N/A,N/A,N/A
+18K366,The Science And Medicine Middle School,0.31,0.935860058309038,0.61,N/A,N/A,N/A,N/A,N/A,N/A
+18K637,Academy for Conservation and the Environment,0.67,0.81524926686217,1,N/A,N/A,N/A,N/A,N/A,N/A
+19K502,FDNY - Captain Vernon A. Richard High School for Fire and Life Safety,0.22,0.5,0.69,N/A,N/A,N/A,N/A,N/A,N/A
+19K661,Vista Academy,0.27,0.698630136986301,0.63,N/A,N/A,N/A,N/A,N/A,N/A
+20K163,P.S. 163 Bath Beach,0.56,0.849557522123894,0.94,N/A,N/A,N/A,N/A,N/A,N/A
+20K201,J.H.S. 201 The Dyker Heights,0.76,0.962652929813265,0.96,N/A,N/A,N/A,N/A,N/A,N/A
+20K220,J.H.S. 220 John J. Pershing,0.58,0.990243902439024,0.79,N/A,N/A,N/A,N/A,N/A,N/A
+21K572,Leaders High School,0.22,0.707317073170732,1,N/A,N/A,N/A,N/A,N/A,N/A
+22K207,P.S. 207 Elizabeth G. Leary,0.46,0.914893617021277,0.68,N/A,N/A,N/A,N/A,N/A,N/A
+24Q061,I.S. 061 Leonardo Da Vinci,0.65,0.677372262773723,0.5,N/A,N/A,N/A,N/A,N/A,N/A
+24Q077,Joseph F. Quinn Intermediate School 77,0.51,0.718528995756719,0.84,N/A,N/A,N/A,N/A,N/A,N/A
+25Q263,Flushing International High School,0.71,0.840731070496084,0.81,N/A,N/A,N/A,N/A,N/A,N/A
+25Q540,Queens Academy High School,0,0.152416356877323,0.33,N/A,N/A,N/A,N/A,N/A,N/A
+25Q670,Robert F. Kennedy Community High School,0.22,0.85,0.87,N/A,N/A,N/A,N/A,N/A,N/A
+25Q792,North Queens Community High School,0.03,0.237113402061856,1,N/A,N/A,N/A,N/A,N/A,N/A
+26Q315,Business Technology Early College High School,0.16,0.709803921568627,0.85,N/A,N/A,N/A,N/A,N/A,N/A
+26Q495,Bayside High School,0.31,0.835847701149425,0.89,N/A,N/A,N/A,N/A,N/A,N/A
+27Q042,P.S./M.S 042 R. Vernam,0.39,0.810457516339869,0.92,N/A,N/A,N/A,N/A,N/A,N/A
+27Q309,Academy of Medical Technology: A College Board School,0.09,0.598473282442748,1,N/A,N/A,N/A,N/A,N/A,N/A
+28Q167,Metropolitan Expeditionary Learning School,0.22,0.664206642066421,0.5,N/A,N/A,N/A,N/A,N/A,N/A
+28Q680,Queens Gateway to Health Sciences Secondary School,0.15,0.192700729927007,0.29,N/A,N/A,N/A,N/A,N/A,N/A
+29Q192,I.S. 192 The Linden,0.22,0.976,0.66,N/A,N/A,N/A,N/A,N/A,N/A
+30Q126,Albert Shanker School for Visual and Performing Arts,0.31,0.938730853391685,0.71,N/A,N/A,N/A,N/A,N/A,N/A
+30Q300,The 30th Avenue School (G&T Citywide),0.66,0.934131736526946,0.65,N/A,N/A,N/A,N/A,N/A,N/A
+31R047,CSI High School for International Studies,0.72,0.955339805825243,0.76,N/A,N/A,N/A,N/A,N/A,N/A
+32K291,J.H.S. 291 Roland Hayes,0.19,0.032490974729242,0.65,N/A,N/A,N/A,N/A,N/A,N/A
+32K349,"I.S. 349 Math, Science & Tech.",0.75,0.939024390243903,0.65,N/A,N/A,N/A,N/A,N/A,N/A
+75K077,P.S. K077,0.32,0.94488188976378,0.55,N/A,N/A,N/A,N/A,N/A,N/A
+75M079,P.S. M079 - Horan School,0.47,0.25,0.39,N/A,N/A,N/A,N/A,N/A,N/A
+84K355,Williamsburg Collegiate Charter School,0.59,0.435,0.22,N/A,N/A,N/A,N/A,N/A,N/A
+84K704,Explore Charter School,0.49,0.710526315789474,0.7,N/A,N/A,N/A,N/A,N/A,N/A
+84K733,"Math, Engineering, and Science Academy Charter High School",0.21,0.024096385542169,0.29,N/A,N/A,N/A,N/A,N/A,N/A
+84K741,Success Academy Charter School - Crown Heights,0,0,0,N/A,N/A,N/A,N/A,N/A,N/A
+84K742,Explore Empower Charter School,0.75,0.764044943820225,0.5,N/A,N/A,N/A,N/A,N/A,N/A
+84K769,Hyde Leadership Charter School- Brooklyn,0.86,0.87037037037037,0.9,N/A,N/A,N/A,N/A,N/A,N/A
+84M065,Democracy Prep Endurance Charter School,0.29,0.056313993174061,0.33,N/A,N/A,N/A,N/A,N/A,N/A
+84M202,Great Oaks Charter School,0.02,0.208053691275168,0.96,N/A,N/A,N/A,N/A,N/A,N/A
+84M204,Capital Preparatory (CP) Harlem Charter School,0.13,0.381067961165048,0.76,N/A,N/A,N/A,N/A,N/A,N/A
+84M335,Harlem Village Academy East Charter School,0.49,0.704,0.65,N/A,N/A,N/A,N/A,N/A,N/A
+84M336,KIPP Infinity Charter School,0.29,0,0,N/A,N/A,N/A,N/A,N/A,N/A
+84M385,Success Academy Charter School - Harlem 3,0,0.021001615508885,0,N/A,N/A,N/A,N/A,N/A,N/A
+84M389,KIPP Beyond Charter School,0.3,0.888888888888889,0.43,N/A,N/A,N/A,N/A,N/A,N/A
+84Q321,Growing Up Green Charter School,0.69,0.941176470588235,0.83,N/A,N/A,N/A,N/A,N/A,N/A
+84Q342,Rochdale Early Advantage Charter School,0.28,0,0,N/A,N/A,N/A,N/A,N/A,N/A
+84Q359,Academy of the City Charter School,0.76,0.864035087719298,0.6,N/A,N/A,N/A,N/A,N/A,N/A
+84Q372,Growing Up Green Charter School II,0.56,0.980132450331126,0.81,N/A,N/A,N/A,N/A,N/A,N/A
+84R067,John W. Lavelle Preparatory Charter School,0.69,0.891025641025641,1,N/A,N/A,N/A,N/A,N/A,N/A
+84X255,Bronx Charter School for Excellence,1,0.922222222222223,0.98,N/A,N/A,N/A,N/A,N/A,N/A
+84X395,"NYC Charter High School for Architecture, Engineering and Construction Industries (AECI)",0.93,0.958424507658643,0.74,N/A,N/A,N/A,N/A,N/A,N/A
+84X419,Bronx Academy of Promise Charter School,0.28,0.974489795918367,0.87,N/A,N/A,N/A,N/A,N/A,N/A
+84X538,Icahn Charter School 5,0.57,0.032258064516129,0,N/A,N/A,N/A,N/A,N/A,N/A

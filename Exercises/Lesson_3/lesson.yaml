@@ -1,0 +1,89 @@
+- Class: meta
+  Course: Exercises
+  Lesson: Lesson 3
+  Author: your name goes here
+  Type: Standard
+  Organization: your organization's name goes here
+  Version: 2.4.5
+  
+- Class: text
+  Output: 
+    The following question is about using the pipe.
+
+- Class: script
+  Output: Use the pipe to sum x and y and assign the value to z
+  AnswerTests: test_sum_x_y()
+  Script: sum_x_y.R
+  Hint: 
+    Remember that assignment can be written `<-` and the pipe `%>%`.
+    You will need one of each to answer this question.
+
+- Class: text
+  Output: 
+    You should continue to use the pipe throughout these exercises.
+    Notice that the there is a data frame, nyc_survey_total, that has been
+    loaded into the global environment for you. This data is drawn from the
+    NYC School Survey for students. You can find the full data set here
+    https://infohub.nyced.org/reports/school-quality/nyc-school-survey/survey-archives.
+    You'll use this data set throughout the rest of the lesson.
+    
+- Class: script
+  Output: 
+    Filter the nyc_survey_total data frame, keeping only observations
+    where more at least 95% of students responded using dplyr's filter() 
+    function.
+  AnswerTests: test_filter_total()
+  Script: filter_total.R
+  Hint: Try ?filter for help with filter's syntax
+  
+- Class: mult_question
+  Output: 
+    Which of the following methods would allow you to see the first 5 rows
+    in the nyc_survey_total data frame?
+  AnswerChoices: 
+    slice_head(nyc_survey_total, n = 5);slice(nyc_survey_total, c(1, 2, 3, 4, 5));
+    slice(nyc_survey_total, 1:5);All of these work
+  CorrectAnswer: All of these work
+  AnswerTests: omnitest(correctVal= "All of these work")
+  Hint: Review the slice section in Lesson 3.
+  
+- Class: script
+  Output:
+    Sort the first 5 rows of the nyc_survey_total data frame on total 
+    parent response rate.
+  AnswerTests: test_slice_arrange()
+  Script: slice_arrange.R
+  Hint: 
+    Remember that the function for sorting rows is called arrange(). 
+    Review the section on arrange in Lesson 3 if you need further help.
+    
+- Class: mult_question
+  Output: What function allows sorting on descending order?
+  AnswerChoices: desc;rev;asce
+  CorrectAnswer: desc
+  AnswerTests: omnitest(correctVal= "desc")
+  Hint: Review teh arrange section of lesson 3.
+    
+- Class: script
+  Output:
+    Several columns in the nyc_survey_total data frame contain only NA values.
+    Remove them using the select() function.
+  AnswerTests: test_select()
+  Script: select.R
+  Hint: Remember to use the "-" sign to remove columns in select.
+  
+- Class: script
+  Output:
+    We're more interested in the student response rate than the parent response rate. 
+    Let's rename this column and place it before the Total.Parent.Response.Rate column.
+  AnswerTests: test_rename_relocate()
+  Script: rename_relocate.R
+  Hint: Revisit the relocate and rename sections of lesson 3.
+  
+- Class: script
+  Output:
+    Finally, let's use both mutate and summarize to find the mean of the student response
+    rate divided by the parent response rate.
+  AnswerTests: test_mutate_summarize()
+  Script: mutate_summarize.R
+  Hint: Revisit the mutate and summarize sections of lesson 3.
