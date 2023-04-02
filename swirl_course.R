@@ -1,6 +1,6 @@
 # Set path
 # setwd("D:/Documents/Work/DegreesNYC/Degrees_data")
-setwd("D:/Documents/DegreesNYC/Degrees_data")
+setwd("D:/Documents/DegreesNYC")
 
 # Load packages
 pkgs <- c("swirlify")
