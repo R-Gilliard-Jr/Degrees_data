@@ -24,7 +24,11 @@ During the course you are going to work primarily in R and much of the work done
 
 ## About the instructor
 
-I am a Data Analytics Developer at [Mathematica](https://www.mathematica.org/). Before going to Mathematica, I was a PhD student at Teachers College, Columbia University in the Economics and Education Program. Before that, I worked for the Research Alliance for New York City Schools. This is where my relationship with #DegreesNYC began. I have experience using SAS, SQL, Stata, R, and Python (as well as tools like Excel), but I am most well versed in R and Stata.
+I came to data analytics and R through an unusual path. I started my career as a teacher in private schools, first at San Francisco Day school and then at Collegiate. Education is now and has always been important to me, but I didn't feel that the place that I could deliver the biggest impact was in the classroom. After two years teaching, then, I set off to pursue a master's degree in education policy.
+
+That degree led me to the Research Alliacnce for New York City Schools, where my relationship with #DegreesNYC began, and that position led me to a PhD at Teachers College, Columbia University in the Economics and Education program. Currently, I am a Data Analytics Developer at [Mathematica](https://www.mathematica.org/). I have experience using SAS, SQL, Stata, R, and Python (as well as tools like Excel), but I am most well versed in R and Stata.
+
+Outside of the work I do I enjoy reading; playing sports, video games, and board games; trying new restaurants, and generally spending time with my friends and family.
 
 ## Plan for the course
 
@@ -34,7 +38,7 @@ Unit 2 will be dedicated to a project...
 
 ## Syllabus
 
-This syllabus will be the repository for everything course-related. Information about lessons, the project, and enrichment is all contained here. The table of contents in the top left has links to the content for units 1 and 2, the introduction, and enrichment activities. Within the Unit 1 header there are tabs for each of the XXXX lessons that you will work through during our time together. These lessons each also have tabs for the topics you will cover, the lesson itself, and any helpful links that you might want to explore. This document will be hosted publicly on GitHub, but it is a living document. If anything changes or if there are problems with the URL leading to the syllabus, I will let you know as soon as possible.
+This syllabus will be the repository for everything course-related. Information about lessons, the project, and enrichment is all contained here. The table of contents in the top left has links to the content for Units 1 and 2, the introduction, and enrichment activities. Within the Unit 1 header there are tabs for each of the 6 lessons that you will work through during our time together. These lessons each also have tabs for the topics you will cover, the lesson itself, and any helpful links that you might want to explore. This document will be hosted publicly on GitHub, but it is a living document. If anything changes or if there are problems with the URL leading to the syllabus, I will let you know as soon as possible.
 
 
 ```{r intro_welcome}
