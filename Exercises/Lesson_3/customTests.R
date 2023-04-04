@@ -21,11 +21,12 @@ test_sum_x_y <- function() {
 }
 
 test_filter_total <- function() {
-   try({
-      func <- get("filter_total", globalenv())
-      totest <- func(nyc_survey_total)
-      correct <- filter(nyc_survey_total, Total.Student.Response.Rate >= .95)
-   })
+   correct <- nyc_survey_total %>%
+      # Keep response rates above .95
+      filter(Total.Student.Response.Rate >= .95)
+   
+   try(totest <- get("survey_filtered", envire = .GlobalEnv))
+   
    identical(correct, totest)
 }
 

@@ -40,11 +40,6 @@ Unit 2 will be dedicated to a project...
 
 This syllabus will be the repository for everything course-related. Information about lessons, the project, and enrichment is all contained here. The table of contents in the top left has links to the content for Units 1 and 2, the introduction, and enrichment activities. Within the Unit 1 header there are tabs for each of the 6 lessons that you will work through during our time together. These lessons each also have tabs for the topics you will cover, the lesson itself, and any helpful links that you might want to explore. This document will be hosted publicly on GitHub, but it is a living document. If anything changes or if there are problems with the URL leading to the syllabus, I will let you know as soon as possible.
 
-
-```{r intro_welcome}
-
-```
-
 # Unit 1 - Learn R {.tabset .tabset-fade .tabset-dropdown}
 
 ## Lesson 1 - An introduction to R (what, why, how) {.tabset .tabset-fade .tabset-pills}
@@ -134,8 +129,9 @@ vignette("dplyr")
 
 ### Helpful Links
 
+* [Codecademy](https://www.codecademy.com/login)
 * [Why use R](https://www.youtube.com/watch?v=9kYUGMg_14s)
-* [Exercises](https://www.w3schools.com/r/exercise.asp?filename=exercise_syntax1)
+* [Familiarize yourself with R](https://www.w3schools.com/r/default.asp)
 
 ## Lesson 2 - Variables, data types, and operators {.tabset .tabset-fade .tabset-pills}
 
@@ -385,6 +381,7 @@ numlist[!(numlist >= 5)]
 
 ### Helpful Links
 
+* [Codecademy Lesson](https://www.codecademy.com/courses/learn-r/lessons/introduction-to-r/exercises/why-r)
 * [You can read more about the data types that we do not cover here.](https://www.programiz.com/r/data-types)
 * [More information about operators](https://www.statmethods.net/management/operators.html)
 * [For a deeper dive into creating custom operators](https://adv-r.hadley.nz/functions.html#infix-functions)
@@ -684,6 +681,12 @@ In general, data sets that you come across while working or doing research will 
 3. Every cell is a single value.
 
 As you begin to work with more sophisticated data sets, keep these rules in mind. Use the tools that you learn in this course and beyond to mold the data into a tidy data frame. Reshaping and massaging data may seem like time wasted working on something other than your analysis, but the time you spend organizing your data will be paid for by a more straightforward analytic process.
+
+### Helpful Links
+
+* [Codecademy Lesson Pt. 1](https://www.codecademy.com/courses/learn-r/lessons/r-data-frames-intro/exercises/introduction)
+* [Codecademy Lesson Pt. 2](https://www.codecademy.com/courses/learn-r/lessons/r-data-frames-modifying/exercises/introduction)
+* [More about dplyr](https://dplyr.tidyverse.org/)
 
 ## Lesson 4 - Vectors and lists {.tabset .tabset-fade .tabset-pills}
 
