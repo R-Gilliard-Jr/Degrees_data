@@ -11,7 +11,7 @@ output:
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
-pkgs <- c("tidyverse", "ggplot2", "haven", "kableExtra", "assertr", "pdftools")
+pkgs <- c("tidyverse")
 invisible(lapply(pkgs, library, character.only = T))
 ```
 
@@ -30,11 +30,54 @@ That degree led me to the Research Alliacnce for New York City Schools, where my
 
 Outside of the work I do I enjoy reading; playing sports, video games, and board games; trying new restaurants, and generally spending time with my friends and family.
 
-## Plan for the course
+## Plan for the course  {.tabset .tabset-fade .tabset-pills}
 
-The course will be split into two units. Unit 1 is Learning. During the Learning Unit you will be focused on working through lessons. Each session will be split into two parts: 1) a fifteen minute mini-lesson delivered by me or another member of the #DegreesNYC team, 2) a Codecademy lesson. The mini-lessons are designed to align as closely as possible with the Codecademy lesson for the week to provide as much reinforcement and clarification on the topics that you will cover as possible.
+The course will be split into two units. Unit 1 - Learning and Unit 2 - Project. 
 
-Unit 2 will be dedicated to a project...
+### Learning
+
+During the Learning Unit you will be focused on working through lessons. Each session will be split into two parts: 1) a fifteen minute mini-lesson delivered by me or another member of the #DegreesNYC team, 2) a Codecademy lesson. The mini-lessons are designed to align as closely as possible with the Codecademy lesson for the week to provide as much reinforcement and clarification on the topics that you will cover as possible.
+
+### Project
+
+Unit 2 will be dedicated to a project that encourages you to complete analysis of a data set of your choice from start to finish. You will take the data set through the following stages:
+
+* Research Question Creation
+
+  + Brainstorm some questions that you are curious about and want to spend some time exploring. Many of you are students or are already working in the research field; you're encouraged to bring questions that are relevant for your work or your classes.
+
+* Data Identification
+
+  + Identify a data set that can be used to address the question that you are interested in. If you have access to a data set that you want to examine, you are encouraged to do that (**Note: think carefully about privacy concerns. If you are the only one who should be seeing the data, you may want to create a mock data set that your classmates and I can view so that we can support your project work**). If you don't have access to a data set there are many places that you can go to find a data set to use:
+  
+  + [NYC Open Data](https://opendata.cityofnewyork.us/) - New York City focused data sets.
+  + [Data.gov](https://data.gov/) - U.S. data sets.
+  + [IPEDS](https://nces.ed.gov/ipeds/use-the-data) - Postsecondary education data sets.
+  + [NCES](https://nces.ed.gov/ccd/schoolsearch/) - National (or state specific) school data sets.
+  + [Kaggle](https://www.kaggle.com/datasets) - Public data sets on a wide variety of topics (account needed).
+  
+  + If you begin your search early enough, it's possible to find public data on just about anything. If the sources listed here don't meet your needs, reach out and we can search for something that interests you.
+
+* Data cleaning
+  
+  + Use the tools you have learned in the class to clean the data that you've downloaded. Some considerations:
+  
+    - Are the variable names easy to work with?
+    - Is the data tidy (i.e. is every column one variable, every row one observation, and every cell a single value?)
+    - Are the variables that you need available in the data set? If not, can you create them?
+    - Are the variables the correct type?
+
+* Data Analysis
+
+  + Provide some basic descriptive statistics on the data set. Use the mean, median, min, max, to describe variables of interest in your data set.
+  + Use kableExtra for tables as an extension
+  + Run regressions/anovas as an extension
+
+* Data Visualization
+
+  + Visualize with ggplot
+  + Visualize with kable/kableExtra
+  + For an extension, create a shiny dashboard.
 
 ## Syllabus
 
