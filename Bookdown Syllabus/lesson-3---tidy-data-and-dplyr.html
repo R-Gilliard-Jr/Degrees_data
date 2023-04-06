@@ -1,0 +1,1464 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>2.3 Lesson 3 - Tidy data and dplyr | Degrees Draft Syllabus</title>
+  <meta name="description" content="2.3 Lesson 3 - Tidy data and dplyr | Degrees Draft Syllabus" />
+  <meta name="generator" content="bookdown 0.33 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="2.3 Lesson 3 - Tidy data and dplyr | Degrees Draft Syllabus" />
+  <meta property="og:type" content="book" />
+  
+  
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="2.3 Lesson 3 - Tidy data and dplyr | Degrees Draft Syllabus" />
+  
+  
+  
+
+<meta name="author" content="Reggie Gilliard" />
+
+
+<meta name="date" content="2022-11-29" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="lesson-2---variables-data-types-and-operators.html"/>
+<link rel="next" href="lesson-4---vectors-and-lists.html"/>
+<script src="assets/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="assets/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="assets/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="assets/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="assets/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="assets/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="assets/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="assets/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<link href="assets/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="assets/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="assets/anchor-sections-1.1.0/anchor-sections.js"></script>
+
+
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li class="chapter" data-level="1" data-path="introduction.html"><a href="introduction.html"><i class="fa fa-check"></i><b>1</b> Introduction</a>
+<ul>
+<li class="chapter" data-level="1.1" data-path="about-the-instructor.html"><a href="about-the-instructor.html"><i class="fa fa-check"></i><b>1.1</b> About the instructor</a></li>
+<li class="chapter" data-level="1.2" data-path="plan-for-the-course.html"><a href="plan-for-the-course.html"><i class="fa fa-check"></i><b>1.2</b> Plan for the course</a>
+<ul>
+<li class="chapter" data-level="1.2.1" data-path="plan-for-the-course.html"><a href="plan-for-the-course.html#learning"><i class="fa fa-check"></i><b>1.2.1</b> Learning</a></li>
+<li class="chapter" data-level="1.2.2" data-path="plan-for-the-course.html"><a href="plan-for-the-course.html#project"><i class="fa fa-check"></i><b>1.2.2</b> Project</a></li>
+</ul></li>
+<li class="chapter" data-level="1.3" data-path="syllabus.html"><a href="syllabus.html"><i class="fa fa-check"></i><b>1.3</b> Syllabus</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="unit-1---learn-r.html"><a href="unit-1---learn-r.html"><i class="fa fa-check"></i><b>2</b> Unit 1 - Learn R</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="lesson-1---an-introduction-to-r-what-why-how.html"><a href="lesson-1---an-introduction-to-r-what-why-how.html"><i class="fa fa-check"></i><b>2.1</b> Lesson 1 - An introduction to R (what, why, how)</a>
+<ul>
+<li class="chapter" data-level="2.1.1" data-path="lesson-1---an-introduction-to-r-what-why-how.html"><a href="lesson-1---an-introduction-to-r-what-why-how.html#topics-covered"><i class="fa fa-check"></i><b>2.1.1</b> Topics Covered</a></li>
+<li class="chapter" data-level="2.1.2" data-path="lesson-1---an-introduction-to-r-what-why-how.html"><a href="lesson-1---an-introduction-to-r-what-why-how.html#lesson"><i class="fa fa-check"></i><b>2.1.2</b> Lesson</a></li>
+<li class="chapter" data-level="2.1.3" data-path="lesson-1---an-introduction-to-r-what-why-how.html"><a href="lesson-1---an-introduction-to-r-what-why-how.html#helpful-links"><i class="fa fa-check"></i><b>2.1.3</b> Helpful Links</a></li>
+</ul></li>
+<li class="chapter" data-level="2.2" data-path="lesson-2---variables-data-types-and-operators.html"><a href="lesson-2---variables-data-types-and-operators.html"><i class="fa fa-check"></i><b>2.2</b> Lesson 2 - Variables, data types, and operators</a>
+<ul>
+<li class="chapter" data-level="2.2.1" data-path="lesson-2---variables-data-types-and-operators.html"><a href="lesson-2---variables-data-types-and-operators.html#topics-covered-1"><i class="fa fa-check"></i><b>2.2.1</b> Topics Covered</a></li>
+<li class="chapter" data-level="2.2.2" data-path="lesson-2---variables-data-types-and-operators.html"><a href="lesson-2---variables-data-types-and-operators.html#lesson-1"><i class="fa fa-check"></i><b>2.2.2</b> Lesson</a></li>
+<li class="chapter" data-level="2.2.3" data-path="lesson-2---variables-data-types-and-operators.html"><a href="lesson-2---variables-data-types-and-operators.html#helpful-links-1"><i class="fa fa-check"></i><b>2.2.3</b> Helpful Links</a></li>
+</ul></li>
+<li class="chapter" data-level="2.3" data-path="lesson-3---tidy-data-and-dplyr.html"><a href="lesson-3---tidy-data-and-dplyr.html"><i class="fa fa-check"></i><b>2.3</b> Lesson 3 - Tidy data and dplyr</a>
+<ul>
+<li class="chapter" data-level="2.3.1" data-path="lesson-3---tidy-data-and-dplyr.html"><a href="lesson-3---tidy-data-and-dplyr.html#topics-covered-2"><i class="fa fa-check"></i><b>2.3.1</b> Topics Covered</a></li>
+<li class="chapter" data-level="2.3.2" data-path="lesson-3---tidy-data-and-dplyr.html"><a href="lesson-3---tidy-data-and-dplyr.html#lesson-2"><i class="fa fa-check"></i><b>2.3.2</b> Lesson</a></li>
+<li class="chapter" data-level="2.3.3" data-path="lesson-3---tidy-data-and-dplyr.html"><a href="lesson-3---tidy-data-and-dplyr.html#helpful-links-2"><i class="fa fa-check"></i><b>2.3.3</b> Helpful Links</a></li>
+</ul></li>
+<li class="chapter" data-level="2.4" data-path="lesson-4---vectors-and-lists.html"><a href="lesson-4---vectors-and-lists.html"><i class="fa fa-check"></i><b>2.4</b> Lesson 4 - Vectors and lists</a>
+<ul>
+<li class="chapter" data-level="2.4.1" data-path="lesson-4---vectors-and-lists.html"><a href="lesson-4---vectors-and-lists.html#topics-covered-3"><i class="fa fa-check"></i><b>2.4.1</b> Topics Covered</a></li>
+</ul></li>
+<li class="chapter" data-level="2.5" data-path="lesson-5---conditionals-and-loops.html"><a href="lesson-5---conditionals-and-loops.html"><i class="fa fa-check"></i><b>2.5</b> Lesson 5 - Conditionals and loops</a>
+<ul>
+<li class="chapter" data-level="2.5.1" data-path="lesson-5---conditionals-and-loops.html"><a href="lesson-5---conditionals-and-loops.html#topics-covered-4"><i class="fa fa-check"></i><b>2.5.1</b> Topics Covered</a></li>
+</ul></li>
+<li class="chapter" data-level="2.6" data-path="lesson-6---functions.html"><a href="lesson-6---functions.html"><i class="fa fa-check"></i><b>2.6</b> Lesson 6 - Functions</a></li>
+</ul></li>
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Degrees Draft Syllabus</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="lesson-3---tidy-data-and-dplyr" class="section level2 tabset tabset-fade tabset-pills hasAnchor" number="2.3">
+<h2><span class="header-section-number">2.3</span> Lesson 3 - Tidy data and dplyr<a href="lesson-3---tidy-data-and-dplyr.html#lesson-3---tidy-data-and-dplyr" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="topics-covered-2" class="section level3 hasAnchor" number="2.3.1">
+<h3><span class="header-section-number">2.3.1</span> Topics Covered<a href="lesson-3---tidy-data-and-dplyr.html#topics-covered-2" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<ol style="list-style-type: decimal">
+<li>The dplyr package</li>
+<li>Working in dplyr
+<ul>
+<li>The pipe (%&gt;%)</li>
+<li>Other useful dplyr functions</li>
+</ul></li>
+<li>Tidy data
+<ul>
+<li>What is tidy data?</li>
+<li>Why is it useful?</li>
+</ul></li>
+</ol>
+</div>
+<div id="lesson-2" class="section level3 hasAnchor" number="2.3.2">
+<h3><span class="header-section-number">2.3.2</span> Lesson<a href="lesson-3---tidy-data-and-dplyr.html#lesson-2" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="why-dplyr" class="section level4 hasAnchor" number="2.3.2.1">
+<h4><span class="header-section-number">2.3.2.1</span> <strong>Why dplyr?</strong><a href="lesson-3---tidy-data-and-dplyr.html#why-dplyr" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>One of R’s strengths, that it is open source, is also what makes it difficult to learn. There are sometimes many ways to do the same thing with solutions coming from base R, as well as many different packages. For example, suppose you load the built-in R data set mtcars and want to view only cars with mpg &gt; 20:</p>
+<div class="sourceCode" id="cb95"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb95-1"><a href="lesson-3---tidy-data-and-dplyr.html#cb95-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Print data set</span></span>
+<span id="cb95-2"><a href="lesson-3---tidy-data-and-dplyr.html#cb95-2" aria-hidden="true" tabindex="-1"></a>mtcars</span></code></pre></div>
+<pre><code>##                      mpg cyl  disp  hp drat    wt  qsec vs am gear carb
+## Mazda RX4           21.0   6 160.0 110 3.90 2.620 16.46  0  1    4    4
+## Mazda RX4 Wag       21.0   6 160.0 110 3.90 2.875 17.02  0  1    4    4
+## Datsun 710          22.8   4 108.0  93 3.85 2.320 18.61  1  1    4    1
+## Hornet 4 Drive      21.4   6 258.0 110 3.08 3.215 19.44  1  0    3    1
+## Hornet Sportabout   18.7   8 360.0 175 3.15 3.440 17.02  0  0    3    2
+## Valiant             18.1   6 225.0 105 2.76 3.460 20.22  1  0    3    1
+## Duster 360          14.3   8 360.0 245 3.21 3.570 15.84  0  0    3    4
+## Merc 240D           24.4   4 146.7  62 3.69 3.190 20.00  1  0    4    2
+## Merc 230            22.8   4 140.8  95 3.92 3.150 22.90  1  0    4    2
+## Merc 280            19.2   6 167.6 123 3.92 3.440 18.30  1  0    4    4
+## Merc 280C           17.8   6 167.6 123 3.92 3.440 18.90  1  0    4    4
+## Merc 450SE          16.4   8 275.8 180 3.07 4.070 17.40  0  0    3    3
+## Merc 450SL          17.3   8 275.8 180 3.07 3.730 17.60  0  0    3    3
+## Merc 450SLC         15.2   8 275.8 180 3.07 3.780 18.00  0  0    3    3
+## Cadillac Fleetwood  10.4   8 472.0 205 2.93 5.250 17.98  0  0    3    4
+## Lincoln Continental 10.4   8 460.0 215 3.00 5.424 17.82  0  0    3    4
+## Chrysler Imperial   14.7   8 440.0 230 3.23 5.345 17.42  0  0    3    4
+## Fiat 128            32.4   4  78.7  66 4.08 2.200 19.47  1  1    4    1
+## Honda Civic         30.4   4  75.7  52 4.93 1.615 18.52  1  1    4    2
+## Toyota Corolla      33.9   4  71.1  65 4.22 1.835 19.90  1  1    4    1
+## Toyota Corona       21.5   4 120.1  97 3.70 2.465 20.01  1  0    3    1
+## Dodge Challenger    15.5   8 318.0 150 2.76 3.520 16.87  0  0    3    2
+## AMC Javelin         15.2   8 304.0 150 3.15 3.435 17.30  0  0    3    2
+## Camaro Z28          13.3   8 350.0 245 3.73 3.840 15.41  0  0    3    4
+## Pontiac Firebird    19.2   8 400.0 175 3.08 3.845 17.05  0  0    3    2
+## Fiat X1-9           27.3   4  79.0  66 4.08 1.935 18.90  1  1    4    1
+## Porsche 914-2       26.0   4 120.3  91 4.43 2.140 16.70  0  1    5    2
+## Lotus Europa        30.4   4  95.1 113 3.77 1.513 16.90  1  1    5    2
+## Ford Pantera L      15.8   8 351.0 264 4.22 3.170 14.50  0  1    5    4
+## Ferrari Dino        19.7   6 145.0 175 3.62 2.770 15.50  0  1    5    6
+## Maserati Bora       15.0   8 301.0 335 3.54 3.570 14.60  0  1    5    8
+## Volvo 142E          21.4   4 121.0 109 4.11 2.780 18.60  1  1    4    2</code></pre>
+<div class="sourceCode" id="cb97"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb97-1"><a href="lesson-3---tidy-data-and-dplyr.html#cb97-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Select cars with greater than 20 mpg using base R</span></span>
+<span id="cb97-2"><a href="lesson-3---tidy-data-and-dplyr.html#cb97-2" aria-hidden="true" tabindex="-1"></a>mtcars[mtcars<span class="sc">$</span>mpg <span class="sc">&gt;</span> <span class="dv">20</span>, ]</span></code></pre></div>
+<pre><code>##                 mpg cyl  disp  hp drat    wt  qsec vs am gear carb
+## Mazda RX4      21.0   6 160.0 110 3.90 2.620 16.46  0  1    4    4
+## Mazda RX4 Wag  21.0   6 160.0 110 3.90 2.875 17.02  0  1    4    4
+## Datsun 710     22.8   4 108.0  93 3.85 2.320 18.61  1  1    4    1
+## Hornet 4 Drive 21.4   6 258.0 110 3.08 3.215 19.44  1  0    3    1
+## Merc 240D      24.4   4 146.7  62 3.69 3.190 20.00  1  0    4    2
+## Merc 230       22.8   4 140.8  95 3.92 3.150 22.90  1  0    4    2
+## Fiat 128       32.4   4  78.7  66 4.08 2.200 19.47  1  1    4    1
+## Honda Civic    30.4   4  75.7  52 4.93 1.615 18.52  1  1    4    2
+## Toyota Corolla 33.9   4  71.1  65 4.22 1.835 19.90  1  1    4    1
+## Toyota Corona  21.5   4 120.1  97 3.70 2.465 20.01  1  0    3    1
+## Fiat X1-9      27.3   4  79.0  66 4.08 1.935 18.90  1  1    4    1
+## Porsche 914-2  26.0   4 120.3  91 4.43 2.140 16.70  0  1    5    2
+## Lotus Europa   30.4   4  95.1 113 3.77 1.513 16.90  1  1    5    2
+## Volvo 142E     21.4   4 121.0 109 4.11 2.780 18.60  1  1    4    2</code></pre>
+<div class="sourceCode" id="cb99"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb99-1"><a href="lesson-3---tidy-data-and-dplyr.html#cb99-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Select cars with greater than 20 mpg using dplyr</span></span>
+<span id="cb99-2"><a href="lesson-3---tidy-data-and-dplyr.html#cb99-2" aria-hidden="true" tabindex="-1"></a><span class="fu">filter</span>(mtcars, mpg <span class="sc">&gt;</span> <span class="dv">20</span>)</span></code></pre></div>
+<pre><code>##                 mpg cyl  disp  hp drat    wt  qsec vs am gear carb
+## Mazda RX4      21.0   6 160.0 110 3.90 2.620 16.46  0  1    4    4
+## Mazda RX4 Wag  21.0   6 160.0 110 3.90 2.875 17.02  0  1    4    4
+## Datsun 710     22.8   4 108.0  93 3.85 2.320 18.61  1  1    4    1
+## Hornet 4 Drive 21.4   6 258.0 110 3.08 3.215 19.44  1  0    3    1
+## Merc 240D      24.4   4 146.7  62 3.69 3.190 20.00  1  0    4    2
+## Merc 230       22.8   4 140.8  95 3.92 3.150 22.90  1  0    4    2
+## Fiat 128       32.4   4  78.7  66 4.08 2.200 19.47  1  1    4    1
+## Honda Civic    30.4   4  75.7  52 4.93 1.615 18.52  1  1    4    2
+## Toyota Corolla 33.9   4  71.1  65 4.22 1.835 19.90  1  1    4    1
+## Toyota Corona  21.5   4 120.1  97 3.70 2.465 20.01  1  0    3    1
+## Fiat X1-9      27.3   4  79.0  66 4.08 1.935 18.90  1  1    4    1
+## Porsche 914-2  26.0   4 120.3  91 4.43 2.140 16.70  0  1    5    2
+## Lotus Europa   30.4   4  95.1 113 3.77 1.513 16.90  1  1    5    2
+## Volvo 142E     21.4   4 121.0 109 4.11 2.780 18.60  1  1    4    2</code></pre>
+<p>You can see these two solutions are equivalent. Industry standards emerge for precisely this reason–to standardize workflows throughout the industry so that colleagues, collaborators, critics, and competitors can understand each others’ code more easily. dplyr has become the industry standard for much of data analysis in R.</p>
+<p>dplyr provides a set of tools that make data cleaning and transformation more intuitive. You can read the package’s vignette for more information. This lesson will explain the 8 functions outlined in the vignette, using the mtcars data set. I will also talk about the pipe and why it is a useful tool for data analysis and creating legible code.</p>
+</div>
+<div id="and-dplyr-functions" class="section level4 hasAnchor" number="2.3.2.2">
+<h4><span class="header-section-number">2.3.2.2</span> <strong>%&gt;% and dplyr functions</strong><a href="lesson-3---tidy-data-and-dplyr.html#and-dplyr-functions" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<div id="section" class="section level5 hasAnchor" number="2.3.2.2.1">
+<h5><span class="header-section-number">2.3.2.2.1</span> <strong>%&gt;%</strong><a href="lesson-3---tidy-data-and-dplyr.html#section" class="anchor-section" aria-label="Anchor link to header"></a></h5>
+<p>There are eight basic dplyr functions (and many more that are available for more specialized operations), but one of the most useful things in the dplyr package comes from a different package called magrittr: the %&gt;% (pipe) operator.</p>
+<p>The pipe operator takes the result on the current line and inserts it into the first argument of the following line. For example 1+1 %&gt;% sum(2) = 4.</p>
+<div class="sourceCode" id="cb101"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb101-1"><a href="lesson-3---tidy-data-and-dplyr.html#cb101-1" aria-hidden="true" tabindex="-1"></a><span class="dv">1</span><span class="sc">+</span><span class="dv">1</span> <span class="sc">%&gt;%</span></span>
+<span id="cb101-2"><a href="lesson-3---tidy-data-and-dplyr.html#cb101-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">sum</span>(<span class="dv">2</span>)</span></code></pre></div>
+<pre><code>## [1] 4</code></pre>
+<p>The pipe operator makes workflows cleaner while still being easy to follow by removing the need for many intermediate saving steps. To illustrate, here is how one could multiply mpg by 2 and divide cyl by 3 in both base R and dplyr.</p>
+<div class="sourceCode" id="cb103"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb103-1"><a href="lesson-3---tidy-data-and-dplyr.html#cb103-1" aria-hidden="true" tabindex="-1"></a><span class="co"># In base R</span></span>
+<span id="cb103-2"><a href="lesson-3---tidy-data-and-dplyr.html#cb103-2" aria-hidden="true" tabindex="-1"></a><span class="co"># First duplicate the data set</span></span>
+<span id="cb103-3"><a href="lesson-3---tidy-data-and-dplyr.html#cb103-3" aria-hidden="true" tabindex="-1"></a>mtcars2 <span class="ot">&lt;-</span> mtcars</span>
+<span id="cb103-4"><a href="lesson-3---tidy-data-and-dplyr.html#cb103-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Then multiply mpg by 2</span></span>
+<span id="cb103-5"><a href="lesson-3---tidy-data-and-dplyr.html#cb103-5" aria-hidden="true" tabindex="-1"></a>mtcars2<span class="sc">$</span>mpg <span class="ot">&lt;-</span> mtcars<span class="sc">$</span>mpg <span class="sc">*</span> <span class="dv">2</span></span>
+<span id="cb103-6"><a href="lesson-3---tidy-data-and-dplyr.html#cb103-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Then divide cyl by 3</span></span>
+<span id="cb103-7"><a href="lesson-3---tidy-data-and-dplyr.html#cb103-7" aria-hidden="true" tabindex="-1"></a>mtcars2<span class="sc">$</span>cyl <span class="ot">&lt;-</span> mtcars<span class="sc">$</span>cyl<span class="sc">/</span><span class="dv">3</span></span>
+<span id="cb103-8"><a href="lesson-3---tidy-data-and-dplyr.html#cb103-8" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(mtcars2)</span></code></pre></div>
+<pre><code>##                      mpg      cyl  disp  hp drat    wt  qsec vs am gear carb
+## Mazda RX4           42.0 2.000000 160.0 110 3.90 2.620 16.46  0  1    4    4
+## Mazda RX4 Wag       42.0 2.000000 160.0 110 3.90 2.875 17.02  0  1    4    4
+## Datsun 710          45.6 1.333333 108.0  93 3.85 2.320 18.61  1  1    4    1
+## Hornet 4 Drive      42.8 2.000000 258.0 110 3.08 3.215 19.44  1  0    3    1
+## Hornet Sportabout   37.4 2.666667 360.0 175 3.15 3.440 17.02  0  0    3    2
+## Valiant             36.2 2.000000 225.0 105 2.76 3.460 20.22  1  0    3    1
+## Duster 360          28.6 2.666667 360.0 245 3.21 3.570 15.84  0  0    3    4
+## Merc 240D           48.8 1.333333 146.7  62 3.69 3.190 20.00  1  0    4    2
+## Merc 230            45.6 1.333333 140.8  95 3.92 3.150 22.90  1  0    4    2
+## Merc 280            38.4 2.000000 167.6 123 3.92 3.440 18.30  1  0    4    4
+## Merc 280C           35.6 2.000000 167.6 123 3.92 3.440 18.90  1  0    4    4
+## Merc 450SE          32.8 2.666667 275.8 180 3.07 4.070 17.40  0  0    3    3
+## Merc 450SL          34.6 2.666667 275.8 180 3.07 3.730 17.60  0  0    3    3
+## Merc 450SLC         30.4 2.666667 275.8 180 3.07 3.780 18.00  0  0    3    3
+## Cadillac Fleetwood  20.8 2.666667 472.0 205 2.93 5.250 17.98  0  0    3    4
+## Lincoln Continental 20.8 2.666667 460.0 215 3.00 5.424 17.82  0  0    3    4
+## Chrysler Imperial   29.4 2.666667 440.0 230 3.23 5.345 17.42  0  0    3    4
+## Fiat 128            64.8 1.333333  78.7  66 4.08 2.200 19.47  1  1    4    1
+## Honda Civic         60.8 1.333333  75.7  52 4.93 1.615 18.52  1  1    4    2
+## Toyota Corolla      67.8 1.333333  71.1  65 4.22 1.835 19.90  1  1    4    1
+## Toyota Corona       43.0 1.333333 120.1  97 3.70 2.465 20.01  1  0    3    1
+## Dodge Challenger    31.0 2.666667 318.0 150 2.76 3.520 16.87  0  0    3    2
+## AMC Javelin         30.4 2.666667 304.0 150 3.15 3.435 17.30  0  0    3    2
+## Camaro Z28          26.6 2.666667 350.0 245 3.73 3.840 15.41  0  0    3    4
+## Pontiac Firebird    38.4 2.666667 400.0 175 3.08 3.845 17.05  0  0    3    2
+## Fiat X1-9           54.6 1.333333  79.0  66 4.08 1.935 18.90  1  1    4    1
+## Porsche 914-2       52.0 1.333333 120.3  91 4.43 2.140 16.70  0  1    5    2
+## Lotus Europa        60.8 1.333333  95.1 113 3.77 1.513 16.90  1  1    5    2
+## Ford Pantera L      31.6 2.666667 351.0 264 4.22 3.170 14.50  0  1    5    4
+## Ferrari Dino        39.4 2.000000 145.0 175 3.62 2.770 15.50  0  1    5    6
+## Maserati Bora       30.0 2.666667 301.0 335 3.54 3.570 14.60  0  1    5    8
+## Volvo 142E          42.8 1.333333 121.0 109 4.11 2.780 18.60  1  1    4    2</code></pre>
+<div class="sourceCode" id="cb105"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb105-1"><a href="lesson-3---tidy-data-and-dplyr.html#cb105-1" aria-hidden="true" tabindex="-1"></a><span class="co"># In dplyr</span></span>
+<span id="cb105-2"><a href="lesson-3---tidy-data-and-dplyr.html#cb105-2" aria-hidden="true" tabindex="-1"></a>mtcars2 <span class="ot">&lt;-</span> mtcars <span class="sc">%&gt;%</span></span>
+<span id="cb105-3"><a href="lesson-3---tidy-data-and-dplyr.html#cb105-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">mpg =</span> mpg <span class="sc">*</span> <span class="dv">2</span>,</span>
+<span id="cb105-4"><a href="lesson-3---tidy-data-and-dplyr.html#cb105-4" aria-hidden="true" tabindex="-1"></a>         <span class="at">cyl =</span> cyl<span class="sc">/</span><span class="dv">3</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb105-5"><a href="lesson-3---tidy-data-and-dplyr.html#cb105-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">print</span>()</span></code></pre></div>
+<pre><code>##                      mpg      cyl  disp  hp drat    wt  qsec vs am gear carb
+## Mazda RX4           42.0 2.000000 160.0 110 3.90 2.620 16.46  0  1    4    4
+## Mazda RX4 Wag       42.0 2.000000 160.0 110 3.90 2.875 17.02  0  1    4    4
+## Datsun 710          45.6 1.333333 108.0  93 3.85 2.320 18.61  1  1    4    1
+## Hornet 4 Drive      42.8 2.000000 258.0 110 3.08 3.215 19.44  1  0    3    1
+## Hornet Sportabout   37.4 2.666667 360.0 175 3.15 3.440 17.02  0  0    3    2
+## Valiant             36.2 2.000000 225.0 105 2.76 3.460 20.22  1  0    3    1
+## Duster 360          28.6 2.666667 360.0 245 3.21 3.570 15.84  0  0    3    4
+## Merc 240D           48.8 1.333333 146.7  62 3.69 3.190 20.00  1  0    4    2
+## Merc 230            45.6 1.333333 140.8  95 3.92 3.150 22.90  1  0    4    2
+## Merc 280            38.4 2.000000 167.6 123 3.92 3.440 18.30  1  0    4    4
+## Merc 280C           35.6 2.000000 167.6 123 3.92 3.440 18.90  1  0    4    4
+## Merc 450SE          32.8 2.666667 275.8 180 3.07 4.070 17.40  0  0    3    3
+## Merc 450SL          34.6 2.666667 275.8 180 3.07 3.730 17.60  0  0    3    3
+## Merc 450SLC         30.4 2.666667 275.8 180 3.07 3.780 18.00  0  0    3    3
+## Cadillac Fleetwood  20.8 2.666667 472.0 205 2.93 5.250 17.98  0  0    3    4
+## Lincoln Continental 20.8 2.666667 460.0 215 3.00 5.424 17.82  0  0    3    4
+## Chrysler Imperial   29.4 2.666667 440.0 230 3.23 5.345 17.42  0  0    3    4
+## Fiat 128            64.8 1.333333  78.7  66 4.08 2.200 19.47  1  1    4    1
+## Honda Civic         60.8 1.333333  75.7  52 4.93 1.615 18.52  1  1    4    2
+## Toyota Corolla      67.8 1.333333  71.1  65 4.22 1.835 19.90  1  1    4    1
+## Toyota Corona       43.0 1.333333 120.1  97 3.70 2.465 20.01  1  0    3    1
+## Dodge Challenger    31.0 2.666667 318.0 150 2.76 3.520 16.87  0  0    3    2
+## AMC Javelin         30.4 2.666667 304.0 150 3.15 3.435 17.30  0  0    3    2
+## Camaro Z28          26.6 2.666667 350.0 245 3.73 3.840 15.41  0  0    3    4
+## Pontiac Firebird    38.4 2.666667 400.0 175 3.08 3.845 17.05  0  0    3    2
+## Fiat X1-9           54.6 1.333333  79.0  66 4.08 1.935 18.90  1  1    4    1
+## Porsche 914-2       52.0 1.333333 120.3  91 4.43 2.140 16.70  0  1    5    2
+## Lotus Europa        60.8 1.333333  95.1 113 3.77 1.513 16.90  1  1    5    2
+## Ford Pantera L      31.6 2.666667 351.0 264 4.22 3.170 14.50  0  1    5    4
+## Ferrari Dino        39.4 2.000000 145.0 175 3.62 2.770 15.50  0  1    5    6
+## Maserati Bora       30.0 2.666667 301.0 335 3.54 3.570 14.60  0  1    5    8
+## Volvo 142E          42.8 1.333333 121.0 109 4.11 2.780 18.60  1  1    4    2</code></pre>
+<p>Again, the data sets are identical in the end, but in the dplyr case only one assignment operator was necessary. In base R, three were used. Also, in dplyr the data set mtcars is only referenced once and mtcars2 is only referenced when it is assigned. In base R, both data sets are referenced multiple times. The time savings and clarity that can come from using the pipe are not readily apparent from these simple examples, but as your work becomes more complex you will notice incorporating the pipe become more and more valuable.</p>
+<p>Two additional notes: 1) For folks who are coming from other oriented programming languages it might be useful to think of the pipe as similar to method chaining. The two are not identical, but the comparison may be useful for understanding why the pipe is worthwhile. 2) More recent versions of R have a built-in pipe which does not have to be loaded from magrittr <code>|&gt;</code>. You can turn that on by going to Tools &gt; Global Options &gt; Code and selecting “Use native pipe operator”.</p>
+</div>
+<div id="filter" class="section level5 hasAnchor" number="2.3.2.2.2">
+<h5><span class="header-section-number">2.3.2.2.2</span> <strong>filter</strong><a href="lesson-3---tidy-data-and-dplyr.html#filter" class="anchor-section" aria-label="Anchor link to header"></a></h5>
+<p>dplyr’s <code>filter()</code> function allows you to select rows meeting certain criteria. Suppose you are using the mtcars data set and only want to see cars with exactly 6 cylinders. Then with dplyr:</p>
+<div class="sourceCode" id="cb107"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb107-1"><a href="lesson-3---tidy-data-and-dplyr.html#cb107-1" aria-hidden="true" tabindex="-1"></a>mtcars <span class="sc">%&gt;%</span></span>
+<span id="cb107-2"><a href="lesson-3---tidy-data-and-dplyr.html#cb107-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(cyl <span class="sc">==</span> <span class="dv">6</span>)</span></code></pre></div>
+<pre><code>##                 mpg cyl  disp  hp drat    wt  qsec vs am gear carb
+## Mazda RX4      21.0   6 160.0 110 3.90 2.620 16.46  0  1    4    4
+## Mazda RX4 Wag  21.0   6 160.0 110 3.90 2.875 17.02  0  1    4    4
+## Hornet 4 Drive 21.4   6 258.0 110 3.08 3.215 19.44  1  0    3    1
+## Valiant        18.1   6 225.0 105 2.76 3.460 20.22  1  0    3    1
+## Merc 280       19.2   6 167.6 123 3.92 3.440 18.30  1  0    4    4
+## Merc 280C      17.8   6 167.6 123 3.92 3.440 18.90  1  0    4    4
+## Ferrari Dino   19.7   6 145.0 175 3.62 2.770 15.50  0  1    5    6</code></pre>
+<p>Or suppose you only wanted cars with 4 or more forward gears. Then</p>
+<div class="sourceCode" id="cb109"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb109-1"><a href="lesson-3---tidy-data-and-dplyr.html#cb109-1" aria-hidden="true" tabindex="-1"></a>mtcars <span class="sc">%&gt;%</span></span>
+<span id="cb109-2"><a href="lesson-3---tidy-data-and-dplyr.html#cb109-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(gear <span class="sc">&gt;=</span> <span class="dv">4</span>)</span></code></pre></div>
+<pre><code>##                 mpg cyl  disp  hp drat    wt  qsec vs am gear carb
+## Mazda RX4      21.0   6 160.0 110 3.90 2.620 16.46  0  1    4    4
+## Mazda RX4 Wag  21.0   6 160.0 110 3.90 2.875 17.02  0  1    4    4
+## Datsun 710     22.8   4 108.0  93 3.85 2.320 18.61  1  1    4    1
+## Merc 240D      24.4   4 146.7  62 3.69 3.190 20.00  1  0    4    2
+## Merc 230       22.8   4 140.8  95 3.92 3.150 22.90  1  0    4    2
+## Merc 280       19.2   6 167.6 123 3.92 3.440 18.30  1  0    4    4
+## Merc 280C      17.8   6 167.6 123 3.92 3.440 18.90  1  0    4    4
+## Fiat 128       32.4   4  78.7  66 4.08 2.200 19.47  1  1    4    1
+## Honda Civic    30.4   4  75.7  52 4.93 1.615 18.52  1  1    4    2
+## Toyota Corolla 33.9   4  71.1  65 4.22 1.835 19.90  1  1    4    1
+## Fiat X1-9      27.3   4  79.0  66 4.08 1.935 18.90  1  1    4    1
+## Porsche 914-2  26.0   4 120.3  91 4.43 2.140 16.70  0  1    5    2
+## Lotus Europa   30.4   4  95.1 113 3.77 1.513 16.90  1  1    5    2
+## Ford Pantera L 15.8   8 351.0 264 4.22 3.170 14.50  0  1    5    4
+## Ferrari Dino   19.7   6 145.0 175 3.62 2.770 15.50  0  1    5    6
+## Maserati Bora  15.0   8 301.0 335 3.54 3.570 14.60  0  1    5    8
+## Volvo 142E     21.4   4 121.0 109 4.11 2.780 18.60  1  1    4    2</code></pre>
+<p>Combine <code>filter()</code> with logical operators and other functions for more complex selection of observations. Like in this case where the data is subset to only cars made by Mazda:</p>
+<div class="sourceCode" id="cb111"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb111-1"><a href="lesson-3---tidy-data-and-dplyr.html#cb111-1" aria-hidden="true" tabindex="-1"></a>mtcars <span class="sc">%&gt;%</span></span>
+<span id="cb111-2"><a href="lesson-3---tidy-data-and-dplyr.html#cb111-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">make =</span> <span class="fu">rownames</span>(mtcars)) <span class="sc">%&gt;%</span></span>
+<span id="cb111-3"><a href="lesson-3---tidy-data-and-dplyr.html#cb111-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(<span class="fu">grepl</span>(<span class="st">&quot;Mazda&quot;</span>, make))</span></code></pre></div>
+<pre><code>##               mpg cyl disp  hp drat    wt  qsec vs am gear carb          make
+## Mazda RX4      21   6  160 110  3.9 2.620 16.46  0  1    4    4     Mazda RX4
+## Mazda RX4 Wag  21   6  160 110  3.9 2.875 17.02  0  1    4    4 Mazda RX4 Wag</code></pre>
+</div>
+<div id="slice" class="section level5 hasAnchor" number="2.3.2.2.3">
+<h5><span class="header-section-number">2.3.2.2.3</span> <strong>slice</strong><a href="lesson-3---tidy-data-and-dplyr.html#slice" class="anchor-section" aria-label="Anchor link to header"></a></h5>
+<p><code>slice()</code> allows selecting rows by index. For example, to select rows 1, 3, and 5 of mtcars:</p>
+<div class="sourceCode" id="cb113"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb113-1"><a href="lesson-3---tidy-data-and-dplyr.html#cb113-1" aria-hidden="true" tabindex="-1"></a>mtcars <span class="sc">%&gt;%</span></span>
+<span id="cb113-2"><a href="lesson-3---tidy-data-and-dplyr.html#cb113-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">slice</span>(<span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">3</span>, <span class="dv">5</span>))</span></code></pre></div>
+<pre><code>##                    mpg cyl disp  hp drat   wt  qsec vs am gear carb
+## Mazda RX4         21.0   6  160 110 3.90 2.62 16.46  0  1    4    4
+## Datsun 710        22.8   4  108  93 3.85 2.32 18.61  1  1    4    1
+## Hornet Sportabout 18.7   8  360 175 3.15 3.44 17.02  0  0    3    2</code></pre>
+<p>Or to select all odd rows:</p>
+<div class="sourceCode" id="cb115"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb115-1"><a href="lesson-3---tidy-data-and-dplyr.html#cb115-1" aria-hidden="true" tabindex="-1"></a>mtcars <span class="sc">%&gt;%</span></span>
+<span id="cb115-2"><a href="lesson-3---tidy-data-and-dplyr.html#cb115-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">slice</span>(<span class="fu">seq</span>(<span class="dv">1</span>, <span class="fu">nrow</span>(mtcars), <span class="at">by =</span> <span class="dv">2</span>))</span></code></pre></div>
+<pre><code>##                     mpg cyl  disp  hp drat    wt  qsec vs am gear carb
+## Mazda RX4          21.0   6 160.0 110 3.90 2.620 16.46  0  1    4    4
+## Datsun 710         22.8   4 108.0  93 3.85 2.320 18.61  1  1    4    1
+## Hornet Sportabout  18.7   8 360.0 175 3.15 3.440 17.02  0  0    3    2
+## Duster 360         14.3   8 360.0 245 3.21 3.570 15.84  0  0    3    4
+## Merc 230           22.8   4 140.8  95 3.92 3.150 22.90  1  0    4    2
+## Merc 280C          17.8   6 167.6 123 3.92 3.440 18.90  1  0    4    4
+## Merc 450SL         17.3   8 275.8 180 3.07 3.730 17.60  0  0    3    3
+## Cadillac Fleetwood 10.4   8 472.0 205 2.93 5.250 17.98  0  0    3    4
+## Chrysler Imperial  14.7   8 440.0 230 3.23 5.345 17.42  0  0    3    4
+## Honda Civic        30.4   4  75.7  52 4.93 1.615 18.52  1  1    4    2
+## Toyota Corona      21.5   4 120.1  97 3.70 2.465 20.01  1  0    3    1
+## AMC Javelin        15.2   8 304.0 150 3.15 3.435 17.30  0  0    3    2
+## Pontiac Firebird   19.2   8 400.0 175 3.08 3.845 17.05  0  0    3    2
+## Porsche 914-2      26.0   4 120.3  91 4.43 2.140 16.70  0  1    5    2
+## Ford Pantera L     15.8   8 351.0 264 4.22 3.170 14.50  0  1    5    4
+## Maserati Bora      15.0   8 301.0 335 3.54 3.570 14.60  0  1    5    8</code></pre>
+<p>There are also helper functions to do things like select the first and last rows quickly:</p>
+<div class="sourceCode" id="cb117"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb117-1"><a href="lesson-3---tidy-data-and-dplyr.html#cb117-1" aria-hidden="true" tabindex="-1"></a><span class="co"># First 5 rows</span></span>
+<span id="cb117-2"><a href="lesson-3---tidy-data-and-dplyr.html#cb117-2" aria-hidden="true" tabindex="-1"></a><span class="fu">slice_head</span>(mtcars, <span class="at">n =</span> <span class="dv">5</span>)</span></code></pre></div>
+<pre><code>##                    mpg cyl disp  hp drat    wt  qsec vs am gear carb
+## Mazda RX4         21.0   6  160 110 3.90 2.620 16.46  0  1    4    4
+## Mazda RX4 Wag     21.0   6  160 110 3.90 2.875 17.02  0  1    4    4
+## Datsun 710        22.8   4  108  93 3.85 2.320 18.61  1  1    4    1
+## Hornet 4 Drive    21.4   6  258 110 3.08 3.215 19.44  1  0    3    1
+## Hornet Sportabout 18.7   8  360 175 3.15 3.440 17.02  0  0    3    2</code></pre>
+<div class="sourceCode" id="cb119"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb119-1"><a href="lesson-3---tidy-data-and-dplyr.html#cb119-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Last 5 rows</span></span>
+<span id="cb119-2"><a href="lesson-3---tidy-data-and-dplyr.html#cb119-2" aria-hidden="true" tabindex="-1"></a><span class="fu">slice_tail</span>(mtcars, <span class="at">n =</span> <span class="dv">5</span>)</span></code></pre></div>
+<pre><code>##                 mpg cyl  disp  hp drat    wt qsec vs am gear carb
+## Lotus Europa   30.4   4  95.1 113 3.77 1.513 16.9  1  1    5    2
+## Ford Pantera L 15.8   8 351.0 264 4.22 3.170 14.5  0  1    5    4
+## Ferrari Dino   19.7   6 145.0 175 3.62 2.770 15.5  0  1    5    6
+## Maserati Bora  15.0   8 301.0 335 3.54 3.570 14.6  0  1    5    8
+## Volvo 142E     21.4   4 121.0 109 4.11 2.780 18.6  1  1    4    2</code></pre>
+</div>
+<div id="arrange" class="section level5 hasAnchor" number="2.3.2.2.4">
+<h5><span class="header-section-number">2.3.2.2.4</span> <strong>arrange</strong><a href="lesson-3---tidy-data-and-dplyr.html#arrange" class="anchor-section" aria-label="Anchor link to header"></a></h5>
+<p><code>arrange()</code> sorts data. You provide a column and, by default, it sorts the rows by that column in ascending order. Compare the following:</p>
+<div class="sourceCode" id="cb121"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb121-1"><a href="lesson-3---tidy-data-and-dplyr.html#cb121-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Not arranged</span></span>
+<span id="cb121-2"><a href="lesson-3---tidy-data-and-dplyr.html#cb121-2" aria-hidden="true" tabindex="-1"></a>mtcars</span></code></pre></div>
+<pre><code>##                      mpg cyl  disp  hp drat    wt  qsec vs am gear carb
+## Mazda RX4           21.0   6 160.0 110 3.90 2.620 16.46  0  1    4    4
+## Mazda RX4 Wag       21.0   6 160.0 110 3.90 2.875 17.02  0  1    4    4
+## Datsun 710          22.8   4 108.0  93 3.85 2.320 18.61  1  1    4    1
+## Hornet 4 Drive      21.4   6 258.0 110 3.08 3.215 19.44  1  0    3    1
+## Hornet Sportabout   18.7   8 360.0 175 3.15 3.440 17.02  0  0    3    2
+## Valiant             18.1   6 225.0 105 2.76 3.460 20.22  1  0    3    1
+## Duster 360          14.3   8 360.0 245 3.21 3.570 15.84  0  0    3    4
+## Merc 240D           24.4   4 146.7  62 3.69 3.190 20.00  1  0    4    2
+## Merc 230            22.8   4 140.8  95 3.92 3.150 22.90  1  0    4    2
+## Merc 280            19.2   6 167.6 123 3.92 3.440 18.30  1  0    4    4
+## Merc 280C           17.8   6 167.6 123 3.92 3.440 18.90  1  0    4    4
+## Merc 450SE          16.4   8 275.8 180 3.07 4.070 17.40  0  0    3    3
+## Merc 450SL          17.3   8 275.8 180 3.07 3.730 17.60  0  0    3    3
+## Merc 450SLC         15.2   8 275.8 180 3.07 3.780 18.00  0  0    3    3
+## Cadillac Fleetwood  10.4   8 472.0 205 2.93 5.250 17.98  0  0    3    4
+## Lincoln Continental 10.4   8 460.0 215 3.00 5.424 17.82  0  0    3    4
+## Chrysler Imperial   14.7   8 440.0 230 3.23 5.345 17.42  0  0    3    4
+## Fiat 128            32.4   4  78.7  66 4.08 2.200 19.47  1  1    4    1
+## Honda Civic         30.4   4  75.7  52 4.93 1.615 18.52  1  1    4    2
+## Toyota Corolla      33.9   4  71.1  65 4.22 1.835 19.90  1  1    4    1
+## Toyota Corona       21.5   4 120.1  97 3.70 2.465 20.01  1  0    3    1
+## Dodge Challenger    15.5   8 318.0 150 2.76 3.520 16.87  0  0    3    2
+## AMC Javelin         15.2   8 304.0 150 3.15 3.435 17.30  0  0    3    2
+## Camaro Z28          13.3   8 350.0 245 3.73 3.840 15.41  0  0    3    4
+## Pontiac Firebird    19.2   8 400.0 175 3.08 3.845 17.05  0  0    3    2
+## Fiat X1-9           27.3   4  79.0  66 4.08 1.935 18.90  1  1    4    1
+## Porsche 914-2       26.0   4 120.3  91 4.43 2.140 16.70  0  1    5    2
+## Lotus Europa        30.4   4  95.1 113 3.77 1.513 16.90  1  1    5    2
+## Ford Pantera L      15.8   8 351.0 264 4.22 3.170 14.50  0  1    5    4
+## Ferrari Dino        19.7   6 145.0 175 3.62 2.770 15.50  0  1    5    6
+## Maserati Bora       15.0   8 301.0 335 3.54 3.570 14.60  0  1    5    8
+## Volvo 142E          21.4   4 121.0 109 4.11 2.780 18.60  1  1    4    2</code></pre>
+<div class="sourceCode" id="cb123"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb123-1"><a href="lesson-3---tidy-data-and-dplyr.html#cb123-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Data arranged by mpg</span></span>
+<span id="cb123-2"><a href="lesson-3---tidy-data-and-dplyr.html#cb123-2" aria-hidden="true" tabindex="-1"></a>mtcars <span class="sc">%&gt;%</span></span>
+<span id="cb123-3"><a href="lesson-3---tidy-data-and-dplyr.html#cb123-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(mpg)</span></code></pre></div>
+<pre><code>##                      mpg cyl  disp  hp drat    wt  qsec vs am gear carb
+## Cadillac Fleetwood  10.4   8 472.0 205 2.93 5.250 17.98  0  0    3    4
+## Lincoln Continental 10.4   8 460.0 215 3.00 5.424 17.82  0  0    3    4
+## Camaro Z28          13.3   8 350.0 245 3.73 3.840 15.41  0  0    3    4
+## Duster 360          14.3   8 360.0 245 3.21 3.570 15.84  0  0    3    4
+## Chrysler Imperial   14.7   8 440.0 230 3.23 5.345 17.42  0  0    3    4
+## Maserati Bora       15.0   8 301.0 335 3.54 3.570 14.60  0  1    5    8
+## Merc 450SLC         15.2   8 275.8 180 3.07 3.780 18.00  0  0    3    3
+## AMC Javelin         15.2   8 304.0 150 3.15 3.435 17.30  0  0    3    2
+## Dodge Challenger    15.5   8 318.0 150 2.76 3.520 16.87  0  0    3    2
+## Ford Pantera L      15.8   8 351.0 264 4.22 3.170 14.50  0  1    5    4
+## Merc 450SE          16.4   8 275.8 180 3.07 4.070 17.40  0  0    3    3
+## Merc 450SL          17.3   8 275.8 180 3.07 3.730 17.60  0  0    3    3
+## Merc 280C           17.8   6 167.6 123 3.92 3.440 18.90  1  0    4    4
+## Valiant             18.1   6 225.0 105 2.76 3.460 20.22  1  0    3    1
+## Hornet Sportabout   18.7   8 360.0 175 3.15 3.440 17.02  0  0    3    2
+## Merc 280            19.2   6 167.6 123 3.92 3.440 18.30  1  0    4    4
+## Pontiac Firebird    19.2   8 400.0 175 3.08 3.845 17.05  0  0    3    2
+## Ferrari Dino        19.7   6 145.0 175 3.62 2.770 15.50  0  1    5    6
+## Mazda RX4           21.0   6 160.0 110 3.90 2.620 16.46  0  1    4    4
+## Mazda RX4 Wag       21.0   6 160.0 110 3.90 2.875 17.02  0  1    4    4
+## Hornet 4 Drive      21.4   6 258.0 110 3.08 3.215 19.44  1  0    3    1
+## Volvo 142E          21.4   4 121.0 109 4.11 2.780 18.60  1  1    4    2
+## Toyota Corona       21.5   4 120.1  97 3.70 2.465 20.01  1  0    3    1
+## Datsun 710          22.8   4 108.0  93 3.85 2.320 18.61  1  1    4    1
+## Merc 230            22.8   4 140.8  95 3.92 3.150 22.90  1  0    4    2
+## Merc 240D           24.4   4 146.7  62 3.69 3.190 20.00  1  0    4    2
+## Porsche 914-2       26.0   4 120.3  91 4.43 2.140 16.70  0  1    5    2
+## Fiat X1-9           27.3   4  79.0  66 4.08 1.935 18.90  1  1    4    1
+## Honda Civic         30.4   4  75.7  52 4.93 1.615 18.52  1  1    4    2
+## Lotus Europa        30.4   4  95.1 113 3.77 1.513 16.90  1  1    5    2
+## Fiat 128            32.4   4  78.7  66 4.08 2.200 19.47  1  1    4    1
+## Toyota Corolla      33.9   4  71.1  65 4.22 1.835 19.90  1  1    4    1</code></pre>
+<p>In the first case, the mtcars data set is in some arbitrary order. After using <code>arrange()</code>, the rows are ordered from lowest to highest mpg. Wrapping the target columns in <code>desc()</code> will arrange rows in descending order:</p>
+<div class="sourceCode" id="cb125"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb125-1"><a href="lesson-3---tidy-data-and-dplyr.html#cb125-1" aria-hidden="true" tabindex="-1"></a>mtcars <span class="sc">%&gt;%</span></span>
+<span id="cb125-2"><a href="lesson-3---tidy-data-and-dplyr.html#cb125-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(<span class="fu">desc</span>(mpg))</span></code></pre></div>
+<pre><code>##                      mpg cyl  disp  hp drat    wt  qsec vs am gear carb
+## Toyota Corolla      33.9   4  71.1  65 4.22 1.835 19.90  1  1    4    1
+## Fiat 128            32.4   4  78.7  66 4.08 2.200 19.47  1  1    4    1
+## Honda Civic         30.4   4  75.7  52 4.93 1.615 18.52  1  1    4    2
+## Lotus Europa        30.4   4  95.1 113 3.77 1.513 16.90  1  1    5    2
+## Fiat X1-9           27.3   4  79.0  66 4.08 1.935 18.90  1  1    4    1
+## Porsche 914-2       26.0   4 120.3  91 4.43 2.140 16.70  0  1    5    2
+## Merc 240D           24.4   4 146.7  62 3.69 3.190 20.00  1  0    4    2
+## Datsun 710          22.8   4 108.0  93 3.85 2.320 18.61  1  1    4    1
+## Merc 230            22.8   4 140.8  95 3.92 3.150 22.90  1  0    4    2
+## Toyota Corona       21.5   4 120.1  97 3.70 2.465 20.01  1  0    3    1
+## Hornet 4 Drive      21.4   6 258.0 110 3.08 3.215 19.44  1  0    3    1
+## Volvo 142E          21.4   4 121.0 109 4.11 2.780 18.60  1  1    4    2
+## Mazda RX4           21.0   6 160.0 110 3.90 2.620 16.46  0  1    4    4
+## Mazda RX4 Wag       21.0   6 160.0 110 3.90 2.875 17.02  0  1    4    4
+## Ferrari Dino        19.7   6 145.0 175 3.62 2.770 15.50  0  1    5    6
+## Merc 280            19.2   6 167.6 123 3.92 3.440 18.30  1  0    4    4
+## Pontiac Firebird    19.2   8 400.0 175 3.08 3.845 17.05  0  0    3    2
+## Hornet Sportabout   18.7   8 360.0 175 3.15 3.440 17.02  0  0    3    2
+## Valiant             18.1   6 225.0 105 2.76 3.460 20.22  1  0    3    1
+## Merc 280C           17.8   6 167.6 123 3.92 3.440 18.90  1  0    4    4
+## Merc 450SL          17.3   8 275.8 180 3.07 3.730 17.60  0  0    3    3
+## Merc 450SE          16.4   8 275.8 180 3.07 4.070 17.40  0  0    3    3
+## Ford Pantera L      15.8   8 351.0 264 4.22 3.170 14.50  0  1    5    4
+## Dodge Challenger    15.5   8 318.0 150 2.76 3.520 16.87  0  0    3    2
+## Merc 450SLC         15.2   8 275.8 180 3.07 3.780 18.00  0  0    3    3
+## AMC Javelin         15.2   8 304.0 150 3.15 3.435 17.30  0  0    3    2
+## Maserati Bora       15.0   8 301.0 335 3.54 3.570 14.60  0  1    5    8
+## Chrysler Imperial   14.7   8 440.0 230 3.23 5.345 17.42  0  0    3    4
+## Duster 360          14.3   8 360.0 245 3.21 3.570 15.84  0  0    3    4
+## Camaro Z28          13.3   8 350.0 245 3.73 3.840 15.41  0  0    3    4
+## Cadillac Fleetwood  10.4   8 472.0 205 2.93 5.250 17.98  0  0    3    4
+## Lincoln Continental 10.4   8 460.0 215 3.00 5.424 17.82  0  0    3    4</code></pre>
+<p>Providing multiple columns to arrange will break ties on using succeeding columns:</p>
+<div class="sourceCode" id="cb127"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb127-1"><a href="lesson-3---tidy-data-and-dplyr.html#cb127-1" aria-hidden="true" tabindex="-1"></a>mtcars <span class="sc">%&gt;%</span></span>
+<span id="cb127-2"><a href="lesson-3---tidy-data-and-dplyr.html#cb127-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(mpg)</span></code></pre></div>
+<pre><code>##                      mpg cyl  disp  hp drat    wt  qsec vs am gear carb
+## Cadillac Fleetwood  10.4   8 472.0 205 2.93 5.250 17.98  0  0    3    4
+## Lincoln Continental 10.4   8 460.0 215 3.00 5.424 17.82  0  0    3    4
+## Camaro Z28          13.3   8 350.0 245 3.73 3.840 15.41  0  0    3    4
+## Duster 360          14.3   8 360.0 245 3.21 3.570 15.84  0  0    3    4
+## Chrysler Imperial   14.7   8 440.0 230 3.23 5.345 17.42  0  0    3    4
+## Maserati Bora       15.0   8 301.0 335 3.54 3.570 14.60  0  1    5    8
+## Merc 450SLC         15.2   8 275.8 180 3.07 3.780 18.00  0  0    3    3
+## AMC Javelin         15.2   8 304.0 150 3.15 3.435 17.30  0  0    3    2
+## Dodge Challenger    15.5   8 318.0 150 2.76 3.520 16.87  0  0    3    2
+## Ford Pantera L      15.8   8 351.0 264 4.22 3.170 14.50  0  1    5    4
+## Merc 450SE          16.4   8 275.8 180 3.07 4.070 17.40  0  0    3    3
+## Merc 450SL          17.3   8 275.8 180 3.07 3.730 17.60  0  0    3    3
+## Merc 280C           17.8   6 167.6 123 3.92 3.440 18.90  1  0    4    4
+## Valiant             18.1   6 225.0 105 2.76 3.460 20.22  1  0    3    1
+## Hornet Sportabout   18.7   8 360.0 175 3.15 3.440 17.02  0  0    3    2
+## Merc 280            19.2   6 167.6 123 3.92 3.440 18.30  1  0    4    4
+## Pontiac Firebird    19.2   8 400.0 175 3.08 3.845 17.05  0  0    3    2
+## Ferrari Dino        19.7   6 145.0 175 3.62 2.770 15.50  0  1    5    6
+## Mazda RX4           21.0   6 160.0 110 3.90 2.620 16.46  0  1    4    4
+## Mazda RX4 Wag       21.0   6 160.0 110 3.90 2.875 17.02  0  1    4    4
+## Hornet 4 Drive      21.4   6 258.0 110 3.08 3.215 19.44  1  0    3    1
+## Volvo 142E          21.4   4 121.0 109 4.11 2.780 18.60  1  1    4    2
+## Toyota Corona       21.5   4 120.1  97 3.70 2.465 20.01  1  0    3    1
+## Datsun 710          22.8   4 108.0  93 3.85 2.320 18.61  1  1    4    1
+## Merc 230            22.8   4 140.8  95 3.92 3.150 22.90  1  0    4    2
+## Merc 240D           24.4   4 146.7  62 3.69 3.190 20.00  1  0    4    2
+## Porsche 914-2       26.0   4 120.3  91 4.43 2.140 16.70  0  1    5    2
+## Fiat X1-9           27.3   4  79.0  66 4.08 1.935 18.90  1  1    4    1
+## Honda Civic         30.4   4  75.7  52 4.93 1.615 18.52  1  1    4    2
+## Lotus Europa        30.4   4  95.1 113 3.77 1.513 16.90  1  1    5    2
+## Fiat 128            32.4   4  78.7  66 4.08 2.200 19.47  1  1    4    1
+## Toyota Corolla      33.9   4  71.1  65 4.22 1.835 19.90  1  1    4    1</code></pre>
+<div class="sourceCode" id="cb129"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb129-1"><a href="lesson-3---tidy-data-and-dplyr.html#cb129-1" aria-hidden="true" tabindex="-1"></a>mtcars <span class="sc">%&gt;%</span></span>
+<span id="cb129-2"><a href="lesson-3---tidy-data-and-dplyr.html#cb129-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(mpg, disp)</span></code></pre></div>
+<pre><code>##                      mpg cyl  disp  hp drat    wt  qsec vs am gear carb
+## Lincoln Continental 10.4   8 460.0 215 3.00 5.424 17.82  0  0    3    4
+## Cadillac Fleetwood  10.4   8 472.0 205 2.93 5.250 17.98  0  0    3    4
+## Camaro Z28          13.3   8 350.0 245 3.73 3.840 15.41  0  0    3    4
+## Duster 360          14.3   8 360.0 245 3.21 3.570 15.84  0  0    3    4
+## Chrysler Imperial   14.7   8 440.0 230 3.23 5.345 17.42  0  0    3    4
+## Maserati Bora       15.0   8 301.0 335 3.54 3.570 14.60  0  1    5    8
+## Merc 450SLC         15.2   8 275.8 180 3.07 3.780 18.00  0  0    3    3
+## AMC Javelin         15.2   8 304.0 150 3.15 3.435 17.30  0  0    3    2
+## Dodge Challenger    15.5   8 318.0 150 2.76 3.520 16.87  0  0    3    2
+## Ford Pantera L      15.8   8 351.0 264 4.22 3.170 14.50  0  1    5    4
+## Merc 450SE          16.4   8 275.8 180 3.07 4.070 17.40  0  0    3    3
+## Merc 450SL          17.3   8 275.8 180 3.07 3.730 17.60  0  0    3    3
+## Merc 280C           17.8   6 167.6 123 3.92 3.440 18.90  1  0    4    4
+## Valiant             18.1   6 225.0 105 2.76 3.460 20.22  1  0    3    1
+## Hornet Sportabout   18.7   8 360.0 175 3.15 3.440 17.02  0  0    3    2
+## Merc 280            19.2   6 167.6 123 3.92 3.440 18.30  1  0    4    4
+## Pontiac Firebird    19.2   8 400.0 175 3.08 3.845 17.05  0  0    3    2
+## Ferrari Dino        19.7   6 145.0 175 3.62 2.770 15.50  0  1    5    6
+## Mazda RX4           21.0   6 160.0 110 3.90 2.620 16.46  0  1    4    4
+## Mazda RX4 Wag       21.0   6 160.0 110 3.90 2.875 17.02  0  1    4    4
+## Volvo 142E          21.4   4 121.0 109 4.11 2.780 18.60  1  1    4    2
+## Hornet 4 Drive      21.4   6 258.0 110 3.08 3.215 19.44  1  0    3    1
+## Toyota Corona       21.5   4 120.1  97 3.70 2.465 20.01  1  0    3    1
+## Datsun 710          22.8   4 108.0  93 3.85 2.320 18.61  1  1    4    1
+## Merc 230            22.8   4 140.8  95 3.92 3.150 22.90  1  0    4    2
+## Merc 240D           24.4   4 146.7  62 3.69 3.190 20.00  1  0    4    2
+## Porsche 914-2       26.0   4 120.3  91 4.43 2.140 16.70  0  1    5    2
+## Fiat X1-9           27.3   4  79.0  66 4.08 1.935 18.90  1  1    4    1
+## Honda Civic         30.4   4  75.7  52 4.93 1.615 18.52  1  1    4    2
+## Lotus Europa        30.4   4  95.1 113 3.77 1.513 16.90  1  1    5    2
+## Fiat 128            32.4   4  78.7  66 4.08 2.200 19.47  1  1    4    1
+## Toyota Corolla      33.9   4  71.1  65 4.22 1.835 19.90  1  1    4    1</code></pre>
+<p>In the second case, Lincoln Continental comes before Cadillac Fleetwood, because Lincoln Continental has the lower disp. Again, <code>desc()</code> could be applied. In this case, Cadillac Fleetwood comes first:</p>
+<div class="sourceCode" id="cb131"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb131-1"><a href="lesson-3---tidy-data-and-dplyr.html#cb131-1" aria-hidden="true" tabindex="-1"></a>mtcars <span class="sc">%&gt;%</span></span>
+<span id="cb131-2"><a href="lesson-3---tidy-data-and-dplyr.html#cb131-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(mpg, <span class="fu">desc</span>(disp))</span></code></pre></div>
+<pre><code>##                      mpg cyl  disp  hp drat    wt  qsec vs am gear carb
+## Cadillac Fleetwood  10.4   8 472.0 205 2.93 5.250 17.98  0  0    3    4
+## Lincoln Continental 10.4   8 460.0 215 3.00 5.424 17.82  0  0    3    4
+## Camaro Z28          13.3   8 350.0 245 3.73 3.840 15.41  0  0    3    4
+## Duster 360          14.3   8 360.0 245 3.21 3.570 15.84  0  0    3    4
+## Chrysler Imperial   14.7   8 440.0 230 3.23 5.345 17.42  0  0    3    4
+## Maserati Bora       15.0   8 301.0 335 3.54 3.570 14.60  0  1    5    8
+## AMC Javelin         15.2   8 304.0 150 3.15 3.435 17.30  0  0    3    2
+## Merc 450SLC         15.2   8 275.8 180 3.07 3.780 18.00  0  0    3    3
+## Dodge Challenger    15.5   8 318.0 150 2.76 3.520 16.87  0  0    3    2
+## Ford Pantera L      15.8   8 351.0 264 4.22 3.170 14.50  0  1    5    4
+## Merc 450SE          16.4   8 275.8 180 3.07 4.070 17.40  0  0    3    3
+## Merc 450SL          17.3   8 275.8 180 3.07 3.730 17.60  0  0    3    3
+## Merc 280C           17.8   6 167.6 123 3.92 3.440 18.90  1  0    4    4
+## Valiant             18.1   6 225.0 105 2.76 3.460 20.22  1  0    3    1
+## Hornet Sportabout   18.7   8 360.0 175 3.15 3.440 17.02  0  0    3    2
+## Pontiac Firebird    19.2   8 400.0 175 3.08 3.845 17.05  0  0    3    2
+## Merc 280            19.2   6 167.6 123 3.92 3.440 18.30  1  0    4    4
+## Ferrari Dino        19.7   6 145.0 175 3.62 2.770 15.50  0  1    5    6
+## Mazda RX4           21.0   6 160.0 110 3.90 2.620 16.46  0  1    4    4
+## Mazda RX4 Wag       21.0   6 160.0 110 3.90 2.875 17.02  0  1    4    4
+## Hornet 4 Drive      21.4   6 258.0 110 3.08 3.215 19.44  1  0    3    1
+## Volvo 142E          21.4   4 121.0 109 4.11 2.780 18.60  1  1    4    2
+## Toyota Corona       21.5   4 120.1  97 3.70 2.465 20.01  1  0    3    1
+## Merc 230            22.8   4 140.8  95 3.92 3.150 22.90  1  0    4    2
+## Datsun 710          22.8   4 108.0  93 3.85 2.320 18.61  1  1    4    1
+## Merc 240D           24.4   4 146.7  62 3.69 3.190 20.00  1  0    4    2
+## Porsche 914-2       26.0   4 120.3  91 4.43 2.140 16.70  0  1    5    2
+## Fiat X1-9           27.3   4  79.0  66 4.08 1.935 18.90  1  1    4    1
+## Lotus Europa        30.4   4  95.1 113 3.77 1.513 16.90  1  1    5    2
+## Honda Civic         30.4   4  75.7  52 4.93 1.615 18.52  1  1    4    2
+## Fiat 128            32.4   4  78.7  66 4.08 2.200 19.47  1  1    4    1
+## Toyota Corolla      33.9   4  71.1  65 4.22 1.835 19.90  1  1    4    1</code></pre>
+</div>
+<div id="select" class="section level5 hasAnchor" number="2.3.2.2.5">
+<h5><span class="header-section-number">2.3.2.2.5</span> <strong>select</strong><a href="lesson-3---tidy-data-and-dplyr.html#select" class="anchor-section" aria-label="Anchor link to header"></a></h5>
+<p><code>select()</code> is among the most common dplyr verbs. It has a simple, but important function: selecting which variables should be kept in a data frame. For example, if you only want to keep the mpg variable from the mtcars data frame, you can do the following:</p>
+<div class="sourceCode" id="cb133"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb133-1"><a href="lesson-3---tidy-data-and-dplyr.html#cb133-1" aria-hidden="true" tabindex="-1"></a>mtcars <span class="sc">%&gt;%</span></span>
+<span id="cb133-2"><a href="lesson-3---tidy-data-and-dplyr.html#cb133-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(mpg)</span></code></pre></div>
+<pre><code>##                      mpg
+## Mazda RX4           21.0
+## Mazda RX4 Wag       21.0
+## Datsun 710          22.8
+## Hornet 4 Drive      21.4
+## Hornet Sportabout   18.7
+## Valiant             18.1
+## Duster 360          14.3
+## Merc 240D           24.4
+## Merc 230            22.8
+## Merc 280            19.2
+## Merc 280C           17.8
+## Merc 450SE          16.4
+## Merc 450SL          17.3
+## Merc 450SLC         15.2
+## Cadillac Fleetwood  10.4
+## Lincoln Continental 10.4
+## Chrysler Imperial   14.7
+## Fiat 128            32.4
+## Honda Civic         30.4
+## Toyota Corolla      33.9
+## Toyota Corona       21.5
+## Dodge Challenger    15.5
+## AMC Javelin         15.2
+## Camaro Z28          13.3
+## Pontiac Firebird    19.2
+## Fiat X1-9           27.3
+## Porsche 914-2       26.0
+## Lotus Europa        30.4
+## Ford Pantera L      15.8
+## Ferrari Dino        19.7
+## Maserati Bora       15.0
+## Volvo 142E          21.4</code></pre>
+<p>If instead, you’d like to keep multiple variables–say cylinders, gears, and carburetors:</p>
+<div class="sourceCode" id="cb135"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb135-1"><a href="lesson-3---tidy-data-and-dplyr.html#cb135-1" aria-hidden="true" tabindex="-1"></a>mtcars <span class="sc">%&gt;%</span></span>
+<span id="cb135-2"><a href="lesson-3---tidy-data-and-dplyr.html#cb135-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(mpg, gear, carb)</span></code></pre></div>
+<pre><code>##                      mpg gear carb
+## Mazda RX4           21.0    4    4
+## Mazda RX4 Wag       21.0    4    4
+## Datsun 710          22.8    4    1
+## Hornet 4 Drive      21.4    3    1
+## Hornet Sportabout   18.7    3    2
+## Valiant             18.1    3    1
+## Duster 360          14.3    3    4
+## Merc 240D           24.4    4    2
+## Merc 230            22.8    4    2
+## Merc 280            19.2    4    4
+## Merc 280C           17.8    4    4
+## Merc 450SE          16.4    3    3
+## Merc 450SL          17.3    3    3
+## Merc 450SLC         15.2    3    3
+## Cadillac Fleetwood  10.4    3    4
+## Lincoln Continental 10.4    3    4
+## Chrysler Imperial   14.7    3    4
+## Fiat 128            32.4    4    1
+## Honda Civic         30.4    4    2
+## Toyota Corolla      33.9    4    1
+## Toyota Corona       21.5    3    1
+## Dodge Challenger    15.5    3    2
+## AMC Javelin         15.2    3    2
+## Camaro Z28          13.3    3    4
+## Pontiac Firebird    19.2    3    2
+## Fiat X1-9           27.3    4    1
+## Porsche 914-2       26.0    5    2
+## Lotus Europa        30.4    5    2
+## Ford Pantera L      15.8    5    4
+## Ferrari Dino        19.7    5    6
+## Maserati Bora       15.0    5    8
+## Volvo 142E          21.4    4    2</code></pre>
+<div class="sourceCode" id="cb137"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb137-1"><a href="lesson-3---tidy-data-and-dplyr.html#cb137-1" aria-hidden="true" tabindex="-1"></a>mtcars <span class="sc">%&gt;%</span></span>
+<span id="cb137-2"><a href="lesson-3---tidy-data-and-dplyr.html#cb137-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(<span class="fu">c</span>(<span class="st">&quot;mpg&quot;</span>, <span class="st">&quot;gear&quot;</span>, <span class="st">&quot;carb&quot;</span>))</span></code></pre></div>
+<pre><code>##                      mpg gear carb
+## Mazda RX4           21.0    4    4
+## Mazda RX4 Wag       21.0    4    4
+## Datsun 710          22.8    4    1
+## Hornet 4 Drive      21.4    3    1
+## Hornet Sportabout   18.7    3    2
+## Valiant             18.1    3    1
+## Duster 360          14.3    3    4
+## Merc 240D           24.4    4    2
+## Merc 230            22.8    4    2
+## Merc 280            19.2    4    4
+## Merc 280C           17.8    4    4
+## Merc 450SE          16.4    3    3
+## Merc 450SL          17.3    3    3
+## Merc 450SLC         15.2    3    3
+## Cadillac Fleetwood  10.4    3    4
+## Lincoln Continental 10.4    3    4
+## Chrysler Imperial   14.7    3    4
+## Fiat 128            32.4    4    1
+## Honda Civic         30.4    4    2
+## Toyota Corolla      33.9    4    1
+## Toyota Corona       21.5    3    1
+## Dodge Challenger    15.5    3    2
+## AMC Javelin         15.2    3    2
+## Camaro Z28          13.3    3    4
+## Pontiac Firebird    19.2    3    2
+## Fiat X1-9           27.3    4    1
+## Porsche 914-2       26.0    5    2
+## Lotus Europa        30.4    5    2
+## Ford Pantera L      15.8    5    4
+## Ferrari Dino        19.7    5    6
+## Maserati Bora       15.0    5    8
+## Volvo 142E          21.4    4    2</code></pre>
+<div class="sourceCode" id="cb139"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb139-1"><a href="lesson-3---tidy-data-and-dplyr.html#cb139-1" aria-hidden="true" tabindex="-1"></a>mtcars <span class="sc">%&gt;%</span></span>
+<span id="cb139-2"><a href="lesson-3---tidy-data-and-dplyr.html#cb139-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(<span class="fu">c</span>(mpg, gear, carb))</span></code></pre></div>
+<pre><code>##                      mpg gear carb
+## Mazda RX4           21.0    4    4
+## Mazda RX4 Wag       21.0    4    4
+## Datsun 710          22.8    4    1
+## Hornet 4 Drive      21.4    3    1
+## Hornet Sportabout   18.7    3    2
+## Valiant             18.1    3    1
+## Duster 360          14.3    3    4
+## Merc 240D           24.4    4    2
+## Merc 230            22.8    4    2
+## Merc 280            19.2    4    4
+## Merc 280C           17.8    4    4
+## Merc 450SE          16.4    3    3
+## Merc 450SL          17.3    3    3
+## Merc 450SLC         15.2    3    3
+## Cadillac Fleetwood  10.4    3    4
+## Lincoln Continental 10.4    3    4
+## Chrysler Imperial   14.7    3    4
+## Fiat 128            32.4    4    1
+## Honda Civic         30.4    4    2
+## Toyota Corolla      33.9    4    1
+## Toyota Corona       21.5    3    1
+## Dodge Challenger    15.5    3    2
+## AMC Javelin         15.2    3    2
+## Camaro Z28          13.3    3    4
+## Pontiac Firebird    19.2    3    2
+## Fiat X1-9           27.3    4    1
+## Porsche 914-2       26.0    5    2
+## Lotus Europa        30.4    5    2
+## Ford Pantera L      15.8    5    4
+## Ferrari Dino        19.7    5    6
+## Maserati Bora       15.0    5    8
+## Volvo 142E          21.4    4    2</code></pre>
+<p>As shown above, columns can be provided as a comma separated list, a character vector, or a vector of objects. This is especially useful if, instead, you want to remove some variables from the data frame:</p>
+<div class="sourceCode" id="cb141"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb141-1"><a href="lesson-3---tidy-data-and-dplyr.html#cb141-1" aria-hidden="true" tabindex="-1"></a>mtcars <span class="sc">%&gt;%</span></span>
+<span id="cb141-2"><a href="lesson-3---tidy-data-and-dplyr.html#cb141-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(<span class="sc">-</span><span class="fu">c</span>(<span class="st">&quot;mpg&quot;</span>, <span class="st">&quot;gear&quot;</span>, <span class="st">&quot;carb&quot;</span>))</span></code></pre></div>
+<pre><code>##                     cyl  disp  hp drat    wt  qsec vs am
+## Mazda RX4             6 160.0 110 3.90 2.620 16.46  0  1
+## Mazda RX4 Wag         6 160.0 110 3.90 2.875 17.02  0  1
+## Datsun 710            4 108.0  93 3.85 2.320 18.61  1  1
+## Hornet 4 Drive        6 258.0 110 3.08 3.215 19.44  1  0
+## Hornet Sportabout     8 360.0 175 3.15 3.440 17.02  0  0
+## Valiant               6 225.0 105 2.76 3.460 20.22  1  0
+## Duster 360            8 360.0 245 3.21 3.570 15.84  0  0
+## Merc 240D             4 146.7  62 3.69 3.190 20.00  1  0
+## Merc 230              4 140.8  95 3.92 3.150 22.90  1  0
+## Merc 280              6 167.6 123 3.92 3.440 18.30  1  0
+## Merc 280C             6 167.6 123 3.92 3.440 18.90  1  0
+## Merc 450SE            8 275.8 180 3.07 4.070 17.40  0  0
+## Merc 450SL            8 275.8 180 3.07 3.730 17.60  0  0
+## Merc 450SLC           8 275.8 180 3.07 3.780 18.00  0  0
+## Cadillac Fleetwood    8 472.0 205 2.93 5.250 17.98  0  0
+## Lincoln Continental   8 460.0 215 3.00 5.424 17.82  0  0
+## Chrysler Imperial     8 440.0 230 3.23 5.345 17.42  0  0
+## Fiat 128              4  78.7  66 4.08 2.200 19.47  1  1
+## Honda Civic           4  75.7  52 4.93 1.615 18.52  1  1
+## Toyota Corolla        4  71.1  65 4.22 1.835 19.90  1  1
+## Toyota Corona         4 120.1  97 3.70 2.465 20.01  1  0
+## Dodge Challenger      8 318.0 150 2.76 3.520 16.87  0  0
+## AMC Javelin           8 304.0 150 3.15 3.435 17.30  0  0
+## Camaro Z28            8 350.0 245 3.73 3.840 15.41  0  0
+## Pontiac Firebird      8 400.0 175 3.08 3.845 17.05  0  0
+## Fiat X1-9             4  79.0  66 4.08 1.935 18.90  1  1
+## Porsche 914-2         4 120.3  91 4.43 2.140 16.70  0  1
+## Lotus Europa          4  95.1 113 3.77 1.513 16.90  1  1
+## Ford Pantera L        8 351.0 264 4.22 3.170 14.50  0  1
+## Ferrari Dino          6 145.0 175 3.62 2.770 15.50  0  1
+## Maserati Bora         8 301.0 335 3.54 3.570 14.60  0  1
+## Volvo 142E            4 121.0 109 4.11 2.780 18.60  1  1</code></pre>
+<p>Now the variables of interest have been removed.</p>
+</div>
+<div id="rename" class="section level5 hasAnchor" number="2.3.2.2.6">
+<h5><span class="header-section-number">2.3.2.2.6</span> <strong>rename</strong><a href="lesson-3---tidy-data-and-dplyr.html#rename" class="anchor-section" aria-label="Anchor link to header"></a></h5>
+<p>Sometimes column names are inconvenient to work with, not descriptive, or generally do not meet your needs. <code>rename()</code> can remedy this problem; use it when you want to rename a column in a data frame:</p>
+<div class="sourceCode" id="cb143"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb143-1"><a href="lesson-3---tidy-data-and-dplyr.html#cb143-1" aria-hidden="true" tabindex="-1"></a>mtcars <span class="sc">%&gt;%</span></span>
+<span id="cb143-2"><a href="lesson-3---tidy-data-and-dplyr.html#cb143-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">rename</span>(<span class="at">MilesPerGallon =</span> mpg)</span></code></pre></div>
+<pre><code>##                     MilesPerGallon cyl  disp  hp drat    wt  qsec vs am gear
+## Mazda RX4                     21.0   6 160.0 110 3.90 2.620 16.46  0  1    4
+## Mazda RX4 Wag                 21.0   6 160.0 110 3.90 2.875 17.02  0  1    4
+## Datsun 710                    22.8   4 108.0  93 3.85 2.320 18.61  1  1    4
+## Hornet 4 Drive                21.4   6 258.0 110 3.08 3.215 19.44  1  0    3
+## Hornet Sportabout             18.7   8 360.0 175 3.15 3.440 17.02  0  0    3
+## Valiant                       18.1   6 225.0 105 2.76 3.460 20.22  1  0    3
+## Duster 360                    14.3   8 360.0 245 3.21 3.570 15.84  0  0    3
+## Merc 240D                     24.4   4 146.7  62 3.69 3.190 20.00  1  0    4
+## Merc 230                      22.8   4 140.8  95 3.92 3.150 22.90  1  0    4
+## Merc 280                      19.2   6 167.6 123 3.92 3.440 18.30  1  0    4
+## Merc 280C                     17.8   6 167.6 123 3.92 3.440 18.90  1  0    4
+## Merc 450SE                    16.4   8 275.8 180 3.07 4.070 17.40  0  0    3
+## Merc 450SL                    17.3   8 275.8 180 3.07 3.730 17.60  0  0    3
+## Merc 450SLC                   15.2   8 275.8 180 3.07 3.780 18.00  0  0    3
+## Cadillac Fleetwood            10.4   8 472.0 205 2.93 5.250 17.98  0  0    3
+## Lincoln Continental           10.4   8 460.0 215 3.00 5.424 17.82  0  0    3
+## Chrysler Imperial             14.7   8 440.0 230 3.23 5.345 17.42  0  0    3
+## Fiat 128                      32.4   4  78.7  66 4.08 2.200 19.47  1  1    4
+## Honda Civic                   30.4   4  75.7  52 4.93 1.615 18.52  1  1    4
+## Toyota Corolla                33.9   4  71.1  65 4.22 1.835 19.90  1  1    4
+## Toyota Corona                 21.5   4 120.1  97 3.70 2.465 20.01  1  0    3
+## Dodge Challenger              15.5   8 318.0 150 2.76 3.520 16.87  0  0    3
+## AMC Javelin                   15.2   8 304.0 150 3.15 3.435 17.30  0  0    3
+## Camaro Z28                    13.3   8 350.0 245 3.73 3.840 15.41  0  0    3
+## Pontiac Firebird              19.2   8 400.0 175 3.08 3.845 17.05  0  0    3
+## Fiat X1-9                     27.3   4  79.0  66 4.08 1.935 18.90  1  1    4
+## Porsche 914-2                 26.0   4 120.3  91 4.43 2.140 16.70  0  1    5
+## Lotus Europa                  30.4   4  95.1 113 3.77 1.513 16.90  1  1    5
+## Ford Pantera L                15.8   8 351.0 264 4.22 3.170 14.50  0  1    5
+## Ferrari Dino                  19.7   6 145.0 175 3.62 2.770 15.50  0  1    5
+## Maserati Bora                 15.0   8 301.0 335 3.54 3.570 14.60  0  1    5
+## Volvo 142E                    21.4   4 121.0 109 4.11 2.780 18.60  1  1    4
+##                     carb
+## Mazda RX4              4
+## Mazda RX4 Wag          4
+## Datsun 710             1
+## Hornet 4 Drive         1
+## Hornet Sportabout      2
+## Valiant                1
+## Duster 360             4
+## Merc 240D              2
+## Merc 230               2
+## Merc 280               4
+## Merc 280C              4
+## Merc 450SE             3
+## Merc 450SL             3
+## Merc 450SLC            3
+## Cadillac Fleetwood     4
+## Lincoln Continental    4
+## Chrysler Imperial      4
+## Fiat 128               1
+## Honda Civic            2
+## Toyota Corolla         1
+## Toyota Corona          1
+## Dodge Challenger       2
+## AMC Javelin            2
+## Camaro Z28             4
+## Pontiac Firebird       2
+## Fiat X1-9              1
+## Porsche 914-2          2
+## Lotus Europa           2
+## Ford Pantera L         4
+## Ferrari Dino           6
+## Maserati Bora          8
+## Volvo 142E             2</code></pre>
+<p>The new variable name is entered on the left-hand side of the equation, the old variable name on the right hand side. Multiple columns can be renamed at once by separating each expression with a comma:</p>
+<div class="sourceCode" id="cb145"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb145-1"><a href="lesson-3---tidy-data-and-dplyr.html#cb145-1" aria-hidden="true" tabindex="-1"></a>mtcars <span class="sc">%&gt;%</span></span>
+<span id="cb145-2"><a href="lesson-3---tidy-data-and-dplyr.html#cb145-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">rename</span>(<span class="at">MilesPerGallon =</span> mpg,</span>
+<span id="cb145-3"><a href="lesson-3---tidy-data-and-dplyr.html#cb145-3" aria-hidden="true" tabindex="-1"></a>         <span class="at">Cylinders =</span> cyl,</span>
+<span id="cb145-4"><a href="lesson-3---tidy-data-and-dplyr.html#cb145-4" aria-hidden="true" tabindex="-1"></a>         <span class="at">Carburetors =</span> carb)</span></code></pre></div>
+<pre><code>##                     MilesPerGallon Cylinders  disp  hp drat    wt  qsec vs am
+## Mazda RX4                     21.0         6 160.0 110 3.90 2.620 16.46  0  1
+## Mazda RX4 Wag                 21.0         6 160.0 110 3.90 2.875 17.02  0  1
+## Datsun 710                    22.8         4 108.0  93 3.85 2.320 18.61  1  1
+## Hornet 4 Drive                21.4         6 258.0 110 3.08 3.215 19.44  1  0
+## Hornet Sportabout             18.7         8 360.0 175 3.15 3.440 17.02  0  0
+## Valiant                       18.1         6 225.0 105 2.76 3.460 20.22  1  0
+## Duster 360                    14.3         8 360.0 245 3.21 3.570 15.84  0  0
+## Merc 240D                     24.4         4 146.7  62 3.69 3.190 20.00  1  0
+## Merc 230                      22.8         4 140.8  95 3.92 3.150 22.90  1  0
+## Merc 280                      19.2         6 167.6 123 3.92 3.440 18.30  1  0
+## Merc 280C                     17.8         6 167.6 123 3.92 3.440 18.90  1  0
+## Merc 450SE                    16.4         8 275.8 180 3.07 4.070 17.40  0  0
+## Merc 450SL                    17.3         8 275.8 180 3.07 3.730 17.60  0  0
+## Merc 450SLC                   15.2         8 275.8 180 3.07 3.780 18.00  0  0
+## Cadillac Fleetwood            10.4         8 472.0 205 2.93 5.250 17.98  0  0
+## Lincoln Continental           10.4         8 460.0 215 3.00 5.424 17.82  0  0
+## Chrysler Imperial             14.7         8 440.0 230 3.23 5.345 17.42  0  0
+## Fiat 128                      32.4         4  78.7  66 4.08 2.200 19.47  1  1
+## Honda Civic                   30.4         4  75.7  52 4.93 1.615 18.52  1  1
+## Toyota Corolla                33.9         4  71.1  65 4.22 1.835 19.90  1  1
+## Toyota Corona                 21.5         4 120.1  97 3.70 2.465 20.01  1  0
+## Dodge Challenger              15.5         8 318.0 150 2.76 3.520 16.87  0  0
+## AMC Javelin                   15.2         8 304.0 150 3.15 3.435 17.30  0  0
+## Camaro Z28                    13.3         8 350.0 245 3.73 3.840 15.41  0  0
+## Pontiac Firebird              19.2         8 400.0 175 3.08 3.845 17.05  0  0
+## Fiat X1-9                     27.3         4  79.0  66 4.08 1.935 18.90  1  1
+## Porsche 914-2                 26.0         4 120.3  91 4.43 2.140 16.70  0  1
+## Lotus Europa                  30.4         4  95.1 113 3.77 1.513 16.90  1  1
+## Ford Pantera L                15.8         8 351.0 264 4.22 3.170 14.50  0  1
+## Ferrari Dino                  19.7         6 145.0 175 3.62 2.770 15.50  0  1
+## Maserati Bora                 15.0         8 301.0 335 3.54 3.570 14.60  0  1
+## Volvo 142E                    21.4         4 121.0 109 4.11 2.780 18.60  1  1
+##                     gear Carburetors
+## Mazda RX4              4           4
+## Mazda RX4 Wag          4           4
+## Datsun 710             4           1
+## Hornet 4 Drive         3           1
+## Hornet Sportabout      3           2
+## Valiant                3           1
+## Duster 360             3           4
+## Merc 240D              4           2
+## Merc 230               4           2
+## Merc 280               4           4
+## Merc 280C              4           4
+## Merc 450SE             3           3
+## Merc 450SL             3           3
+## Merc 450SLC            3           3
+## Cadillac Fleetwood     3           4
+## Lincoln Continental    3           4
+## Chrysler Imperial      3           4
+## Fiat 128               4           1
+## Honda Civic            4           2
+## Toyota Corolla         4           1
+## Toyota Corona          3           1
+## Dodge Challenger       3           2
+## AMC Javelin            3           2
+## Camaro Z28             3           4
+## Pontiac Firebird       3           2
+## Fiat X1-9              4           1
+## Porsche 914-2          5           2
+## Lotus Europa           5           2
+## Ford Pantera L         5           4
+## Ferrari Dino           5           6
+## Maserati Bora          5           8
+## Volvo 142E             4           2</code></pre>
+<p>R has rules about how variables can be named (see <code>help(make.names)</code> for more information). If you would really like to (for example if you are creating a public-facing table), you can create non-syntactic names by wrapping them in backticks:</p>
+<div class="sourceCode" id="cb147"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb147-1"><a href="lesson-3---tidy-data-and-dplyr.html#cb147-1" aria-hidden="true" tabindex="-1"></a>mtcars <span class="sc">%&gt;%</span></span>
+<span id="cb147-2"><a href="lesson-3---tidy-data-and-dplyr.html#cb147-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">rename</span>(<span class="st">`</span><span class="at">Miles Per Gallon</span><span class="st">`</span> <span class="ot">=</span> mpg)</span></code></pre></div>
+<pre><code>##                     Miles Per Gallon cyl  disp  hp drat    wt  qsec vs am gear
+## Mazda RX4                       21.0   6 160.0 110 3.90 2.620 16.46  0  1    4
+## Mazda RX4 Wag                   21.0   6 160.0 110 3.90 2.875 17.02  0  1    4
+## Datsun 710                      22.8   4 108.0  93 3.85 2.320 18.61  1  1    4
+## Hornet 4 Drive                  21.4   6 258.0 110 3.08 3.215 19.44  1  0    3
+## Hornet Sportabout               18.7   8 360.0 175 3.15 3.440 17.02  0  0    3
+## Valiant                         18.1   6 225.0 105 2.76 3.460 20.22  1  0    3
+## Duster 360                      14.3   8 360.0 245 3.21 3.570 15.84  0  0    3
+## Merc 240D                       24.4   4 146.7  62 3.69 3.190 20.00  1  0    4
+## Merc 230                        22.8   4 140.8  95 3.92 3.150 22.90  1  0    4
+## Merc 280                        19.2   6 167.6 123 3.92 3.440 18.30  1  0    4
+## Merc 280C                       17.8   6 167.6 123 3.92 3.440 18.90  1  0    4
+## Merc 450SE                      16.4   8 275.8 180 3.07 4.070 17.40  0  0    3
+## Merc 450SL                      17.3   8 275.8 180 3.07 3.730 17.60  0  0    3
+## Merc 450SLC                     15.2   8 275.8 180 3.07 3.780 18.00  0  0    3
+## Cadillac Fleetwood              10.4   8 472.0 205 2.93 5.250 17.98  0  0    3
+## Lincoln Continental             10.4   8 460.0 215 3.00 5.424 17.82  0  0    3
+## Chrysler Imperial               14.7   8 440.0 230 3.23 5.345 17.42  0  0    3
+## Fiat 128                        32.4   4  78.7  66 4.08 2.200 19.47  1  1    4
+## Honda Civic                     30.4   4  75.7  52 4.93 1.615 18.52  1  1    4
+## Toyota Corolla                  33.9   4  71.1  65 4.22 1.835 19.90  1  1    4
+## Toyota Corona                   21.5   4 120.1  97 3.70 2.465 20.01  1  0    3
+## Dodge Challenger                15.5   8 318.0 150 2.76 3.520 16.87  0  0    3
+## AMC Javelin                     15.2   8 304.0 150 3.15 3.435 17.30  0  0    3
+## Camaro Z28                      13.3   8 350.0 245 3.73 3.840 15.41  0  0    3
+## Pontiac Firebird                19.2   8 400.0 175 3.08 3.845 17.05  0  0    3
+## Fiat X1-9                       27.3   4  79.0  66 4.08 1.935 18.90  1  1    4
+## Porsche 914-2                   26.0   4 120.3  91 4.43 2.140 16.70  0  1    5
+## Lotus Europa                    30.4   4  95.1 113 3.77 1.513 16.90  1  1    5
+## Ford Pantera L                  15.8   8 351.0 264 4.22 3.170 14.50  0  1    5
+## Ferrari Dino                    19.7   6 145.0 175 3.62 2.770 15.50  0  1    5
+## Maserati Bora                   15.0   8 301.0 335 3.54 3.570 14.60  0  1    5
+## Volvo 142E                      21.4   4 121.0 109 4.11 2.780 18.60  1  1    4
+##                     carb
+## Mazda RX4              4
+## Mazda RX4 Wag          4
+## Datsun 710             1
+## Hornet 4 Drive         1
+## Hornet Sportabout      2
+## Valiant                1
+## Duster 360             4
+## Merc 240D              2
+## Merc 230               2
+## Merc 280               4
+## Merc 280C              4
+## Merc 450SE             3
+## Merc 450SL             3
+## Merc 450SLC            3
+## Cadillac Fleetwood     4
+## Lincoln Continental    4
+## Chrysler Imperial      4
+## Fiat 128               1
+## Honda Civic            2
+## Toyota Corolla         1
+## Toyota Corona          1
+## Dodge Challenger       2
+## AMC Javelin            2
+## Camaro Z28             4
+## Pontiac Firebird       2
+## Fiat X1-9              1
+## Porsche 914-2          2
+## Lotus Europa           2
+## Ford Pantera L         4
+## Ferrari Dino           6
+## Maserati Bora          8
+## Volvo 142E             2</code></pre>
+</div>
+<div id="mutate" class="section level5 hasAnchor" number="2.3.2.2.7">
+<h5><span class="header-section-number">2.3.2.2.7</span> <strong>mutate</strong><a href="lesson-3---tidy-data-and-dplyr.html#mutate" class="anchor-section" aria-label="Anchor link to header"></a></h5>
+<p><code>mutate()</code> allows you to modify and create columns in a data frame. You use mutate by writing the column name you’d like to modify/create on the left-hand side and a value on the right-hand side of an expression. For example you can calculate the mpg to cyl ratio in mtcars:</p>
+<div class="sourceCode" id="cb149"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb149-1"><a href="lesson-3---tidy-data-and-dplyr.html#cb149-1" aria-hidden="true" tabindex="-1"></a>mtcars <span class="sc">%&gt;%</span></span>
+<span id="cb149-2"><a href="lesson-3---tidy-data-and-dplyr.html#cb149-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">mpg_to_cyl =</span> mpg<span class="sc">/</span>cyl)</span></code></pre></div>
+<pre><code>##                      mpg cyl  disp  hp drat    wt  qsec vs am gear carb
+## Mazda RX4           21.0   6 160.0 110 3.90 2.620 16.46  0  1    4    4
+## Mazda RX4 Wag       21.0   6 160.0 110 3.90 2.875 17.02  0  1    4    4
+## Datsun 710          22.8   4 108.0  93 3.85 2.320 18.61  1  1    4    1
+## Hornet 4 Drive      21.4   6 258.0 110 3.08 3.215 19.44  1  0    3    1
+## Hornet Sportabout   18.7   8 360.0 175 3.15 3.440 17.02  0  0    3    2
+## Valiant             18.1   6 225.0 105 2.76 3.460 20.22  1  0    3    1
+## Duster 360          14.3   8 360.0 245 3.21 3.570 15.84  0  0    3    4
+## Merc 240D           24.4   4 146.7  62 3.69 3.190 20.00  1  0    4    2
+## Merc 230            22.8   4 140.8  95 3.92 3.150 22.90  1  0    4    2
+## Merc 280            19.2   6 167.6 123 3.92 3.440 18.30  1  0    4    4
+## Merc 280C           17.8   6 167.6 123 3.92 3.440 18.90  1  0    4    4
+## Merc 450SE          16.4   8 275.8 180 3.07 4.070 17.40  0  0    3    3
+## Merc 450SL          17.3   8 275.8 180 3.07 3.730 17.60  0  0    3    3
+## Merc 450SLC         15.2   8 275.8 180 3.07 3.780 18.00  0  0    3    3
+## Cadillac Fleetwood  10.4   8 472.0 205 2.93 5.250 17.98  0  0    3    4
+## Lincoln Continental 10.4   8 460.0 215 3.00 5.424 17.82  0  0    3    4
+## Chrysler Imperial   14.7   8 440.0 230 3.23 5.345 17.42  0  0    3    4
+## Fiat 128            32.4   4  78.7  66 4.08 2.200 19.47  1  1    4    1
+## Honda Civic         30.4   4  75.7  52 4.93 1.615 18.52  1  1    4    2
+## Toyota Corolla      33.9   4  71.1  65 4.22 1.835 19.90  1  1    4    1
+## Toyota Corona       21.5   4 120.1  97 3.70 2.465 20.01  1  0    3    1
+## Dodge Challenger    15.5   8 318.0 150 2.76 3.520 16.87  0  0    3    2
+## AMC Javelin         15.2   8 304.0 150 3.15 3.435 17.30  0  0    3    2
+## Camaro Z28          13.3   8 350.0 245 3.73 3.840 15.41  0  0    3    4
+## Pontiac Firebird    19.2   8 400.0 175 3.08 3.845 17.05  0  0    3    2
+## Fiat X1-9           27.3   4  79.0  66 4.08 1.935 18.90  1  1    4    1
+## Porsche 914-2       26.0   4 120.3  91 4.43 2.140 16.70  0  1    5    2
+## Lotus Europa        30.4   4  95.1 113 3.77 1.513 16.90  1  1    5    2
+## Ford Pantera L      15.8   8 351.0 264 4.22 3.170 14.50  0  1    5    4
+## Ferrari Dino        19.7   6 145.0 175 3.62 2.770 15.50  0  1    5    6
+## Maserati Bora       15.0   8 301.0 335 3.54 3.570 14.60  0  1    5    8
+## Volvo 142E          21.4   4 121.0 109 4.11 2.780 18.60  1  1    4    2
+##                     mpg_to_cyl
+## Mazda RX4             3.500000
+## Mazda RX4 Wag         3.500000
+## Datsun 710            5.700000
+## Hornet 4 Drive        3.566667
+## Hornet Sportabout     2.337500
+## Valiant               3.016667
+## Duster 360            1.787500
+## Merc 240D             6.100000
+## Merc 230              5.700000
+## Merc 280              3.200000
+## Merc 280C             2.966667
+## Merc 450SE            2.050000
+## Merc 450SL            2.162500
+## Merc 450SLC           1.900000
+## Cadillac Fleetwood    1.300000
+## Lincoln Continental   1.300000
+## Chrysler Imperial     1.837500
+## Fiat 128              8.100000
+## Honda Civic           7.600000
+## Toyota Corolla        8.475000
+## Toyota Corona         5.375000
+## Dodge Challenger      1.937500
+## AMC Javelin           1.900000
+## Camaro Z28            1.662500
+## Pontiac Firebird      2.400000
+## Fiat X1-9             6.825000
+## Porsche 914-2         6.500000
+## Lotus Europa          7.600000
+## Ford Pantera L        1.975000
+## Ferrari Dino          3.283333
+## Maserati Bora         1.875000
+## Volvo 142E            5.350000</code></pre>
+<p>As with <code>rename()</code>, if you’d like to manipulate multiple variables in one call to <code>mutate()</code> you can do that by separating expressions with a comma:</p>
+<div class="sourceCode" id="cb151"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb151-1"><a href="lesson-3---tidy-data-and-dplyr.html#cb151-1" aria-hidden="true" tabindex="-1"></a>mtcars <span class="sc">%&gt;%</span></span>
+<span id="cb151-2"><a href="lesson-3---tidy-data-and-dplyr.html#cb151-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">mpg_to_cyl =</span> mpg<span class="sc">/</span>cyl,</span>
+<span id="cb151-3"><a href="lesson-3---tidy-data-and-dplyr.html#cb151-3" aria-hidden="true" tabindex="-1"></a>         <span class="at">mpg_to_carb =</span> mpg<span class="sc">/</span>carb,</span>
+<span id="cb151-4"><a href="lesson-3---tidy-data-and-dplyr.html#cb151-4" aria-hidden="true" tabindex="-1"></a>         <span class="at">carb_to_cyl =</span> mpg_to_cyl<span class="sc">/</span>mpg_to_carb)</span></code></pre></div>
+<pre><code>##                      mpg cyl  disp  hp drat    wt  qsec vs am gear carb
+## Mazda RX4           21.0   6 160.0 110 3.90 2.620 16.46  0  1    4    4
+## Mazda RX4 Wag       21.0   6 160.0 110 3.90 2.875 17.02  0  1    4    4
+## Datsun 710          22.8   4 108.0  93 3.85 2.320 18.61  1  1    4    1
+## Hornet 4 Drive      21.4   6 258.0 110 3.08 3.215 19.44  1  0    3    1
+## Hornet Sportabout   18.7   8 360.0 175 3.15 3.440 17.02  0  0    3    2
+## Valiant             18.1   6 225.0 105 2.76 3.460 20.22  1  0    3    1
+## Duster 360          14.3   8 360.0 245 3.21 3.570 15.84  0  0    3    4
+## Merc 240D           24.4   4 146.7  62 3.69 3.190 20.00  1  0    4    2
+## Merc 230            22.8   4 140.8  95 3.92 3.150 22.90  1  0    4    2
+## Merc 280            19.2   6 167.6 123 3.92 3.440 18.30  1  0    4    4
+## Merc 280C           17.8   6 167.6 123 3.92 3.440 18.90  1  0    4    4
+## Merc 450SE          16.4   8 275.8 180 3.07 4.070 17.40  0  0    3    3
+## Merc 450SL          17.3   8 275.8 180 3.07 3.730 17.60  0  0    3    3
+## Merc 450SLC         15.2   8 275.8 180 3.07 3.780 18.00  0  0    3    3
+## Cadillac Fleetwood  10.4   8 472.0 205 2.93 5.250 17.98  0  0    3    4
+## Lincoln Continental 10.4   8 460.0 215 3.00 5.424 17.82  0  0    3    4
+## Chrysler Imperial   14.7   8 440.0 230 3.23 5.345 17.42  0  0    3    4
+## Fiat 128            32.4   4  78.7  66 4.08 2.200 19.47  1  1    4    1
+## Honda Civic         30.4   4  75.7  52 4.93 1.615 18.52  1  1    4    2
+## Toyota Corolla      33.9   4  71.1  65 4.22 1.835 19.90  1  1    4    1
+## Toyota Corona       21.5   4 120.1  97 3.70 2.465 20.01  1  0    3    1
+## Dodge Challenger    15.5   8 318.0 150 2.76 3.520 16.87  0  0    3    2
+## AMC Javelin         15.2   8 304.0 150 3.15 3.435 17.30  0  0    3    2
+## Camaro Z28          13.3   8 350.0 245 3.73 3.840 15.41  0  0    3    4
+## Pontiac Firebird    19.2   8 400.0 175 3.08 3.845 17.05  0  0    3    2
+## Fiat X1-9           27.3   4  79.0  66 4.08 1.935 18.90  1  1    4    1
+## Porsche 914-2       26.0   4 120.3  91 4.43 2.140 16.70  0  1    5    2
+## Lotus Europa        30.4   4  95.1 113 3.77 1.513 16.90  1  1    5    2
+## Ford Pantera L      15.8   8 351.0 264 4.22 3.170 14.50  0  1    5    4
+## Ferrari Dino        19.7   6 145.0 175 3.62 2.770 15.50  0  1    5    6
+## Maserati Bora       15.0   8 301.0 335 3.54 3.570 14.60  0  1    5    8
+## Volvo 142E          21.4   4 121.0 109 4.11 2.780 18.60  1  1    4    2
+##                     mpg_to_cyl mpg_to_carb carb_to_cyl
+## Mazda RX4             3.500000    5.250000   0.6666667
+## Mazda RX4 Wag         3.500000    5.250000   0.6666667
+## Datsun 710            5.700000   22.800000   0.2500000
+## Hornet 4 Drive        3.566667   21.400000   0.1666667
+## Hornet Sportabout     2.337500    9.350000   0.2500000
+## Valiant               3.016667   18.100000   0.1666667
+## Duster 360            1.787500    3.575000   0.5000000
+## Merc 240D             6.100000   12.200000   0.5000000
+## Merc 230              5.700000   11.400000   0.5000000
+## Merc 280              3.200000    4.800000   0.6666667
+## Merc 280C             2.966667    4.450000   0.6666667
+## Merc 450SE            2.050000    5.466667   0.3750000
+## Merc 450SL            2.162500    5.766667   0.3750000
+## Merc 450SLC           1.900000    5.066667   0.3750000
+## Cadillac Fleetwood    1.300000    2.600000   0.5000000
+## Lincoln Continental   1.300000    2.600000   0.5000000
+## Chrysler Imperial     1.837500    3.675000   0.5000000
+## Fiat 128              8.100000   32.400000   0.2500000
+## Honda Civic           7.600000   15.200000   0.5000000
+## Toyota Corolla        8.475000   33.900000   0.2500000
+## Toyota Corona         5.375000   21.500000   0.2500000
+## Dodge Challenger      1.937500    7.750000   0.2500000
+## AMC Javelin           1.900000    7.600000   0.2500000
+## Camaro Z28            1.662500    3.325000   0.5000000
+## Pontiac Firebird      2.400000    9.600000   0.2500000
+## Fiat X1-9             6.825000   27.300000   0.2500000
+## Porsche 914-2         6.500000   13.000000   0.5000000
+## Lotus Europa          7.600000   15.200000   0.5000000
+## Ford Pantera L        1.975000    3.950000   0.5000000
+## Ferrari Dino          3.283333    3.283333   1.0000000
+## Maserati Bora         1.875000    1.875000   1.0000000
+## Volvo 142E            5.350000   10.700000   0.5000000</code></pre>
+<p>Sometimes you want to apply the same transformation to multiple columns at once. There are several ways to do this using dplyr, but a common one is the function <code>across()</code>. <code>across()</code> is especially useful when summarizing, but can also be used in conjunction with mutate. For example, suppose you wanted to calculate the mean of cyl, mpg, and carb:</p>
+<div class="sourceCode" id="cb153"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb153-1"><a href="lesson-3---tidy-data-and-dplyr.html#cb153-1" aria-hidden="true" tabindex="-1"></a>mtcars <span class="sc">%&gt;%</span></span>
+<span id="cb153-2"><a href="lesson-3---tidy-data-and-dplyr.html#cb153-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="fu">across</span>(<span class="fu">c</span>(cyl, mpg, carb), mean, <span class="at">na.rm =</span> T)) <span class="sc">%&gt;%</span></span>
+<span id="cb153-3"><a href="lesson-3---tidy-data-and-dplyr.html#cb153-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(mpg, cyl, carb)</span></code></pre></div>
+<pre><code>##                          mpg    cyl   carb
+## Mazda RX4           20.09062 6.1875 2.8125
+## Mazda RX4 Wag       20.09062 6.1875 2.8125
+## Datsun 710          20.09062 6.1875 2.8125
+## Hornet 4 Drive      20.09062 6.1875 2.8125
+## Hornet Sportabout   20.09062 6.1875 2.8125
+## Valiant             20.09062 6.1875 2.8125
+## Duster 360          20.09062 6.1875 2.8125
+## Merc 240D           20.09062 6.1875 2.8125
+## Merc 230            20.09062 6.1875 2.8125
+## Merc 280            20.09062 6.1875 2.8125
+## Merc 280C           20.09062 6.1875 2.8125
+## Merc 450SE          20.09062 6.1875 2.8125
+## Merc 450SL          20.09062 6.1875 2.8125
+## Merc 450SLC         20.09062 6.1875 2.8125
+## Cadillac Fleetwood  20.09062 6.1875 2.8125
+## Lincoln Continental 20.09062 6.1875 2.8125
+## Chrysler Imperial   20.09062 6.1875 2.8125
+## Fiat 128            20.09062 6.1875 2.8125
+## Honda Civic         20.09062 6.1875 2.8125
+## Toyota Corolla      20.09062 6.1875 2.8125
+## Toyota Corona       20.09062 6.1875 2.8125
+## Dodge Challenger    20.09062 6.1875 2.8125
+## AMC Javelin         20.09062 6.1875 2.8125
+## Camaro Z28          20.09062 6.1875 2.8125
+## Pontiac Firebird    20.09062 6.1875 2.8125
+## Fiat X1-9           20.09062 6.1875 2.8125
+## Porsche 914-2       20.09062 6.1875 2.8125
+## Lotus Europa        20.09062 6.1875 2.8125
+## Ford Pantera L      20.09062 6.1875 2.8125
+## Ferrari Dino        20.09062 6.1875 2.8125
+## Maserati Bora       20.09062 6.1875 2.8125
+## Volvo 142E          20.09062 6.1875 2.8125</code></pre>
+<p>This example is not particularly useful, as you would probably never want to imply that all car makes have the same mpg, cyl, and carb, but it illustrates the power of across.</p>
+</div>
+<div id="relocate" class="section level5 hasAnchor" number="2.3.2.2.8">
+<h5><span class="header-section-number">2.3.2.2.8</span> <strong>relocate</strong><a href="lesson-3---tidy-data-and-dplyr.html#relocate" class="anchor-section" aria-label="Anchor link to header"></a></h5>
+<p><code>relocate()</code> allows you to move the location of columns in a data frame. You provide a series of columns that you would like to move and a column you would like to move them in front of (with <code>.before</code>) or behind (with <code>.after</code>). For example, to move the disp and hp columns before the mpg column you could do the following:</p>
+<div class="sourceCode" id="cb155"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb155-1"><a href="lesson-3---tidy-data-and-dplyr.html#cb155-1" aria-hidden="true" tabindex="-1"></a>mtcars <span class="sc">%&gt;%</span></span>
+<span id="cb155-2"><a href="lesson-3---tidy-data-and-dplyr.html#cb155-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">relocate</span>(disp, hp, <span class="at">.before =</span> mpg)</span></code></pre></div>
+<pre><code>##                      disp  hp  mpg cyl drat    wt  qsec vs am gear carb
+## Mazda RX4           160.0 110 21.0   6 3.90 2.620 16.46  0  1    4    4
+## Mazda RX4 Wag       160.0 110 21.0   6 3.90 2.875 17.02  0  1    4    4
+## Datsun 710          108.0  93 22.8   4 3.85 2.320 18.61  1  1    4    1
+## Hornet 4 Drive      258.0 110 21.4   6 3.08 3.215 19.44  1  0    3    1
+## Hornet Sportabout   360.0 175 18.7   8 3.15 3.440 17.02  0  0    3    2
+## Valiant             225.0 105 18.1   6 2.76 3.460 20.22  1  0    3    1
+## Duster 360          360.0 245 14.3   8 3.21 3.570 15.84  0  0    3    4
+## Merc 240D           146.7  62 24.4   4 3.69 3.190 20.00  1  0    4    2
+## Merc 230            140.8  95 22.8   4 3.92 3.150 22.90  1  0    4    2
+## Merc 280            167.6 123 19.2   6 3.92 3.440 18.30  1  0    4    4
+## Merc 280C           167.6 123 17.8   6 3.92 3.440 18.90  1  0    4    4
+## Merc 450SE          275.8 180 16.4   8 3.07 4.070 17.40  0  0    3    3
+## Merc 450SL          275.8 180 17.3   8 3.07 3.730 17.60  0  0    3    3
+## Merc 450SLC         275.8 180 15.2   8 3.07 3.780 18.00  0  0    3    3
+## Cadillac Fleetwood  472.0 205 10.4   8 2.93 5.250 17.98  0  0    3    4
+## Lincoln Continental 460.0 215 10.4   8 3.00 5.424 17.82  0  0    3    4
+## Chrysler Imperial   440.0 230 14.7   8 3.23 5.345 17.42  0  0    3    4
+## Fiat 128             78.7  66 32.4   4 4.08 2.200 19.47  1  1    4    1
+## Honda Civic          75.7  52 30.4   4 4.93 1.615 18.52  1  1    4    2
+## Toyota Corolla       71.1  65 33.9   4 4.22 1.835 19.90  1  1    4    1
+## Toyota Corona       120.1  97 21.5   4 3.70 2.465 20.01  1  0    3    1
+## Dodge Challenger    318.0 150 15.5   8 2.76 3.520 16.87  0  0    3    2
+## AMC Javelin         304.0 150 15.2   8 3.15 3.435 17.30  0  0    3    2
+## Camaro Z28          350.0 245 13.3   8 3.73 3.840 15.41  0  0    3    4
+## Pontiac Firebird    400.0 175 19.2   8 3.08 3.845 17.05  0  0    3    2
+## Fiat X1-9            79.0  66 27.3   4 4.08 1.935 18.90  1  1    4    1
+## Porsche 914-2       120.3  91 26.0   4 4.43 2.140 16.70  0  1    5    2
+## Lotus Europa         95.1 113 30.4   4 3.77 1.513 16.90  1  1    5    2
+## Ford Pantera L      351.0 264 15.8   8 4.22 3.170 14.50  0  1    5    4
+## Ferrari Dino        145.0 175 19.7   6 3.62 2.770 15.50  0  1    5    6
+## Maserati Bora       301.0 335 15.0   8 3.54 3.570 14.60  0  1    5    8
+## Volvo 142E          121.0 109 21.4   4 4.11 2.780 18.60  1  1    4    2</code></pre>
+<p>or</p>
+<div class="sourceCode" id="cb157"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb157-1"><a href="lesson-3---tidy-data-and-dplyr.html#cb157-1" aria-hidden="true" tabindex="-1"></a>mtcars <span class="sc">%&gt;%</span></span>
+<span id="cb157-2"><a href="lesson-3---tidy-data-and-dplyr.html#cb157-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">relocate</span>(mpg, cyl, <span class="at">.after =</span> hp)</span></code></pre></div>
+<pre><code>##                      disp  hp  mpg cyl drat    wt  qsec vs am gear carb
+## Mazda RX4           160.0 110 21.0   6 3.90 2.620 16.46  0  1    4    4
+## Mazda RX4 Wag       160.0 110 21.0   6 3.90 2.875 17.02  0  1    4    4
+## Datsun 710          108.0  93 22.8   4 3.85 2.320 18.61  1  1    4    1
+## Hornet 4 Drive      258.0 110 21.4   6 3.08 3.215 19.44  1  0    3    1
+## Hornet Sportabout   360.0 175 18.7   8 3.15 3.440 17.02  0  0    3    2
+## Valiant             225.0 105 18.1   6 2.76 3.460 20.22  1  0    3    1
+## Duster 360          360.0 245 14.3   8 3.21 3.570 15.84  0  0    3    4
+## Merc 240D           146.7  62 24.4   4 3.69 3.190 20.00  1  0    4    2
+## Merc 230            140.8  95 22.8   4 3.92 3.150 22.90  1  0    4    2
+## Merc 280            167.6 123 19.2   6 3.92 3.440 18.30  1  0    4    4
+## Merc 280C           167.6 123 17.8   6 3.92 3.440 18.90  1  0    4    4
+## Merc 450SE          275.8 180 16.4   8 3.07 4.070 17.40  0  0    3    3
+## Merc 450SL          275.8 180 17.3   8 3.07 3.730 17.60  0  0    3    3
+## Merc 450SLC         275.8 180 15.2   8 3.07 3.780 18.00  0  0    3    3
+## Cadillac Fleetwood  472.0 205 10.4   8 2.93 5.250 17.98  0  0    3    4
+## Lincoln Continental 460.0 215 10.4   8 3.00 5.424 17.82  0  0    3    4
+## Chrysler Imperial   440.0 230 14.7   8 3.23 5.345 17.42  0  0    3    4
+## Fiat 128             78.7  66 32.4   4 4.08 2.200 19.47  1  1    4    1
+## Honda Civic          75.7  52 30.4   4 4.93 1.615 18.52  1  1    4    2
+## Toyota Corolla       71.1  65 33.9   4 4.22 1.835 19.90  1  1    4    1
+## Toyota Corona       120.1  97 21.5   4 3.70 2.465 20.01  1  0    3    1
+## Dodge Challenger    318.0 150 15.5   8 2.76 3.520 16.87  0  0    3    2
+## AMC Javelin         304.0 150 15.2   8 3.15 3.435 17.30  0  0    3    2
+## Camaro Z28          350.0 245 13.3   8 3.73 3.840 15.41  0  0    3    4
+## Pontiac Firebird    400.0 175 19.2   8 3.08 3.845 17.05  0  0    3    2
+## Fiat X1-9            79.0  66 27.3   4 4.08 1.935 18.90  1  1    4    1
+## Porsche 914-2       120.3  91 26.0   4 4.43 2.140 16.70  0  1    5    2
+## Lotus Europa         95.1 113 30.4   4 3.77 1.513 16.90  1  1    5    2
+## Ford Pantera L      351.0 264 15.8   8 4.22 3.170 14.50  0  1    5    4
+## Ferrari Dino        145.0 175 19.7   6 3.62 2.770 15.50  0  1    5    6
+## Maserati Bora       301.0 335 15.0   8 3.54 3.570 14.60  0  1    5    8
+## Volvo 142E          121.0 109 21.4   4 4.11 2.780 18.60  1  1    4    2</code></pre>
+<p><code>relocate()</code> is especially useful when outputting tables (where the order of variables is important).</p>
+</div>
+<div id="summarize" class="section level5 hasAnchor" number="2.3.2.2.9">
+<h5><span class="header-section-number">2.3.2.2.9</span> <strong>summarize</strong><a href="lesson-3---tidy-data-and-dplyr.html#summarize" class="anchor-section" aria-label="Anchor link to header"></a></h5>
+<p><code>summarize()</code> (or <code>summarise()</code>) collapses data given a set of grouping variables created by <code>group_by()</code> or other means. The most common use of <code>summarize()</code> is for calculating summary statistics:</p>
+<div class="sourceCode" id="cb159"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb159-1"><a href="lesson-3---tidy-data-and-dplyr.html#cb159-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Group mtcars by mpg and calculate the mean cylinders and max carburetors within those groups.</span></span>
+<span id="cb159-2"><a href="lesson-3---tidy-data-and-dplyr.html#cb159-2" aria-hidden="true" tabindex="-1"></a>mtcars <span class="sc">%&gt;%</span></span>
+<span id="cb159-3"><a href="lesson-3---tidy-data-and-dplyr.html#cb159-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(mpg) <span class="sc">%&gt;%</span></span>
+<span id="cb159-4"><a href="lesson-3---tidy-data-and-dplyr.html#cb159-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarize</span>(<span class="at">cyl =</span> <span class="fu">mean</span>(cyl),</span>
+<span id="cb159-5"><a href="lesson-3---tidy-data-and-dplyr.html#cb159-5" aria-hidden="true" tabindex="-1"></a>            <span class="at">carb =</span> <span class="fu">max</span>(carb))</span></code></pre></div>
+<pre><code>## # A tibble: 25 × 3
+##      mpg   cyl  carb
+##    &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;
+##  1  10.4     8     4
+##  2  13.3     8     4
+##  3  14.3     8     4
+##  4  14.7     8     4
+##  5  15       8     8
+##  6  15.2     8     3
+##  7  15.5     8     2
+##  8  15.8     8     4
+##  9  16.4     8     3
+## 10  17.3     8     3
+## # … with 15 more rows</code></pre>
+<p>But since <code>summarize()</code> applies functions within groups, it can be used for other things, such as grouping text:</p>
+<div class="sourceCode" id="cb161"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb161-1"><a href="lesson-3---tidy-data-and-dplyr.html#cb161-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Create mock data</span></span>
+<span id="cb161-2"><a href="lesson-3---tidy-data-and-dplyr.html#cb161-2" aria-hidden="true" tabindex="-1"></a>ids <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">2</span>)</span>
+<span id="cb161-3"><a href="lesson-3---tidy-data-and-dplyr.html#cb161-3" aria-hidden="true" tabindex="-1"></a>text <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;Hi&quot;</span>, <span class="st">&quot;I&#39;m&quot;</span>, <span class="st">&quot;Reggie&quot;</span>, <span class="st">&quot;G.&quot;</span>)</span>
+<span id="cb161-4"><a href="lesson-3---tidy-data-and-dplyr.html#cb161-4" aria-hidden="true" tabindex="-1"></a>text_data <span class="ot">&lt;-</span> <span class="fu">as.data.frame</span>(<span class="fu">list</span>(<span class="at">id =</span> ids, <span class="at">text =</span> text))</span>
+<span id="cb161-5"><a href="lesson-3---tidy-data-and-dplyr.html#cb161-5" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(text_data)</span></code></pre></div>
+<pre><code>##   id   text
+## 1  1     Hi
+## 2  1    I&#39;m
+## 3  2 Reggie
+## 4  2     G.</code></pre>
+<div class="sourceCode" id="cb163"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb163-1"><a href="lesson-3---tidy-data-and-dplyr.html#cb163-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Combine text by ID</span></span>
+<span id="cb163-2"><a href="lesson-3---tidy-data-and-dplyr.html#cb163-2" aria-hidden="true" tabindex="-1"></a>text_data <span class="sc">%&gt;%</span></span>
+<span id="cb163-3"><a href="lesson-3---tidy-data-and-dplyr.html#cb163-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(id) <span class="sc">%&gt;%</span></span>
+<span id="cb163-4"><a href="lesson-3---tidy-data-and-dplyr.html#cb163-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarize</span>(<span class="at">text =</span> <span class="fu">paste</span>(text, <span class="at">collapse =</span> <span class="st">&quot; &quot;</span>))</span></code></pre></div>
+<pre><code>## # A tibble: 2 × 2
+##      id text     
+##   &lt;dbl&gt; &lt;chr&gt;    
+## 1     1 Hi I&#39;m   
+## 2     2 Reggie G.</code></pre>
+<p>This can come in handy in a variety of contexts such as working with survey data or parsing a pdf.</p>
+</div>
+</div>
+<div id="tidy-data" class="section level4 hasAnchor" number="2.3.2.3">
+<h4><span class="header-section-number">2.3.2.3</span> <strong>Tidy data</strong><a href="lesson-3---tidy-data-and-dplyr.html#tidy-data" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>In general, data sets that you come across while working or doing research will be messy. They will contain unexpected values, missingness, variables that are unclear, and other problems. To help make the irregularities of data more apparent and to shape data into a form that is easily analyzed, statisticians and programmers have created a set of rules for data collectively giving rise to the idea of tidy data. There are three important things to remember about tidy data (see <code>vignette("tidy-data")</code>, from which these rules are drawn):</p>
+<ol style="list-style-type: decimal">
+<li>Every column is a variable.</li>
+<li>Every row is an observation.</li>
+<li>Every cell is a single value.</li>
+</ol>
+<p>As you begin to work with more sophisticated data sets, keep these rules in mind. Use the tools that you learn in this course and beyond to mold the data into a tidy data frame. Reshaping and massaging data may seem like time wasted working on something other than your analysis, but the time you spend organizing your data will be paid for by a more straightforward analytic process.</p>
+</div>
+</div>
+<div id="helpful-links-2" class="section level3 hasAnchor" number="2.3.3">
+<h3><span class="header-section-number">2.3.3</span> Helpful Links<a href="lesson-3---tidy-data-and-dplyr.html#helpful-links-2" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<ul>
+<li><a href="https://www.codecademy.com/courses/learn-r/lessons/r-data-frames-intro/exercises/introduction">Codecademy Lesson Pt. 1</a></li>
+<li><a href="https://www.codecademy.com/courses/learn-r/lessons/r-data-frames-modifying/exercises/introduction">Codecademy Lesson Pt. 2</a></li>
+<li><a href="https://dplyr.tidyverse.org/">More about dplyr</a></li>
+</ul>
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="lesson-2---variables-data-types-and-operators.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="lesson-4---vectors-and-lists.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="assets/gitbook-2.6.7/js/app.min.js"></script>
+<script src="assets/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="assets/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="assets/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="assets/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="assets/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="assets/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="assets/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": null,
+"search": false,
+"toc": {
+"collapse": "subsection"
+},
+"toolbar": {
+"position": "static"
+}
+});
+});
+</script>
+
+</body>
+
+</html>

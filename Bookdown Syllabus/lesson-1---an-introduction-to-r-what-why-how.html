@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>2.1 Lesson 1 - An introduction to R (what, why, how) | Degrees Draft Syllabus</title>
+  <meta name="description" content="2.1 Lesson 1 - An introduction to R (what, why, how) | Degrees Draft Syllabus" />
+  <meta name="generator" content="bookdown 0.33 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="2.1 Lesson 1 - An introduction to R (what, why, how) | Degrees Draft Syllabus" />
+  <meta property="og:type" content="book" />
+  
+  
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="2.1 Lesson 1 - An introduction to R (what, why, how) | Degrees Draft Syllabus" />
+  
+  
+  
+
+<meta name="author" content="Reggie Gilliard" />
+
+
+<meta name="date" content="2022-11-29" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="unit-1---learn-r.html"/>
+<link rel="next" href="lesson-2---variables-data-types-and-operators.html"/>
+<script src="assets/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="assets/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="assets/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="assets/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="assets/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="assets/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="assets/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="assets/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<link href="assets/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="assets/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="assets/anchor-sections-1.1.0/anchor-sections.js"></script>
+
+
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li class="chapter" data-level="1" data-path="introduction.html"><a href="introduction.html"><i class="fa fa-check"></i><b>1</b> Introduction</a>
+<ul>
+<li class="chapter" data-level="1.1" data-path="about-the-instructor.html"><a href="about-the-instructor.html"><i class="fa fa-check"></i><b>1.1</b> About the instructor</a></li>
+<li class="chapter" data-level="1.2" data-path="plan-for-the-course.html"><a href="plan-for-the-course.html"><i class="fa fa-check"></i><b>1.2</b> Plan for the course</a>
+<ul>
+<li class="chapter" data-level="1.2.1" data-path="plan-for-the-course.html"><a href="plan-for-the-course.html#learning"><i class="fa fa-check"></i><b>1.2.1</b> Learning</a></li>
+<li class="chapter" data-level="1.2.2" data-path="plan-for-the-course.html"><a href="plan-for-the-course.html#project"><i class="fa fa-check"></i><b>1.2.2</b> Project</a></li>
+</ul></li>
+<li class="chapter" data-level="1.3" data-path="syllabus.html"><a href="syllabus.html"><i class="fa fa-check"></i><b>1.3</b> Syllabus</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="unit-1---learn-r.html"><a href="unit-1---learn-r.html"><i class="fa fa-check"></i><b>2</b> Unit 1 - Learn R</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="lesson-1---an-introduction-to-r-what-why-how.html"><a href="lesson-1---an-introduction-to-r-what-why-how.html"><i class="fa fa-check"></i><b>2.1</b> Lesson 1 - An introduction to R (what, why, how)</a>
+<ul>
+<li class="chapter" data-level="2.1.1" data-path="lesson-1---an-introduction-to-r-what-why-how.html"><a href="lesson-1---an-introduction-to-r-what-why-how.html#topics-covered"><i class="fa fa-check"></i><b>2.1.1</b> Topics Covered</a></li>
+<li class="chapter" data-level="2.1.2" data-path="lesson-1---an-introduction-to-r-what-why-how.html"><a href="lesson-1---an-introduction-to-r-what-why-how.html#lesson"><i class="fa fa-check"></i><b>2.1.2</b> Lesson</a></li>
+<li class="chapter" data-level="2.1.3" data-path="lesson-1---an-introduction-to-r-what-why-how.html"><a href="lesson-1---an-introduction-to-r-what-why-how.html#helpful-links"><i class="fa fa-check"></i><b>2.1.3</b> Helpful Links</a></li>
+</ul></li>
+<li class="chapter" data-level="2.2" data-path="lesson-2---variables-data-types-and-operators.html"><a href="lesson-2---variables-data-types-and-operators.html"><i class="fa fa-check"></i><b>2.2</b> Lesson 2 - Variables, data types, and operators</a>
+<ul>
+<li class="chapter" data-level="2.2.1" data-path="lesson-2---variables-data-types-and-operators.html"><a href="lesson-2---variables-data-types-and-operators.html#topics-covered-1"><i class="fa fa-check"></i><b>2.2.1</b> Topics Covered</a></li>
+<li class="chapter" data-level="2.2.2" data-path="lesson-2---variables-data-types-and-operators.html"><a href="lesson-2---variables-data-types-and-operators.html#lesson-1"><i class="fa fa-check"></i><b>2.2.2</b> Lesson</a></li>
+<li class="chapter" data-level="2.2.3" data-path="lesson-2---variables-data-types-and-operators.html"><a href="lesson-2---variables-data-types-and-operators.html#helpful-links-1"><i class="fa fa-check"></i><b>2.2.3</b> Helpful Links</a></li>
+</ul></li>
+<li class="chapter" data-level="2.3" data-path="lesson-3---tidy-data-and-dplyr.html"><a href="lesson-3---tidy-data-and-dplyr.html"><i class="fa fa-check"></i><b>2.3</b> Lesson 3 - Tidy data and dplyr</a>
+<ul>
+<li class="chapter" data-level="2.3.1" data-path="lesson-3---tidy-data-and-dplyr.html"><a href="lesson-3---tidy-data-and-dplyr.html#topics-covered-2"><i class="fa fa-check"></i><b>2.3.1</b> Topics Covered</a></li>
+<li class="chapter" data-level="2.3.2" data-path="lesson-3---tidy-data-and-dplyr.html"><a href="lesson-3---tidy-data-and-dplyr.html#lesson-2"><i class="fa fa-check"></i><b>2.3.2</b> Lesson</a></li>
+<li class="chapter" data-level="2.3.3" data-path="lesson-3---tidy-data-and-dplyr.html"><a href="lesson-3---tidy-data-and-dplyr.html#helpful-links-2"><i class="fa fa-check"></i><b>2.3.3</b> Helpful Links</a></li>
+</ul></li>
+<li class="chapter" data-level="2.4" data-path="lesson-4---vectors-and-lists.html"><a href="lesson-4---vectors-and-lists.html"><i class="fa fa-check"></i><b>2.4</b> Lesson 4 - Vectors and lists</a>
+<ul>
+<li class="chapter" data-level="2.4.1" data-path="lesson-4---vectors-and-lists.html"><a href="lesson-4---vectors-and-lists.html#topics-covered-3"><i class="fa fa-check"></i><b>2.4.1</b> Topics Covered</a></li>
+</ul></li>
+<li class="chapter" data-level="2.5" data-path="lesson-5---conditionals-and-loops.html"><a href="lesson-5---conditionals-and-loops.html"><i class="fa fa-check"></i><b>2.5</b> Lesson 5 - Conditionals and loops</a>
+<ul>
+<li class="chapter" data-level="2.5.1" data-path="lesson-5---conditionals-and-loops.html"><a href="lesson-5---conditionals-and-loops.html#topics-covered-4"><i class="fa fa-check"></i><b>2.5.1</b> Topics Covered</a></li>
+</ul></li>
+<li class="chapter" data-level="2.6" data-path="lesson-6---functions.html"><a href="lesson-6---functions.html"><i class="fa fa-check"></i><b>2.6</b> Lesson 6 - Functions</a></li>
+</ul></li>
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Degrees Draft Syllabus</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="lesson-1---an-introduction-to-r-what-why-how" class="section level2 tabset tabset-fade tabset-pills hasAnchor" number="2.1">
+<h2><span class="header-section-number">2.1</span> Lesson 1 - An introduction to R (what, why, how)<a href="lesson-1---an-introduction-to-r-what-why-how.html#lesson-1---an-introduction-to-r-what-why-how" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="topics-covered" class="section level3 hasAnchor" number="2.1.1">
+<h3><span class="header-section-number">2.1.1</span> Topics Covered<a href="lesson-1---an-introduction-to-r-what-why-how.html#topics-covered" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<ol style="list-style-type: decimal">
+<li>What is R?</li>
+<li>Why use R?</li>
+<li>How do I install R?</li>
+<li>The tools of the class.</li>
+</ol>
+</div>
+<div id="lesson" class="section level3 hasAnchor" number="2.1.2">
+<h3><span class="header-section-number">2.1.2</span> Lesson<a href="lesson-1---an-introduction-to-r-what-why-how.html#lesson" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="what-is-r" class="section level4 hasAnchor" number="2.1.2.1">
+<h4><span class="header-section-number">2.1.2.1</span> <strong>What is R?</strong><a href="lesson-1---an-introduction-to-r-what-why-how.html#what-is-r" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<ul>
+<li>Fully realized programming language including loops, conditionals, user-defined functions, and several object-oriented systems.</li>
+<li>Strong data storage, manipulation, and visualization capabilities.</li>
+<li>Suite of statistical packages and built-in functions.</li>
+</ul>
+</div>
+<div id="why-use-r" class="section level4 hasAnchor" number="2.1.2.2">
+<h4><span class="header-section-number">2.1.2.2</span> <strong>Why use R?</strong><a href="lesson-1---an-introduction-to-r-what-why-how.html#why-use-r" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p><img src="./Lesson%201/r_prevalence.png" alt="R is a very common language in data science" />
+R is one of the most common languages for data science and data analysis. This is because, with experience, one can take a project from beginning to end only using R. You can download data; manipulate it by creating new variables, dropping missing observations, etc.; perform statistical analysis; and visualize and output results. R, like Stata and SAS, has built-in statistical analysis functionality, but unlike those two languages it is 100% free and open source. There is are a wide range of functions in base R, but the R community is very strong and has built a host of tools that make doing data analysis and visualization much easier than it is in base R (you will be working with one such suite of tools, the tidyverse/dplyr, in this class). If you are hoping to get a job doing analytic work, if you want advanced education in a social science field, if you want an introduction to coding/computer science, or if you are just looking to better understand quantitative analysis, R is a good place to begin.</p>
+</div>
+<div id="how-do-i-install-r" class="section level4 hasAnchor" number="2.1.2.3">
+<h4><span class="header-section-number">2.1.2.3</span> <strong>How do I install R?</strong><a href="lesson-1---an-introduction-to-r-what-why-how.html#how-do-i-install-r" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>Perform the following series of steps</p>
+<ol style="list-style-type: decimal">
+<li><p>Go to <a href="https://cloud.r-project.org/">The Comprehensive R Archive Network</a></p></li>
+<li><p>Click the link to download R for your operating system
+<img src="./Lesson%201/cranhome.jpg" /></p></li>
+<li><p>Select base
+<img src="./Lesson%201/cranbase.png" /></p></li>
+<li><p>Select the download link at the top of the screen.
+<img src="./Lesson%201/crandld.png" /></p></li>
+</ol>
+<p>You should also install R Studio. Here is how you can do that:</p>
+<ol style="list-style-type: decimal">
+<li><p><a href="https://posit.co/download/rstudio-desktop/">Visit posit.co</a></p></li>
+<li><p>Click the download button in the upper right hand corner
+<img src="./Lesson%201/rstudiodwnld.png" /></p></li>
+<li><p>Scroll down and select RStudio Desktop. Select download RStudio.
+<img src="./Lesson%201/rstudiodsk.png" /></p></li>
+<li><p>Scroll down and select the appropriate installation for your operating system.
+<img src="./Lesson%201/rstudioinstl.png" /></p></li>
+</ol>
+</div>
+<div id="class-tools" class="section level4 hasAnchor" number="2.1.2.4">
+<h4><span class="header-section-number">2.1.2.4</span> <strong>Class tools</strong><a href="lesson-1---an-introduction-to-r-what-why-how.html#class-tools" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>As noted in the introduction, this class will use Codecademy to aid in learning basic coding skills in R and the basic R workflow. You will need a Codecademy account to retain your progress between sessions. You can register for one <a href="https://www.codecademy.com/">here</a>
+<!-- Should I add in Git here? -->
+Another tool you will use throughout the class and one you will also be using in your Codecademy work is a suite of R packages called the Tidyverse. The Tidyverse is designed to make working with data easier and is commonly used in many organizations (we use it at Mathematica, for example). There are eight major packages in the Tidyverse as well as many other specialized packages, but the following are important for this class:</p>
+<ol style="list-style-type: decimal">
+<li>ggplot2 - For visualizing data (i.e. creating graphs, and charts).</li>
+<li>dplyr - For cleaning data and provides access to the magrittr pipe (<code>%&gt;%</code>) which you can make use of for many of your data cleaning tasks in this class (although R now has a built-in pipe: <code>|&gt;</code>).</li>
+<li>readr - For reading data sets with simple syntax.</li>
+</ol>
+<p>To install the Tidyverse, open R or RStudio and type <code>install.packages("tidyverse")</code> into the console.</p>
+<p>Finally, you will use R Markdown when creating your projects. R Markdown allows you to write code and text into the same document and have it rendered nicely as a word document, PDF, or html file. I used R Markdown to write this syllabus. Using R Markdown makes integrating visualizations, code, and analyses into your reports simple.</p>
+<p>That’s it. You’re all set up!</p>
+</div>
+<div id="getting-help-in-r" class="section level4 hasAnchor" number="2.1.2.5">
+<h4><span class="header-section-number">2.1.2.5</span> <strong>Getting help in R</strong><a href="lesson-1---an-introduction-to-r-what-why-how.html#getting-help-in-r" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>While you are in class you can ask me questions and, of course, feel free to email me and other members of the #DegreesNYC team as you need support, but there are other things you can do to get answers before asking me or a classmate for help.</p>
+<ol style="list-style-type: decimal">
+<li>If you are ever unsure what a function does you can type <code>?functionname</code> or <code>help(functionname)</code> into the console and a help file will pop up (in the bottom right corner of your screen if you are using R Studio) that has useful information about the function.</li>
+</ol>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="lesson-1---an-introduction-to-r-what-why-how.html#cb1-1" aria-hidden="true" tabindex="-1"></a>?paste</span></code></pre></div>
+<ol start="2" style="list-style-type: decimal">
+<li>If you are curious about an entire package you can type vignette(packagename) for more information about the package. Note that not all packages have a vignette.</li>
+</ol>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="lesson-1---an-introduction-to-r-what-why-how.html#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">vignette</span>(<span class="st">&quot;dplyr&quot;</span>)</span></code></pre></div>
+<ol start="3" style="list-style-type: decimal">
+<li>If you need help resolving a more complex problem, try Google or another search engine first. There are many people working in R and many sites which aggregate responses to frequently asked questions. <a href="https://stackoverflow.com/">Stackoverflow</a> is one that is well-known in the coding community and that I personally use regularly while at work. It is helpful to investigate solutions to your issues yourself first, because you will retain more information when you’ve had to spend some time searching and iterating on your own.</li>
+</ol>
+</div>
+</div>
+<div id="helpful-links" class="section level3 hasAnchor" number="2.1.3">
+<h3><span class="header-section-number">2.1.3</span> Helpful Links<a href="lesson-1---an-introduction-to-r-what-why-how.html#helpful-links" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<ul>
+<li><a href="https://www.codecademy.com/login">Codecademy</a></li>
+<li><a href="https://www.youtube.com/watch?v=9kYUGMg_14s">Why use R</a></li>
+<li><a href="https://www.w3schools.com/r/default.asp">Familiarize yourself with R</a></li>
+</ul>
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="unit-1---learn-r.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="lesson-2---variables-data-types-and-operators.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="assets/gitbook-2.6.7/js/app.min.js"></script>
+<script src="assets/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="assets/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="assets/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="assets/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="assets/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="assets/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="assets/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": null,
+"search": false,
+"toc": {
+"collapse": "subsection"
+},
+"toolbar": {
+"position": "static"
+}
+});
+});
+</script>
+
+</body>
+
+</html>
