@@ -7,6 +7,7 @@ output:
     toc: TRUE
     toc_depth: 2
     toc_float: TRUE
+
 ---
 
 ```{r setup, include=FALSE}
@@ -20,7 +21,7 @@ invisible(lapply(pkgs, library, character.only = T))
 ![Welcome!](./Introduction/welcome.jpg) <br/>
 Welcome to the 2023 #DegreesNYC R Course! As you know, #DegreesNYC is on a mission to radically transform the NYC public school system at all levels. Collective impact and youth engagement are pillars of #DegreesNYC's mission and are the primary tools that the organization uses to further its goals. The folks at #DegreesNYC, however, are aware that the policy space in which they exist values quantitative evidence highly. This course is meant to democratize quantitative expertise, by giving you an introduction to some of the skills you will need to find, manipulate, and analyze data using R. Our hope is that this will not only be enriching for you personally, but will better position you to make policy arguments in the future.
 
-During the course you are going to work primarily in R and much of the work done using R will be done with R Markdown. Don't worry if you are not familiar with the language or with coding at all; this class and the Codecademy course that will supplement it are meant for beginners. If you do have experience with R and feel that the course is moving too slowly or that you are not being sufficiently challenged, I encourage you to 1) Add complexity to the examples and challenges presented in class or on Codecademy, 2) read ahead in the syllabus and work on something that is at your level, or 3) focus extra time on your project. Though there are many other languages used for data analysis (including Python, SAS, Stata, and SQL), you will not explore those. If you'd like to know more about one of them feel free to reach out to me and I am happy to share what I know or help point you to a starting place if I am inexperienced in the language myself. 
+During the course you are going to work primarily in R and much of the work done using R will be done with R Markdown. Don't worry if you are not familiar with the language or with coding at all; this class and the Codecademy course that will supplement it are meant for beginners. If you do have experience with R and feel that the course is moving too slowly or that you are not being sufficiently challenged here are some options: 1) Add complexity to the examples and challenges presented in class or on Codecademy, 2) read ahead in the syllabus and work on something that is at your level, or 3) focus extra time on your project. Though there are many other languages used for data analysis (including Python, SAS, Stata, and SQL), you will not explore those. If you'd like to know more about one of them feel free to reach out to me and I am happy to share what I know or help point you to a starting place if I am inexperienced in the language myself. 
 
 ## About the instructor
 
@@ -40,11 +41,13 @@ During the Learning Unit you will be focused on working through lessons. Each se
 
 ### Project
 
-Unit 2 will be dedicated to a project that encourages you to complete analysis of a data set of your choice from start to finish. You will take the data set through the following stages:
+Unit 2 will be dedicated to a complete analysis of a data set of your choice. For the final six weeks of the course, finishing this project will be the goal. We may still cover some topics briefly to give you additional tools which are beyond the scope of the lessons, but are useful for creating an appealing report, however most of the time will be spent in breakout groups working on your projects. All projects will be undertaken individually, but teams of two will be permitted if there is a compelling reason. 
+
+To complete the project you will need to take your data set through the following stages:
 
 * Research Question Creation
 
-  + Brainstorm some questions that you are curious about and want to spend some time exploring. Many of you are students or are already working in the research field; you're encouraged to bring questions that are relevant for your work or your classes.
+  + Brainstorm some questions that you are curious about and want to spend some time exploring. Many of you are students or are already working in the research field; if it is helpful, bring questions that are relevant for your work or your classes.
 
 * Data Identification
 
@@ -55,8 +58,6 @@ Unit 2 will be dedicated to a project that encourages you to complete analysis o
   + [IPEDS](https://nces.ed.gov/ipeds/use-the-data) - Postsecondary education data sets.
   + [NCES](https://nces.ed.gov/ccd/schoolsearch/) - National (or state specific) school data sets.
   + [Kaggle](https://www.kaggle.com/datasets) - Public data sets on a wide variety of topics (account needed).
-  
-  + If you begin your search early enough, it's possible to find public data on just about anything. If the sources listed here don't meet your needs, reach out and we can search for something that interests you.
 
 * Data cleaning
   
@@ -69,15 +70,16 @@ Unit 2 will be dedicated to a project that encourages you to complete analysis o
 
 * Data Analysis
 
-  + Provide some basic descriptive statistics on the data set. Use the mean, median, min, max, to describe variables of interest in your data set.
-  + Use kableExtra for tables as an extension
-  + Run regressions/anovas as an extension
+  + Provide some basic descriptive statistics on the data set. Use measures such as the mean, median, min, max, or other statistics to describe variables of interest in your data set.
+  + If you would like to go beyond standard descriptive analysis, consider using what you learn about ANOVAs on Codecademy to test for significant differences between levels of a categorical variable of interest.
 
 * Data Visualization
 
-  + Visualize with ggplot
-  + Visualize with kable/kableExtra
-  + For an extension, create a shiny dashboard.
+  + Once you have cleaned and analyzed your data, it will be time to visualize your results. `ggplot2` is the package that we will use for visualization in this class and the possibilities are broad. The [ggplot2 gallery](https://r-graph-gallery.com/) shows the wide range of graphs that you can create using `ggplot2` and related packages, and even provides code to use to get started. 
+  + R Markdown renders the data sets that you create, but it isn't particularly nice. It is possible to create publication-ready tables using the kable and kableExtra packages. If your analysis includes substantial statistical reporting, use these packages to show your tables to the reader.
+  + If you want to challenge yourself, try turning your R Markdown document into an interactive Shiny Dashboard!
+  
+I encourage you to use the time in break out rooms collaboratively: share your screens, share code, ask each other questions, and learn from one another. Use your classmates and me as a resource to create something you feel is worthwhile. Although I suggest doing the project alone, this is to maximize learning, not to prevent "cheating". Any and all collaboration is welcome in this course.
 
 ## Syllabus
 
@@ -168,7 +170,7 @@ While you are in class you can ask me questions and, of course, feel free to ema
 vignette("dplyr")
 ```
 
-3. If you need help resolving a more complex problem, try Google or another search engine first. There are many people working in R and many sites which aggregate responses to frequently asked questions. [Stackoverflow](https://stackoverflow.com/) is one that is well-known in the coding community and that I personally use regularly while at work. I encourage you to investigate solutions to your issues yourself first because you will retain more information when you've had to spend some time searching and iterating on your own.
+3. If you need help resolving a more complex problem, try Google or another search engine first. There are many people working in R and many sites which aggregate responses to frequently asked questions. [Stackoverflow](https://stackoverflow.com/) is one that is well-known in the coding community and that I personally use regularly while at work. It is helpful to investigate solutions to your issues yourself first, because you will retain more information when you've had to spend some time searching and iterating on your own.
 
 ### Helpful Links
 
