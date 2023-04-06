@@ -267,6 +267,18 @@ Another tool you will use throughout the class and one you will also be using in
 <li>If you need help resolving a more complex problem, try Google or another search engine first. There are many people working in R and many sites which aggregate responses to frequently asked questions. <a href="https://stackoverflow.com/">Stackoverflow</a> is one that is well-known in the coding community and that I personally use regularly while at work. It is helpful to investigate solutions to your issues yourself first, because you will retain more information when you’ve had to spend some time searching and iterating on your own.</li>
 </ol>
 </div>
+<div id="install-the-courses-exercises" class="section level4 hasAnchor" number="2.1.2.6">
+<h4><span class="header-section-number">2.1.2.6</span> <strong>Install the Course’s exercises</strong><a href="lesson-1---an-introduction-to-r-what-why-how.html#install-the-courses-exercises" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>Once you’ve installed R and set up R studio, open R studio, open a new script, and copy and paste the code below to install the exercises that accompany this course.</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="lesson-1---an-introduction-to-r-what-why-how.html#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Try to install the swirl package</span></span>
+<span id="cb3-2"><a href="lesson-1---an-introduction-to-r-what-why-how.html#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="fu">try</span>(<span class="fu">install.packages</span>(<span class="st">&quot;swirl&quot;</span>, <span class="at">repos =</span> <span class="st">&quot;https://cloud.r-project.org/&quot;</span>))</span>
+<span id="cb3-3"><a href="lesson-1---an-introduction-to-r-what-why-how.html#cb3-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-4"><a href="lesson-1---an-introduction-to-r-what-why-how.html#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Uninstall the DegreesNYC_RCourse</span></span>
+<span id="cb3-5"><a href="lesson-1---an-introduction-to-r-what-why-how.html#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="fu">try</span>(swirl<span class="sc">::</span><span class="fu">uninstall_course</span>(<span class="st">&quot;DegreesNYC_RCourse&quot;</span>), <span class="at">silent =</span> T)</span>
+<span id="cb3-6"><a href="lesson-1---an-introduction-to-r-what-why-how.html#cb3-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-7"><a href="lesson-1---an-introduction-to-r-what-why-how.html#cb3-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Install the DegreesNYC_RCourse</span></span>
+<span id="cb3-8"><a href="lesson-1---an-introduction-to-r-what-why-how.html#cb3-8" aria-hidden="true" tabindex="-1"></a><span class="fu">try</span>(swirl<span class="sc">::</span><span class="fu">install_course_github</span>(<span class="st">&quot;R-Gilliard-Jr&quot;</span>, <span class="st">&quot;DegreesNYC_RCourse&quot;</span>, <span class="at">branch =</span> <span class="st">&quot;main&quot;</span>))</span></code></pre></div>
+</div>
 </div>
 <div id="helpful-links" class="section level3 hasAnchor" number="2.1.3">
 <h3><span class="header-section-number">2.1.3</span> Helpful Links<a href="lesson-1---an-introduction-to-r-what-why-how.html#helpful-links" class="anchor-section" aria-label="Anchor link to header"></a></h3>

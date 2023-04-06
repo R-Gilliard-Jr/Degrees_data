@@ -1784,6 +1784,20 @@ yourself first, because you will retain more information when you’ve had
 to spend some time searching and iterating on your own.</li>
 </ol>
 </div>
+<div id="install-the-courses-exercises" class="section level4">
+<h4><strong>Install the Course’s exercises</strong></h4>
+<p>Once you’ve installed R and set up R studio, open R studio, open a
+new script, and copy and paste the code below to install the exercises
+that accompany this course.</p>
+<pre class="r"><code># Try to install the swirl package
+try(install.packages(&quot;swirl&quot;, repos = &quot;https://cloud.r-project.org/&quot;))
+
+# Uninstall the DegreesNYC_RCourse
+try(swirl::uninstall_course(&quot;DegreesNYC_RCourse&quot;), silent = T)
+
+# Install the DegreesNYC_RCourse
+try(swirl::install_course_github(&quot;R-Gilliard-Jr&quot;, &quot;DegreesNYC_RCourse&quot;, branch = &quot;main&quot;))</code></pre>
+</div>
 </div>
 <div id="helpful-links" class="section level3">
 <h3>Helpful Links</h3>

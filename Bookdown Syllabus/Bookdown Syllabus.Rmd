@@ -178,6 +178,21 @@ vignette("dplyr")
 
 3. If you need help resolving a more complex problem, try Google or another search engine first. There are many people working in R and many sites which aggregate responses to frequently asked questions. [Stackoverflow](https://stackoverflow.com/) is one that is well-known in the coding community and that I personally use regularly while at work. It is helpful to investigate solutions to your issues yourself first, because you will retain more information when you've had to spend some time searching and iterating on your own.
 
+#### **Install the Course's exercises**
+
+Once you've installed R and set up R studio, open R studio, open a new script, and copy and paste the code below to install the exercises that accompany this course.
+
+```{r install_exercises, eval = F}
+# Try to install the swirl package
+try(install.packages("swirl", repos = "https://cloud.r-project.org/"))
+
+# Uninstall the DegreesNYC_RCourse
+try(swirl::uninstall_course("DegreesNYC_RCourse"), silent = T)
+
+# Install the DegreesNYC_RCourse
+try(swirl::install_course_github("R-Gilliard-Jr", "DegreesNYC_RCourse", branch = "main"))
+```
+
 ### Helpful Links
 
 * [Codecademy](https://www.codecademy.com/login)
