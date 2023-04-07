@@ -35,7 +35,9 @@ That degree led Reggie to the Research Alliance for New York City Schools, where
 
 Outside of the work he does he enjoys reading; playing sports, video games, and board games; trying new restaurants, and generally spending time with his friends and family.
 
-![Reggie Gilliard](./Introduction/instructor.jpg) <br/>
+```{r instructor_pic, out.height = "400px", echo = F}
+knitr::include_graphics("./Introduction/instructor.jpg")
+```
 
 ## Plan for the course  {.tabset .tabset-fade .tabset-pills}
 
