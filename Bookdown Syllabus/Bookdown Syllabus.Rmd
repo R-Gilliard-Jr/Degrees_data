@@ -31,11 +31,11 @@ During the course you are going to work primarily in R and much of the work done
 
 ## About the instructor
 
-I came to data analytics and R through an unusual path. I started my career as a teacher in private schools, first at San Francisco Day school and then at Collegiate. Education is now and has always been important to me, but I didn't feel that the place that I could deliver the biggest impact was in the classroom. After two years teaching, then, I set off to pursue a master's degree in education policy.
+Reggie Gilliard came to data analytics and R through an unusual path. He started his career as a teacher in private schools, first at San Francisco Day school and then at Collegiate. Education is now and has always been important to him, but feeling that his impact could be greater outside of the classroom he set off to pursue a master's degree in education policy.
 
-That degree led me to the Research Alliacnce for New York City Schools, where my relationship with #DegreesNYC began, and that position led me to a PhD at Teachers College, Columbia University in the Economics and Education program. Currently, I am a Data Analytics Developer at [Mathematica](https://www.mathematica.org/). I have experience using SAS, SQL, Stata, R, and Python (as well as tools like Excel), but I am most well versed in R and Stata.
+That degree led Reggie to the Research Alliance for New York City Schools, where his relationship with #DegreesNYC began. That position led him to a PhD at Teachers College, Columbia University in the Economics and Education program. Currently, he is a Data Analytics Developer at [Mathematica](https://www.mathematica.org/). He has experience using SAS, SQL, Stata, R, and Python (as well as tools like Excel), but is most well versed in R and Stata.
 
-Outside of the work I do I enjoy reading; playing sports, video games, and board games; trying new restaurants, and generally spending time with my friends and family.
+Outside of the work he does he enjoys reading; playing sports, video games, and board games; trying new restaurants, and generally spending time with his friends and family.
 
 ## Plan for the course  {.tabset .tabset-fade .tabset-pills}
 
