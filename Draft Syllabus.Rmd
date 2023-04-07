@@ -23,6 +23,10 @@ Welcome to the 2023 #DegreesNYC R Course! As you know, #DegreesNYC is on a missi
 
 During the course you are going to work primarily in R and much of the work done using R will be done with R Markdown. Don't worry if you are not familiar with the language or with coding at all; this class and the Codecademy course that will supplement it are meant for beginners. If you do have experience with R and feel that the course is moving too slowly or that you are not being sufficiently challenged here are some options: 1) Add complexity to the examples and challenges presented in class or on Codecademy, 2) read ahead in the syllabus and work on something that is at your level, or 3) focus extra time on your project. Though there are many other languages used for data analysis (including Python, SAS, Stata, and SQL), you will not explore those. If you'd like to know more about one of them feel free to reach out to me and I am happy to share what I know or help point you to a starting place if I am inexperienced in the language myself. 
 
+## Contact
+
+Feel free to email me at any time at regg19970@gmail.com.
+
 ## About the instructor
 
 Reggie Gilliard came to data analytics and R through an unusual path. He started his career as a teacher in private schools, first at San Francisco Day school and then at Collegiate. Education is now and has always been important to him, but feeling that his impact could be greater outside of the classroom he set off to pursue a master's degree in education policy.
@@ -30,6 +34,8 @@ Reggie Gilliard came to data analytics and R through an unusual path. He started
 That degree led Reggie to the Research Alliance for New York City Schools, where his relationship with #DegreesNYC began. That position led him to a PhD at Teachers College, Columbia University in the Economics and Education program. Currently, he is a Data Analytics Developer at [Mathematica](https://www.mathematica.org/). He has experience using SAS, SQL, Stata, R, and Python (as well as tools like Excel), but is most well versed in R and Stata.
 
 Outside of the work he does he enjoys reading; playing sports, video games, and board games; trying new restaurants, and generally spending time with his friends and family.
+
+![Reggie Gilliard](./Introduction/instructor.jpg) <br/>
 
 ## Plan for the course  {.tabset .tabset-fade .tabset-pills}
 
@@ -111,7 +117,7 @@ R is one of the most common languages for data science and data analysis. This i
 
 #### **How do I install R?**
 
-Perform the following series of steps
+To install R you will need about 500mb of free space on your computer (you may actually need less, but freeing up 500 mb ensures you will be able to download the data and packages used in the course). Perform the following series of steps:
 
 1. Go to [The Comprehensive R Archive Network](https://cloud.r-project.org/)
 
