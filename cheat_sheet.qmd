@@ -1,0 +1,121 @@
+---
+title: "Cheat Sheet"
+format: html
+toc: TRUE
+toc_float: TRUE
+editor: visual
+---
+
+## VARIABLES
+
+\- Assign a value to a variable using the \<- operator or the = sign
+
+\- Variables can hold numbers, strings, or logical values (TRUE or FALSE)
+
+```{r}
+#| label: variables
+x <- 5             # assign 5 to variable x
+
+y <- "hello"       # assign "hello" to variable y
+
+z <- TRUE          # assign TRUE to variable z
+```
+
+## DATA TYPES
+
+\- Numeric: for numbers
+
+\- Character: for text
+
+\- Logical: for TRUE/FALSE values
+
+```{r}
+#| label: data_types
+
+x <- 5             # numeric
+
+y <- "hello"       # character
+
+z <- TRUE          # logical
+```
+
+## VECTORS
+
+\- A vector is a collection of values of the same data type
+
+\- Create a vector using the c() function
+
+```{r}
+#| label: vectors
+x <- c(1, 2, 3, 4)       # create a numeric vector
+
+y <- c("red", "green", "blue") # create a character vector
+```
+
+## SUBSETTING
+
+\- Access elements of a vector using the \[\] operator
+
+\- Use a colon to select a range of values
+
+```{r}
+#| label: subsetting
+
+x[1]                # get the first element of x
+
+y[2:3]              # get the second and third elements of y
+```
+
+## CONDITIONALS
+
+\- Use if-else statements to execute code based on a condition
+
+\- Use comparison operators (\<, \>, \<=, \>=, ==, !=) to compare values
+
+```{r}
+#| label: conditionals
+x <- runif(1, 0, 10)
+if (x > 5) {
+
+  print("x is greater than 5")
+
+} else {
+
+  print("x is less than or equal to 5")
+
+}
+```
+
+## LOOPS
+
+\- Use for loops to repeat a block of code a specified number of times
+
+\- Use while loops to repeat a block of code as long as a condition is true
+
+```{r}
+# label: loops
+for (i in 1:10) {
+
+  print(i)
+
+}
+```
+
+## FUNCTIONS
+
+\- A function is a block of code that performs a specific task
+
+\- Define a function using the function() keyword
+
+```{r}
+# label: functions
+myFunction <- function(x, y) {
+
+  return(x + y)
+
+}
+```
+
+## Comprehensive Cheat Sheet
+
+[Cheat sheet](https://iqss.github.io/dss-workshops/R/Rintro/base-r-cheat-sheet.pdf)
