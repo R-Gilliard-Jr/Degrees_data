@@ -964,9 +964,32 @@ As you begin to work with more sophisticated data sets, keep these rules in mind
 3. For loops
     + When to use
 
-```{r lesson5}
+### Lesson
 
+#### Conditionals and their Use
+
+If it rains, then I will bring an umbrella. If I get a dog or a cat, then I will make trips to the vet. Both of these sentences are conditionals. We operate by taking in information and then making decisions based on that information. Sometimes code needs to operate that way too: the same solution does not always work for different problems. In R, these if/then statements are called conditionals.
+
+Conditionals are useful in a variety of circumstances. A basic example can convert our story about rain into code:
+
+```{r l5_1_1}
+weather <- sample(c("rainy", "sunny"), 1)
+if (weather == "rainy") {
+  umbrella <- "did"
+} else {
+  umbrella <- "did not"
+}
+
+paste("The weather is", weather, "so I", umbrella, "bring my umbrella.")
 ```
+
+The sentence changes depending on the weather. 
+
+Here is an example with more applicability to data analysis. Suppose that you are conducting a study where some students are randomly assigned to attend private school. You want to compare the test scores of students assigned to private school and the test scores of students who remained in a public school. 
+
+First, let's create some fake data
+
+
 
 ## Lesson 6 - Functions {.tabset .tabset-fade .tabset-pills}
 
