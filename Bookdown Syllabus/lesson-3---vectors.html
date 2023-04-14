@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>2.3 Lesson 3 - Vectors | R Course Syllabus</title>
+  <meta name="description" content="2.3 Lesson 3 - Vectors | R Course Syllabus" />
+  <meta name="generator" content="bookdown 0.33 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="2.3 Lesson 3 - Vectors | R Course Syllabus" />
+  <meta property="og:type" content="book" />
+  
+  
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="2.3 Lesson 3 - Vectors | R Course Syllabus" />
+  
+  
+  
+
+
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="lesson-2---variables-data-types-and-operators.html"/>
+<link rel="next" href="lesson-4---tidy-data-and-dplyr.html"/>
+<script src="assets/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="assets/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="assets/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="assets/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="assets/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="assets/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="assets/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="assets/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<link href="assets/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="assets/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="assets/anchor-sections-1.1.0/anchor-sections.js"></script>
+
+
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li class="chapter" data-level="1" data-path="introduction.html"><a href="introduction.html"><i class="fa fa-check"></i><b>1</b> Introduction</a>
+<ul>
+<li class="chapter" data-level="1.1" data-path="contact.html"><a href="contact.html"><i class="fa fa-check"></i><b>1.1</b> Contact</a></li>
+<li class="chapter" data-level="1.2" data-path="about-the-instructor.html"><a href="about-the-instructor.html"><i class="fa fa-check"></i><b>1.2</b> About the instructor</a></li>
+<li class="chapter" data-level="1.3" data-path="plan-for-the-course.html"><a href="plan-for-the-course.html"><i class="fa fa-check"></i><b>1.3</b> Plan for the course</a>
+<ul>
+<li class="chapter" data-level="1.3.1" data-path="plan-for-the-course.html"><a href="plan-for-the-course.html#learning"><i class="fa fa-check"></i><b>1.3.1</b> Learning</a></li>
+<li class="chapter" data-level="1.3.2" data-path="plan-for-the-course.html"><a href="plan-for-the-course.html#project"><i class="fa fa-check"></i><b>1.3.2</b> Project</a></li>
+</ul></li>
+<li class="chapter" data-level="1.4" data-path="syllabus.html"><a href="syllabus.html"><i class="fa fa-check"></i><b>1.4</b> Syllabus</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="unit-1---learn-r.html"><a href="unit-1---learn-r.html"><i class="fa fa-check"></i><b>2</b> Unit 1 - Learn R</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="lesson-1---an-introduction-to-r-what-why-how.html"><a href="lesson-1---an-introduction-to-r-what-why-how.html"><i class="fa fa-check"></i><b>2.1</b> Lesson 1 - An introduction to R (what, why, how)</a>
+<ul>
+<li class="chapter" data-level="2.1.1" data-path="lesson-1---an-introduction-to-r-what-why-how.html"><a href="lesson-1---an-introduction-to-r-what-why-how.html#topics-covered"><i class="fa fa-check"></i><b>2.1.1</b> Topics Covered</a></li>
+<li class="chapter" data-level="2.1.2" data-path="lesson-1---an-introduction-to-r-what-why-how.html"><a href="lesson-1---an-introduction-to-r-what-why-how.html#lesson"><i class="fa fa-check"></i><b>2.1.2</b> Lesson</a></li>
+<li class="chapter" data-level="2.1.3" data-path="lesson-1---an-introduction-to-r-what-why-how.html"><a href="lesson-1---an-introduction-to-r-what-why-how.html#helpful-links"><i class="fa fa-check"></i><b>2.1.3</b> Helpful Links</a></li>
+</ul></li>
+<li class="chapter" data-level="2.2" data-path="lesson-2---variables-data-types-and-operators.html"><a href="lesson-2---variables-data-types-and-operators.html"><i class="fa fa-check"></i><b>2.2</b> Lesson 2 - Variables, data types, and operators</a>
+<ul>
+<li class="chapter" data-level="2.2.1" data-path="lesson-2---variables-data-types-and-operators.html"><a href="lesson-2---variables-data-types-and-operators.html#topics-covered-1"><i class="fa fa-check"></i><b>2.2.1</b> Topics Covered</a></li>
+<li class="chapter" data-level="2.2.2" data-path="lesson-2---variables-data-types-and-operators.html"><a href="lesson-2---variables-data-types-and-operators.html#lesson-1"><i class="fa fa-check"></i><b>2.2.2</b> Lesson</a></li>
+<li class="chapter" data-level="2.2.3" data-path="lesson-2---variables-data-types-and-operators.html"><a href="lesson-2---variables-data-types-and-operators.html#helpful-links-1"><i class="fa fa-check"></i><b>2.2.3</b> Helpful Links</a></li>
+</ul></li>
+<li class="chapter" data-level="2.3" data-path="lesson-3---vectors.html"><a href="lesson-3---vectors.html"><i class="fa fa-check"></i><b>2.3</b> Lesson 3 - Vectors</a>
+<ul>
+<li class="chapter" data-level="2.3.1" data-path="lesson-3---vectors.html"><a href="lesson-3---vectors.html#topics-covered-2"><i class="fa fa-check"></i><b>2.3.1</b> Topics Covered</a></li>
+<li class="chapter" data-level="2.3.2" data-path="lesson-3---vectors.html"><a href="lesson-3---vectors.html#lesson-2"><i class="fa fa-check"></i><b>2.3.2</b> Lesson</a></li>
+<li class="chapter" data-level="2.3.3" data-path="lesson-3---vectors.html"><a href="lesson-3---vectors.html#helpful-links-2"><i class="fa fa-check"></i><b>2.3.3</b> Helpful Links</a></li>
+</ul></li>
+<li class="chapter" data-level="2.4" data-path="lesson-4---tidy-data-and-dplyr.html"><a href="lesson-4---tidy-data-and-dplyr.html"><i class="fa fa-check"></i><b>2.4</b> Lesson 4 - Tidy data and dplyr</a>
+<ul>
+<li class="chapter" data-level="2.4.1" data-path="lesson-4---tidy-data-and-dplyr.html"><a href="lesson-4---tidy-data-and-dplyr.html#topics-covered-3"><i class="fa fa-check"></i><b>2.4.1</b> Topics Covered</a></li>
+<li class="chapter" data-level="2.4.2" data-path="lesson-4---tidy-data-and-dplyr.html"><a href="lesson-4---tidy-data-and-dplyr.html#lesson-3"><i class="fa fa-check"></i><b>2.4.2</b> Lesson</a></li>
+<li class="chapter" data-level="2.4.3" data-path="lesson-4---tidy-data-and-dplyr.html"><a href="lesson-4---tidy-data-and-dplyr.html#helpful-links-3"><i class="fa fa-check"></i><b>2.4.3</b> Helpful Links</a></li>
+</ul></li>
+<li class="chapter" data-level="2.5" data-path="lesson-5---conditionals-and-loops.html"><a href="lesson-5---conditionals-and-loops.html"><i class="fa fa-check"></i><b>2.5</b> Lesson 5 - Conditionals and loops</a>
+<ul>
+<li class="chapter" data-level="2.5.1" data-path="lesson-5---conditionals-and-loops.html"><a href="lesson-5---conditionals-and-loops.html#topics-covered-4"><i class="fa fa-check"></i><b>2.5.1</b> Topics Covered</a></li>
+</ul></li>
+<li class="chapter" data-level="2.6" data-path="lesson-6---functions.html"><a href="lesson-6---functions.html"><i class="fa fa-check"></i><b>2.6</b> Lesson 6 - Functions</a></li>
+</ul></li>
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">R Course Syllabus</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="lesson-3---vectors" class="section level2 tabset tabset-fade tabset-pills hasAnchor" number="2.3">
+<h2><span class="header-section-number">2.3</span> Lesson 3 - Vectors<a href="lesson-3---vectors.html#lesson-3---vectors" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="topics-covered-2" class="section level3 hasAnchor" number="2.3.1">
+<h3><span class="header-section-number">2.3.1</span> Topics Covered<a href="lesson-3---vectors.html#topics-covered-2" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<ol style="list-style-type: decimal">
+<li>What is a vector?
+<ul>
+<li>Types of vectors
+<ul>
+<li>Atomic Vectors</li>
+<li>Lists</li>
+</ul></li>
+</ul></li>
+<li>Creating vectors</li>
+<li>Coercion</li>
+<li>Using vectors
+<ul>
+<li>Subsetting</li>
+<li>Vectorized operations</li>
+</ul></li>
+</ol>
+</div>
+<div id="lesson-2" class="section level3 hasAnchor" number="2.3.2">
+<h3><span class="header-section-number">2.3.2</span> Lesson<a href="lesson-3---vectors.html#lesson-2" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="what-is-a-vector" class="section level4 hasAnchor" number="2.3.2.1">
+<h4><span class="header-section-number">2.3.2.1</span> <strong>What is a vector?</strong><a href="lesson-3---vectors.html#what-is-a-vector" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>In data analysis we often work with more than one value. It can be useful to analyze a single data point, but it is often much more productive to analyze multiple data points sequentially or at the same time. The question arises: how do we store this data?</p>
+<p>In R, the most basic way to store data is in a vector. Technically, you have been working with vectors all along when you have been using R to perform calculations and manipulate strings.</p>
+<div class="sourceCode" id="cb96"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb96-1"><a href="lesson-3---vectors.html#cb96-1" aria-hidden="true" tabindex="-1"></a><span class="fu">is.vector</span>(<span class="dv">2</span>)</span></code></pre></div>
+<pre><code>## [1] TRUE</code></pre>
+<div class="sourceCode" id="cb98"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb98-1"><a href="lesson-3---vectors.html#cb98-1" aria-hidden="true" tabindex="-1"></a><span class="fu">is.vector</span>(<span class="st">&quot;RG&quot;</span>)</span></code></pre></div>
+<pre><code>## [1] TRUE</code></pre>
+<p>These are vectors of length 1.</p>
+<p>A vector is a structure that allows you to store data. In R, vectors come in two types: atomic vectors and lists.</p>
+<div id="atomic-vectors" class="section level5 hasAnchor" number="2.3.2.1.1">
+<h5><span class="header-section-number">2.3.2.1.1</span> <strong>Atomic Vectors</strong><a href="lesson-3---vectors.html#atomic-vectors" class="anchor-section" aria-label="Anchor link to header"></a></h5>
+<p>The two vectors I showed above are atomic vectors. You can confirm whether or not a vector is atomic by using the <code>is.atomic()</code> function (although this function should be used sparingly as it will also return TRUE in other cases). Experimenting with the vectors I showed above:</p>
+<div class="sourceCode" id="cb100"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb100-1"><a href="lesson-3---vectors.html#cb100-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="dv">2</span></span>
+<span id="cb100-2"><a href="lesson-3---vectors.html#cb100-2" aria-hidden="true" tabindex="-1"></a><span class="fu">is.atomic</span>(x)</span></code></pre></div>
+<pre><code>## [1] TRUE</code></pre>
+<div class="sourceCode" id="cb102"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb102-1"><a href="lesson-3---vectors.html#cb102-1" aria-hidden="true" tabindex="-1"></a>y <span class="ot">&lt;-</span> <span class="st">&quot;RG&quot;</span></span>
+<span id="cb102-2"><a href="lesson-3---vectors.html#cb102-2" aria-hidden="true" tabindex="-1"></a><span class="fu">is.atomic</span>(y)</span></code></pre></div>
+<pre><code>## [1] TRUE</code></pre>
+<p>An atomic vector is a vector which contains only data of one type. The types are the ones we discussed in lesson 2: logical, numeric, and character (as well as the other, less common, types complex and raw). In the code above <code>x</code> is a numeric vector and <code>y</code> is a character vector. A logical vector could also be created:</p>
+<div class="sourceCode" id="cb104"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb104-1"><a href="lesson-3---vectors.html#cb104-1" aria-hidden="true" tabindex="-1"></a>z <span class="ot">&lt;-</span> <span class="cn">TRUE</span></span>
+<span id="cb104-2"><a href="lesson-3---vectors.html#cb104-2" aria-hidden="true" tabindex="-1"></a><span class="fu">is.atomic</span>(z)</span></code></pre></div>
+<pre><code>## [1] TRUE</code></pre>
+<p>You can check the type of a vector using the <code>class()</code> function:</p>
+<div class="sourceCode" id="cb106"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb106-1"><a href="lesson-3---vectors.html#cb106-1" aria-hidden="true" tabindex="-1"></a><span class="fu">class</span>(x)</span></code></pre></div>
+<pre><code>## [1] &quot;numeric&quot;</code></pre>
+<div class="sourceCode" id="cb108"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb108-1"><a href="lesson-3---vectors.html#cb108-1" aria-hidden="true" tabindex="-1"></a><span class="fu">class</span>(y)</span></code></pre></div>
+<pre><code>## [1] &quot;character&quot;</code></pre>
+<div class="sourceCode" id="cb110"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb110-1"><a href="lesson-3---vectors.html#cb110-1" aria-hidden="true" tabindex="-1"></a><span class="fu">class</span>(z)</span></code></pre></div>
+<pre><code>## [1] &quot;logical&quot;</code></pre>
+</div>
+<div id="lists" class="section level5 hasAnchor" number="2.3.2.1.2">
+<h5><span class="header-section-number">2.3.2.1.2</span> <strong>Lists</strong><a href="lesson-3---vectors.html#lists" class="anchor-section" aria-label="Anchor link to header"></a></h5>
+<p>Lists differ from atomic vectors in that they allow the storage of multiple different data types:</p>
+<div class="sourceCode" id="cb112"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb112-1"><a href="lesson-3---vectors.html#cb112-1" aria-hidden="true" tabindex="-1"></a>newList <span class="ot">&lt;-</span> <span class="fu">list</span>(<span class="dv">1</span>, <span class="st">&quot;RG&quot;</span>)</span>
+<span id="cb112-2"><a href="lesson-3---vectors.html#cb112-2" aria-hidden="true" tabindex="-1"></a><span class="fu">is.vector</span>(newList)</span></code></pre></div>
+<pre><code>## [1] TRUE</code></pre>
+<div class="sourceCode" id="cb114"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb114-1"><a href="lesson-3---vectors.html#cb114-1" aria-hidden="true" tabindex="-1"></a>newList</span></code></pre></div>
+<pre><code>## [[1]]
+## [1] 1
+## 
+## [[2]]
+## [1] &quot;RG&quot;</code></pre>
+<p>Data frames, which we will use throughout lesson 4, are built on lists. Since lists are a little more complicated than atomic vectors, we will focus on atomic vectors in the course, but you should be aware that lists exist and you should experiment with them yourself. Lists make some analytic tasks significantly easier or more efficient.</p>
+</div>
+</div>
+<div id="creating-vectors" class="section level4 hasAnchor" number="2.3.2.2">
+<h4><span class="header-section-number">2.3.2.2</span> <strong>Creating vectors</strong><a href="lesson-3---vectors.html#creating-vectors" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>There are many ways to create vectors. R has the <code>vector()</code> function. You pass it the <code>mode</code> or type of vector you would like to create and the length of the vector you would like to create and it creates that vector for you.</p>
+<div class="sourceCode" id="cb116"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb116-1"><a href="lesson-3---vectors.html#cb116-1" aria-hidden="true" tabindex="-1"></a>char_vec <span class="ot">&lt;-</span> <span class="fu">vector</span>(<span class="st">&quot;character&quot;</span>, <span class="at">length =</span> <span class="dv">10</span>)</span>
+<span id="cb116-2"><a href="lesson-3---vectors.html#cb116-2" aria-hidden="true" tabindex="-1"></a>char_vec</span></code></pre></div>
+<pre><code>##  [1] &quot;&quot; &quot;&quot; &quot;&quot; &quot;&quot; &quot;&quot; &quot;&quot; &quot;&quot; &quot;&quot; &quot;&quot; &quot;&quot;</code></pre>
+<p>The vector created by <code>vector()</code> is empty, which means you will need to fill it later.</p>
+<p>A more common way of creating vectors in R is with the <code>c()</code> function (short for combine). You pass this function a series of values you would like combined into a single vector and it returns a vector for you. For example, here is a character vector with my name:</p>
+<div class="sourceCode" id="cb118"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb118-1"><a href="lesson-3---vectors.html#cb118-1" aria-hidden="true" tabindex="-1"></a>my_name <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;Reggie&quot;</span>, <span class="st">&quot;Gilliard&quot;</span>)</span>
+<span id="cb118-2"><a href="lesson-3---vectors.html#cb118-2" aria-hidden="true" tabindex="-1"></a>my_name</span></code></pre></div>
+<pre><code>## [1] &quot;Reggie&quot;   &quot;Gilliard&quot;</code></pre>
+<p><code>c()</code> took the two strings that I passed it and combined it into one vector which I assigned to <code>my_name</code>. Note that unlike the vectors <code>x</code>, <code>y</code>, and <code>z</code> shown above this vector has more than one element:</p>
+<div class="sourceCode" id="cb120"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb120-1"><a href="lesson-3---vectors.html#cb120-1" aria-hidden="true" tabindex="-1"></a><span class="fu">length</span>(x)</span></code></pre></div>
+<pre><code>## [1] 1</code></pre>
+<div class="sourceCode" id="cb122"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb122-1"><a href="lesson-3---vectors.html#cb122-1" aria-hidden="true" tabindex="-1"></a><span class="fu">length</span>(my_name)</span></code></pre></div>
+<pre><code>## [1] 2</code></pre>
+</div>
+<div id="coercion" class="section level4 hasAnchor" number="2.3.2.3">
+<h4><span class="header-section-number">2.3.2.3</span> <strong>Coercion</strong><a href="lesson-3---vectors.html#coercion" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>I’ve said that atomic vectors store data of only one type. What happens if you try to combine data of different types into an atomic vector? Let’s give it a try:</p>
+<div class="sourceCode" id="cb124"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb124-1"><a href="lesson-3---vectors.html#cb124-1" aria-hidden="true" tabindex="-1"></a>mixed_vec <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;I am&quot;</span>, <span class="dv">28</span>)</span>
+<span id="cb124-2"><a href="lesson-3---vectors.html#cb124-2" aria-hidden="true" tabindex="-1"></a>mixed_vec</span></code></pre></div>
+<pre><code>## [1] &quot;I am&quot; &quot;28&quot;</code></pre>
+<p>What happened here? At first glance, it appears that we were able to do it; but if you looked closely you may have noticed that the number 28 is actually surrounded by quotation marks. This is because of <em>Coercion</em>, which is R forcing all elements of the vector to be of a single type. There is a coercion hierarchy: character &gt; double &gt; integer &gt; logical. In other words, if a vector contains 10 elements and just a single one is a character string, the entire vector will become a character string. See, for example:</p>
+<div class="sourceCode" id="cb126"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb126-1"><a href="lesson-3---vectors.html#cb126-1" aria-hidden="true" tabindex="-1"></a>mixed_vec2 <span class="ot">&lt;-</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">9</span> <span class="co"># Store the numbers 1 to 9 in a vector</span></span>
+<span id="cb126-2"><a href="lesson-3---vectors.html#cb126-2" aria-hidden="true" tabindex="-1"></a>mixed_vec2</span></code></pre></div>
+<pre><code>## [1] 1 2 3 4 5 6 7 8 9</code></pre>
+<div class="sourceCode" id="cb128"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb128-1"><a href="lesson-3---vectors.html#cb128-1" aria-hidden="true" tabindex="-1"></a><span class="fu">class</span>(mixed_vec2)</span></code></pre></div>
+<pre><code>## [1] &quot;integer&quot;</code></pre>
+<div class="sourceCode" id="cb130"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb130-1"><a href="lesson-3---vectors.html#cb130-1" aria-hidden="true" tabindex="-1"></a>mixed_vec2 <span class="ot">&lt;-</span> <span class="fu">c</span>(mixed_vec2, <span class="st">&quot;10&quot;</span>) <span class="co"># Add a single character string</span></span>
+<span id="cb130-2"><a href="lesson-3---vectors.html#cb130-2" aria-hidden="true" tabindex="-1"></a>mixed_vec2</span></code></pre></div>
+<pre><code>##  [1] &quot;1&quot;  &quot;2&quot;  &quot;3&quot;  &quot;4&quot;  &quot;5&quot;  &quot;6&quot;  &quot;7&quot;  &quot;8&quot;  &quot;9&quot;  &quot;10&quot;</code></pre>
+<div class="sourceCode" id="cb132"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb132-1"><a href="lesson-3---vectors.html#cb132-1" aria-hidden="true" tabindex="-1"></a><span class="fu">class</span>(mixed_vec2)</span></code></pre></div>
+<pre><code>## [1] &quot;character&quot;</code></pre>
+<p>It is important to be aware of how values will be coerced when working with vectors. You can use coercion to your advantage, but it can also work against you and may lead to unintended consequences (such as introducing missing values).</p>
+</div>
+<div id="using-vectors" class="section level4 hasAnchor" number="2.3.2.4">
+<h4><span class="header-section-number">2.3.2.4</span> <strong>Using vectors</strong><a href="lesson-3---vectors.html#using-vectors" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>Until now we have stored a single number, string, or TRUE/FALSE value in each object we created. But, if we were faced with a more complex problem, we could use vectors instead to solve it. Let’s consider the task of figuring out who the tallest student is in a class. First, I’ll generate some data. It is not important for you to know how to do this.</p>
+<div class="sourceCode" id="cb134"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb134-1"><a href="lesson-3---vectors.html#cb134-1" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">89329</span>)</span>
+<span id="cb134-2"><a href="lesson-3---vectors.html#cb134-2" aria-hidden="true" tabindex="-1"></a>students <span class="ot">&lt;-</span> <span class="fu">sample</span>(letters, <span class="dv">10</span>, <span class="at">replace =</span> <span class="cn">FALSE</span>)</span>
+<span id="cb134-3"><a href="lesson-3---vectors.html#cb134-3" aria-hidden="true" tabindex="-1"></a>students</span></code></pre></div>
+<pre><code>##  [1] &quot;h&quot; &quot;m&quot; &quot;r&quot; &quot;p&quot; &quot;g&quot; &quot;j&quot; &quot;k&quot; &quot;b&quot; &quot;z&quot; &quot;a&quot;</code></pre>
+<div class="sourceCode" id="cb136"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb136-1"><a href="lesson-3---vectors.html#cb136-1" aria-hidden="true" tabindex="-1"></a>heights <span class="ot">&lt;-</span> <span class="fu">round</span>(<span class="fu">runif</span>(<span class="dv">10</span>, <span class="dv">60</span>, <span class="dv">72</span>), <span class="dv">2</span>)</span>
+<span id="cb136-2"><a href="lesson-3---vectors.html#cb136-2" aria-hidden="true" tabindex="-1"></a>heights</span></code></pre></div>
+<pre><code>##  [1] 64.86 61.01 71.46 67.95 69.93 68.13 62.08 70.45 70.22 64.36</code></pre>
+<p>Now we have 10 students, identified by letters, and 10 heights, one corresponding to each student.</p>
+<p>We could visually determine which student is the tallest by looking at the data and seeing that the 3rd height is the largest.</p>
+<p>We could then extract the height of that student from the vector using <code>[</code>. R uses the brackets to <em>subset</em> vectors, lists and data frames. You enter into the brackets the position (<em>index</em>) or name of the value you want and R will return it to you. So if we want the height of the 9th student:</p>
+<div class="sourceCode" id="cb138"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb138-1"><a href="lesson-3---vectors.html#cb138-1" aria-hidden="true" tabindex="-1"></a>heights[<span class="dv">9</span>]</span></code></pre></div>
+<pre><code>## [1] 70.22</code></pre>
+<p>Or if we wanted to get the height of students 4-6 we could do that in two ways:</p>
+<div class="sourceCode" id="cb140"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb140-1"><a href="lesson-3---vectors.html#cb140-1" aria-hidden="true" tabindex="-1"></a>heights[<span class="dv">4</span><span class="sc">:</span><span class="dv">6</span>]</span></code></pre></div>
+<pre><code>## [1] 67.95 69.93 68.13</code></pre>
+<div class="sourceCode" id="cb142"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb142-1"><a href="lesson-3---vectors.html#cb142-1" aria-hidden="true" tabindex="-1"></a>heights[<span class="fu">c</span>(<span class="dv">4</span>, <span class="dv">5</span>, <span class="dv">6</span>)]</span></code></pre></div>
+<pre><code>## [1] 67.95 69.93 68.13</code></pre>
+<p>But we are interested in the height of the 3rd student, since they are the tallest</p>
+<div class="sourceCode" id="cb144"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb144-1"><a href="lesson-3---vectors.html#cb144-1" aria-hidden="true" tabindex="-1"></a>heights[<span class="dv">3</span>]</span></code></pre></div>
+<pre><code>## [1] 71.46</code></pre>
+<p>And, to find out the student who has this height:</p>
+<div class="sourceCode" id="cb146"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb146-1"><a href="lesson-3---vectors.html#cb146-1" aria-hidden="true" tabindex="-1"></a>students[<span class="dv">3</span>]</span></code></pre></div>
+<pre><code>## [1] &quot;r&quot;</code></pre>
+<p>And, finally, to put it all together:</p>
+<div class="sourceCode" id="cb148"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb148-1"><a href="lesson-3---vectors.html#cb148-1" aria-hidden="true" tabindex="-1"></a><span class="fu">paste</span>(<span class="st">&quot;Student&quot;</span>, students[<span class="dv">3</span>], <span class="st">&quot;is the tallest at&quot;</span>, heights[<span class="dv">3</span>], <span class="st">&quot;inches&quot;</span>)</span></code></pre></div>
+<pre><code>## [1] &quot;Student r is the tallest at 71.46 inches&quot;</code></pre>
+<p>But what if, instead, there were 1000 heights and 1000 students? We would not be able to easily discern which student was the tallest by eye. This is what vectors are useful for. R has many functions that make just this kind of analysis simple when using vectors. For example, R’s <code>which.max()</code> function will return the position of the maximal value in a vector:</p>
+<div class="sourceCode" id="cb150"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb150-1"><a href="lesson-3---vectors.html#cb150-1" aria-hidden="true" tabindex="-1"></a>(max <span class="ot">&lt;-</span> <span class="fu">which.max</span>(heights))</span></code></pre></div>
+<pre><code>## [1] 3</code></pre>
+<div class="sourceCode" id="cb152"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb152-1"><a href="lesson-3---vectors.html#cb152-1" aria-hidden="true" tabindex="-1"></a>heights[max]</span></code></pre></div>
+<pre><code>## [1] 71.46</code></pre>
+<p>So instead of eyeballing the vector we’ve used R to quickly find the maximum. Then we can output the same result above:</p>
+<div class="sourceCode" id="cb154"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb154-1"><a href="lesson-3---vectors.html#cb154-1" aria-hidden="true" tabindex="-1"></a><span class="fu">paste</span>(<span class="st">&quot;Student&quot;</span>, students[max], <span class="st">&quot;is the tallest at&quot;</span>, heights[max], <span class="st">&quot;inches&quot;</span>)</span></code></pre></div>
+<pre><code>## [1] &quot;Student r is the tallest at 71.46 inches&quot;</code></pre>
+<p>Now suppose we wanted to know the total number of snacks each student ate and there are two types of snacks–salty and sweet.</p>
+<div class="sourceCode" id="cb156"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb156-1"><a href="lesson-3---vectors.html#cb156-1" aria-hidden="true" tabindex="-1"></a>(salty <span class="ot">&lt;-</span> <span class="fu">sample</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>, <span class="dv">10</span>, <span class="at">replace =</span> T))</span></code></pre></div>
+<pre><code>##  [1] 10  7  3  2  6 10  5  4  3  8</code></pre>
+<div class="sourceCode" id="cb158"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb158-1"><a href="lesson-3---vectors.html#cb158-1" aria-hidden="true" tabindex="-1"></a>(sweet <span class="ot">&lt;-</span> <span class="fu">sample</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>, <span class="dv">10</span>, <span class="at">replace =</span> T))</span></code></pre></div>
+<pre><code>##  [1] 10  3  6  6  7 10  4  4  4 10</code></pre>
+<p>We could get the number of snacks eaten by each student by going throw the indices of the two vectors one-by-one and summing the values like so:</p>
+<div class="sourceCode" id="cb160"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb160-1"><a href="lesson-3---vectors.html#cb160-1" aria-hidden="true" tabindex="-1"></a>salty[<span class="dv">1</span>] <span class="sc">+</span> sweet[<span class="dv">1</span>]</span></code></pre></div>
+<pre><code>## [1] 20</code></pre>
+<p>And this works fine for a small vector like this, but what about a vector with 1000 values. R offers <em>vectorized</em> operations–operations which can be used on entire vectors rather than one element at a time. Addition is one of those vectorized operations. Rather than adding each element individually, we can add the two vectors in one line:</p>
+<div class="sourceCode" id="cb162"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb162-1"><a href="lesson-3---vectors.html#cb162-1" aria-hidden="true" tabindex="-1"></a>salty <span class="sc">+</span> sweet</span></code></pre></div>
+<pre><code>##  [1] 20 10  9  8 13 20  9  8  7 18</code></pre>
+<p>This is much simpler and much more efficient.</p>
+</div>
+</div>
+<div id="helpful-links-2" class="section level3 hasAnchor" number="2.3.3">
+<h3><span class="header-section-number">2.3.3</span> Helpful Links<a href="lesson-3---vectors.html#helpful-links-2" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<ul>
+<li><a href="https://www.codecademy.com/courses/learn-r/lessons/introduction-to-r/exercises/why-r">Codecademy Lesson (beginning from the vectors section)</a></li>
+<li><a href="https://r4ds.had.co.nz/vectors.html">R for Data Science</a></li>
+<li><a href="https://www.w3schools.com/r/r_vectors.asp">W3 Schools</a></li>
+</ul>
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="lesson-2---variables-data-types-and-operators.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="lesson-4---tidy-data-and-dplyr.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="assets/gitbook-2.6.7/js/app.min.js"></script>
+<script src="assets/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="assets/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="assets/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="assets/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="assets/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="assets/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="assets/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": null,
+"search": false,
+"toc": {
+"collapse": "subsection"
+},
+"toolbar": {
+"position": "static"
+}
+});
+});
+</script>
+
+</body>
+
+</html>

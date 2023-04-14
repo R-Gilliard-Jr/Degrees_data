@@ -1,7 +1,5 @@
 ---
-title: "Degrees Draft Syllabus"
-author: "Reggie Gilliard"
-date: "11/29/2022"
+title: "R Course Syllabus"
 output:
   bookdown::gitbook:
     lib_dir: assets
@@ -460,7 +458,206 @@ numlist[!(numlist >= 5)]
 * [More information about operators](https://www.statmethods.net/management/operators.html)
 * [For a deeper dive into creating custom operators](https://adv-r.hadley.nz/functions.html#infix-functions)
 
-## Lesson 3 - Tidy data and dplyr {.tabset .tabset-fade .tabset-pills}
+## Lesson 3 - Vectors {.tabset .tabset-fade .tabset-pills}
+
+### Topics Covered
+
+1. What is a vector?
+    + Types of vectors
+      + Atomic Vectors
+      + Lists
+2. Creating vectors
+3. Coercion
+4. Using vectors
+    + Subsetting
+    + Vectorized operations
+
+### Lesson
+
+#### **What is a vector?**
+
+In data analysis we often work with more than one value. It can be useful to analyze a single data point, but it is often much more productive to analyze multiple data points sequentially or at the same time. The question arises: how do we store this data?
+
+In R, the most basic way to store data is in a vector. Technically, you have been working with vectors all along when you have been using R to perform calculations and manipulate strings.
+
+```{r l3_1_1}
+is.vector(2)
+is.vector("RG")
+```
+
+These are vectors of length 1. 
+
+A vector is a structure that allows you to store data. In R, vectors come in two types: atomic vectors and lists.
+
+##### **Atomic Vectors**
+
+The two vectors I showed above are atomic vectors. You can confirm whether or not a vector is atomic by using the `is.atomic()` function (although this function should be used sparingly as it will also return TRUE in other cases). Experimenting with the vectors I showed above:
+
+```{r l3_1_2}
+x <- 2
+is.atomic(x)
+y <- "RG"
+is.atomic(y)
+```
+
+An atomic vector is a vector which contains only data of one type. The types are the ones we discussed in lesson 2: logical, numeric, and character (as well as the other, less common, types complex and raw). In the code above `x` is a numeric vector and `y` is a character vector. A logical vector could also be created:
+
+```{r l3_1_3}
+z <- TRUE
+is.atomic(z)
+```
+
+You can check the type of a vector using the `class()` function:
+
+```{r l3_1_4}
+class(x)
+class(y)
+class(z)
+```
+
+##### **Lists**
+
+Lists differ from atomic vectors in that they allow the storage of multiple different data types:
+
+```{r l3_1_5}
+newList <- list(1, "RG")
+is.vector(newList)
+newList
+```
+
+Data frames, which we will use throughout lesson 4, are built on lists. Since lists are a little more complicated than atomic vectors, we will focus on atomic vectors in the course, but you should be aware that lists exist and you should experiment with them yourself. Lists make some analytic tasks significantly easier or more efficient.
+
+#### **Creating vectors**
+
+There are many ways to create vectors. R has the `vector()` function. You pass it the `mode` or type of vector you would like to create and the length of the vector you would like to create and it creates that vector for you.
+
+```{r l3_2_1}
+char_vec <- vector("character", length = 10)
+char_vec
+```
+
+The vector created by `vector()` is empty, which means you will need to fill it later.
+
+A more common way of creating vectors in R is with the `c()` function (short for combine). You pass this function a series of values you would like combined into a single vector and it returns a vector for you. For example, here is a character vector with my name:
+
+```{r l3_2_2}
+my_name <- c("Reggie", "Gilliard")
+my_name
+```
+`c()` took the two strings that I passed it and combined it into one vector which I assigned to `my_name`. Note that unlike the vectors `x`, `y`, and `z` shown above this vector has more than one element:
+
+```{r l3_2_3}
+length(x)
+length(my_name)
+```
+
+#### **Coercion**
+
+I've said that atomic vectors store data of only one type. What happens if you try to combine data of different types into an atomic vector? Let's give it a try:
+
+```{r l3_3_1}
+mixed_vec <- c("I am", 28)
+mixed_vec
+```
+
+What happened here? At first glance, it appears that we were able to do it; but if you looked closely you may have noticed that the number 28 is actually surrounded by quotation marks. This is because of *Coercion*, which is R forcing all elements of the vector to be of a single type. There is a coercion hierarchy: character > double > integer > logical. In other words, if a vector contains 10 elements and just a single one is a character string, the entire vector will become a character string. See, for example:
+
+```{r l3_3_2}
+mixed_vec2 <- 1:9 # Store the numbers 1 to 9 in a vector
+mixed_vec2
+class(mixed_vec2)
+mixed_vec2 <- c(mixed_vec2, "10") # Add a single character string
+mixed_vec2
+class(mixed_vec2)
+```
+
+It is important to be aware of how values will be coerced when working with vectors. You can use coercion to your advantage, but it can also work against you and may lead to unintended consequences (such as introducing missing values).
+
+#### **Using vectors**
+
+Until now we have stored a single number, string, or TRUE/FALSE value in each object we created. But, if we were faced with a more complex problem, we could use vectors instead to solve it. Let's consider the task of figuring out who the tallest student is in a class. First, I'll generate some data. It is not important for you to know how to do this.
+
+```{r l3_4_1}
+set.seed(89329)
+students <- sample(letters, 10, replace = FALSE)
+students
+heights <- round(runif(10, 60, 72), 2)
+heights
+```
+
+Now we have 10 students, identified by letters, and 10 heights, one corresponding to each student.
+
+We could visually determine which student is the tallest by looking at the data and seeing that the 3rd height is the largest.
+
+We could then extract the height of that student from the vector using `[`. R uses the brackets to *subset* vectors, lists and data frames. You enter into the brackets the position (*index*) or name of the value you want and R will return it to you. So if we want the height of the 9th student:
+
+```{r l3_4_2}
+heights[9]
+```
+
+Or if we wanted to get the height of students 4-6 we could do that in two ways:
+
+```{r l3_4_3}
+heights[4:6]
+heights[c(4, 5, 6)]
+```
+
+But we are interested in the height of the 3rd student, since they are the tallest
+
+```{r l3_4_4}
+heights[3]
+```
+
+And, to find out the student who has this height:
+
+```{r l3_4_5}
+students[3]
+```
+And, finally, to put it all together:
+
+```{r l3_4_6}
+paste("Student", students[3], "is the tallest at", heights[3], "inches")
+```
+
+But what if, instead, there were 1000 heights and 1000 students? We would not be able to easily discern which student was the tallest by eye. This is what vectors are useful for. R has many functions that make just this kind of analysis simple when using vectors. For example, R's `which.max()` function will return the position of the maximal value in a vector:
+
+```{r l3_4_7}
+(max <- which.max(heights))
+heights[max]
+```
+
+So instead of eyeballing the vector we've used R to quickly find the maximum. Then we can output the same result above:
+
+```{r l3_4_8}
+paste("Student", students[max], "is the tallest at", heights[max], "inches")
+```
+
+Now suppose we wanted to know the total number of snacks each student ate and there are two types of snacks--salty and sweet.
+
+```{r l3_4_9}
+(salty <- sample(1:10, 10, replace = T))
+(sweet <- sample(1:10, 10, replace = T))
+```
+
+We could get the number of snacks eaten by each student by going throw the indices of the two vectors one-by-one and summing the values like so:
+
+```{r l3_4_10}
+salty[1] + sweet[1]
+```
+And this works fine for a small vector like this, but what about a vector with 1000 values. R offers *vectorized* operations--operations which can be used on entire vectors rather than one element at a time. Addition is one of those vectorized operations. Rather than adding each element individually, we can add the two vectors in one line:
+
+```{r l3_4_11}
+salty + sweet
+```
+This is much simpler and much more efficient.
+
+### Helpful Links
+
+* [Codecademy Lesson (beginning from the vectors section)](https://www.codecademy.com/courses/learn-r/lessons/introduction-to-r/exercises/why-r)
+* [R for Data Science](https://r4ds.had.co.nz/vectors.html)
+* [W3 Schools](https://www.w3schools.com/r/r_vectors.asp)
+
+## Lesson 4 - Tidy data and dplyr {.tabset .tabset-fade .tabset-pills}
 
 ### Topics Covered
 
@@ -478,7 +675,7 @@ numlist[!(numlist >= 5)]
 
 One of R's strengths, that it is open source, is also what makes it difficult to learn. There are sometimes many ways to do the same thing with solutions coming from base R, as well as many different packages. For example, suppose you load the built-in R data set mtcars and want to view only cars with mpg > 20:
 
-```{r l3_1_ex1}
+```{r l4_1_ex1}
 # Print data set
 mtcars
 
@@ -501,13 +698,13 @@ There are eight basic dplyr functions (and many more that are available for more
 
 The pipe operator takes the result on the current line and inserts it into the first argument of the following line. For example 1+1 %>% sum(2) = 4.
 
-```{r l3_2_ex1}
+```{r l4_2_ex1}
 1+1 %>%
   sum(2)
 ```
 The pipe operator makes workflows cleaner while still being easy to follow by removing the need for many intermediate saving steps. To illustrate, here is how one could multiply mpg by 2 and divide cyl by 3 in both base R and dplyr.
 
-```{r l3_2_ex2}
+```{r l4_2_ex2}
 # In base R
 # First duplicate the data set
 mtcars2 <- mtcars
@@ -532,21 +729,21 @@ Two additional notes: 1) For folks who are coming from other oriented programmin
 
 dplyr's `filter()` function allows you to select rows meeting certain criteria. Suppose you are using the mtcars data set and only want to see cars with exactly 6 cylinders. Then with dplyr:
 
-```{r l3_2_ex3}
+```{r l4_2_ex3}
 mtcars %>%
   filter(cyl == 6)
 ```
 
 Or suppose you only wanted cars with 4 or more forward gears. Then
 
-```{r l3_2_ex4}
+```{r l4_2_ex4}
 mtcars %>%
   filter(gear >= 4)
 ```
 
 Combine `filter()` with logical operators and other functions for more complex selection of observations. Like in this case where the data is subset to only cars made by Mazda:
 
-```{r l3_2_ex5}
+```{r l4_2_ex5}
 mtcars %>%
   mutate(make = rownames(mtcars)) %>%
   filter(grepl("Mazda", make))
@@ -556,21 +753,21 @@ mtcars %>%
 
 `slice()` allows selecting rows by index. For example, to select rows 1, 3, and 5 of mtcars:
 
-```{r l3_2_ex6}
+```{r l4_2_ex6}
 mtcars %>%
   slice(c(1, 3, 5))
 ```
 
 Or to select all odd rows:
 
-```{r l3_2_ex7}
+```{r l4_2_ex7}
 mtcars %>%
   slice(seq(1, nrow(mtcars), by = 2))
 ```
 
 There are also helper functions to do things like select the first and last rows quickly:
 
-```{r l3_2_ex8}
+```{r l4_2_ex8}
 # First 5 rows
 slice_head(mtcars, n = 5)
 
@@ -582,7 +779,7 @@ slice_tail(mtcars, n = 5)
 
 `arrange()` sorts data. You provide a column and, by default, it sorts the rows by that column in ascending order. Compare the following:
 
-```{r l3_2_ex9}
+```{r l4_2_ex9}
 # Not arranged
 mtcars
 
@@ -593,14 +790,14 @@ mtcars %>%
 
 In the first case, the mtcars data set is in some arbitrary order. After using `arrange()`, the rows are ordered from lowest to highest mpg. Wrapping the target columns in `desc()` will arrange rows in descending order:
 
-```{r l3_2_ex10}
+```{r l4_2_ex10}
 mtcars %>%
   arrange(desc(mpg))
 ```
 
 Providing multiple columns to arrange will break ties on using succeeding columns:
 
-```{r l3_2_ex11}
+```{r l4_2_ex11}
 mtcars %>%
   arrange(mpg)
 
@@ -610,7 +807,7 @@ mtcars %>%
 
 In the second case, Lincoln Continental comes before Cadillac Fleetwood, because Lincoln Continental has the lower disp. Again, `desc()` could be applied. In this case, Cadillac Fleetwood comes first:
 
-```{r l3_2_ex12}
+```{r l4_2_ex12}
 mtcars %>%
   arrange(mpg, desc(disp))
 ```
@@ -619,14 +816,14 @@ mtcars %>%
 
 `select()` is among the most common dplyr verbs. It has a simple, but important function: selecting which variables should be kept in a data frame. For example, if you only want to keep the mpg variable from the mtcars data frame, you can do the following:
 
-```{r l3_2_ex13}
+```{r l4_2_ex13}
 mtcars %>%
   select(mpg)
 ```
 
 If instead, you'd like to keep multiple variables--say cylinders, gears, and carburetors:
 
-```{r l3_2_ex14}
+```{r l4_2_ex14}
 mtcars %>%
   select(mpg, gear, carb)
 
@@ -639,7 +836,7 @@ mtcars %>%
 
 As shown above, columns can be provided as a comma separated list, a character vector, or a vector of objects. This is especially useful if, instead, you want to remove some variables from the data frame:
 
-```{r l3_2_ex15}
+```{r l4_2_ex15}
 mtcars %>%
   select(-c("mpg", "gear", "carb"))
 ```
@@ -650,14 +847,14 @@ Now the variables of interest have been removed.
 
 Sometimes column names are inconvenient to work with, not descriptive, or generally do not meet your needs. `rename()` can remedy this problem; use it when you want to rename a column in a data frame:
 
-```{r l3_2_ex16}
+```{r l4_2_ex16}
 mtcars %>%
   rename(MilesPerGallon = mpg)
 ```
 
 The new variable name is entered on the left-hand side of the equation, the old variable name on the right hand side. Multiple columns can be renamed at once by separating each expression with a comma:
 
-```{r l3_2_ex17}
+```{r l4_2_ex17}
 mtcars %>%
   rename(MilesPerGallon = mpg,
          Cylinders = cyl,
@@ -666,7 +863,7 @@ mtcars %>%
 
 R has rules about how variables can be named (see `help(make.names)` for more information). If you would really like to (for example if you are creating a public-facing table), you can create non-syntactic names by wrapping them in backticks:
 
-```{r l3_2_ex18}
+```{r l4_2_ex18}
 mtcars %>%
   rename(`Miles Per Gallon` = mpg)
 ```
@@ -675,14 +872,14 @@ mtcars %>%
 
 `mutate()` allows you to modify and create columns in a data frame. You use mutate by writing the column name you'd like to modify/create on the left-hand side and a value on the right-hand side of an expression. For example you can calculate the mpg to cyl ratio in mtcars:
 
-```{r l3_2_ex19}
+```{r l4_2_ex19}
 mtcars %>%
   mutate(mpg_to_cyl = mpg/cyl)
 ```
 
 As with `rename()`, if you'd like to manipulate multiple variables in one call to `mutate()` you can do that by separating expressions with a comma:
 
-```{r l3_2_ex20}
+```{r l4_2_ex20}
 mtcars %>%
   mutate(mpg_to_cyl = mpg/cyl,
          mpg_to_carb = mpg/carb,
@@ -691,7 +888,7 @@ mtcars %>%
 
 Sometimes you want to apply the same transformation to multiple columns at once. There are several ways to do this using dplyr, but a common one is the function `across()`. `across()` is especially useful when summarizing, but can also be used in conjunction with mutate. For example, suppose you wanted to calculate the mean of cyl, mpg, and carb:
 
-```{r l3_2_ex21}
+```{r l4_2_ex21}
 mtcars %>%
   mutate(across(c(cyl, mpg, carb), mean, na.rm = T)) %>%
   select(mpg, cyl, carb)
@@ -703,14 +900,14 @@ This example is not particularly useful, as you would probably never want to imp
 
 `relocate()` allows you to move the location of columns in a data frame. You provide a series of columns that you would like to move and a column you would like to move them in front of (with `.before`) or behind (with `.after`). For example, to move the disp and hp columns before the mpg column you could do the following:
 
-```{r l3_2_ex22}
+```{r l4_2_ex22}
 mtcars %>%
   relocate(disp, hp, .before = mpg)
 ```
 
 or
 
-```{r l3_2_ex23}
+```{r l4_2_ex23}
 mtcars %>%
   relocate(mpg, cyl, .after = hp)
 ```
@@ -721,7 +918,7 @@ mtcars %>%
 
 `summarize()` (or `summarise()`) collapses data given a set of grouping variables created by `group_by()` or other means. The most common use of `summarize()` is for calculating summary statistics:
 
-```{r l3_2_ex24}
+```{r l4_2_ex24}
 # Group mtcars by mpg and calculate the mean cylinders and max carburetors within those groups.
 mtcars %>%
   group_by(mpg) %>%
@@ -731,7 +928,7 @@ mtcars %>%
 
 But since `summarize()` applies functions within groups, it can be used for other things, such as grouping text:
 
-```{r l3_2_ex25}
+```{r l4_2_ex25}
 # Create mock data
 ids <- c(1, 1, 2, 2)
 text <- c("Hi", "I'm", "Reggie", "G.")
@@ -761,20 +958,6 @@ As you begin to work with more sophisticated data sets, keep these rules in mind
 * [Codecademy Lesson Pt. 1](https://www.codecademy.com/courses/learn-r/lessons/r-data-frames-intro/exercises/introduction)
 * [Codecademy Lesson Pt. 2](https://www.codecademy.com/courses/learn-r/lessons/r-data-frames-modifying/exercises/introduction)
 * [More about dplyr](https://dplyr.tidyverse.org/)
-
-## Lesson 4 - Vectors and lists {.tabset .tabset-fade .tabset-pills}
-
-### Topics Covered
-
-1. What is a vector, what is a list?
-    + What is the difference? 
-<!-- (for Reggie: https://stackoverflow.com/questions/8594814/what-are-the-differences-between-vector-and-list-data-types-in-r) -->
-2. Why are vectors useful?
-3. Vectorized operations
-
-```{r lesson4}
-
-```
 
 ## Lesson 5 - Conditionals and loops {.tabset .tabset-fade .tabset-pills}
 
