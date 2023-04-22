@@ -959,20 +959,186 @@ As you begin to work with more sophisticated data sets, keep these rules in mind
 * [Codecademy Lesson Pt. 2](https://www.codecademy.com/courses/learn-r/lessons/r-data-frames-modifying/exercises/introduction)
 * [More about dplyr](https://dplyr.tidyverse.org/)
 
-## Lesson 5 - Conditionals and loops {.tabset .tabset-fade .tabset-pills}
+## Lesson 5 - Control Flow {.tabset .tabset-fade .tabset-pills}
 
 ### Topics Covered
 
 1. If/then conditionals and their use
-    + When to use them
 2. While loops
-    + When to use
 3. For loops
-    + When to use
+4. A brief discussion of map
 
-```{r lesson5}
+### Lesson
 
+#### **Conditionals and their Use**
+
+If it rains, then I will bring an umbrella. If I get a dog or a cat, then I will make trips to the vet. Both of these sentences are conditionals. We operate by taking in information and then making decisions based on that information. Sometimes code needs to operate that way too: the same solution does not always work for different problems. In R, these if/then statements are called conditionals.
+
+Conditionals are useful in a variety of circumstances. A basic example can convert our story about rain into code:
+
+```{r l5_1_1}
+# Weather vector/variable, storing the day's weather
+weather <- sample(c("rainy", "sunny"), 1)
+# If/then conditional
+if (weather == "rainy") {
+  umbrella <- "brought my umbrella"
+} else {
+  umbrella <- "did not bring my umbrella"
+}
+# Displaying the result
+paste("The weather is", weather, "so I", umbrella)
 ```
+
+First, we created a variable to hold the weather. The code above just randomly chooses the weather as either rainy or sunny. Then, we created the conditional. `if` tells R that we want an if conditional. We enclose the condition in parentheses `(weather == rainy)`. The curly braces `{}` tell R what to do in the event that it is rainy. Then `else {}` tells R what to do in the event that the weather is not rainy. The final output changes depending on the weather. 
+You are not limited to just two options. There is also `else if`.
+
+```{r}
+# `rm()` function removes an object from an environment
+rm(umbrella)
+weather <- "cloudy"
+# If/then conditional
+if (weather == "rainy") {
+  umbrella <- "brought my umbrella"
+} else if (weather == "cloudy") {
+  umbrella <- "brought my umbrella"
+} else {
+  umbrella <- "did not bring my umbrella"
+}
+# Displaying the result
+paste("The weather is", weather, "so I", umbrella)
+```
+
+You could stack multiple `else if` statements as your `if` conditional becomes more and more complex. There is also a vectorized version of if/else `ifelse()`. Use this function when you'd like to operate on a set of values at the same time. `ifelse()` is particularly useful when manipulating data.
+
+Here is an example with more applicability to data analysis. Suppose that you are conducting a study where some students are randomly assigned to attend private school. You want to compare the test scores of students assigned to private school and the test scores of students who remained in a public school. When a student is assigned to a private school the treatment variable is set to 1 and when they are not it is set to 0. 
+
+First, let's create some fake data
+
+```{r l5_1_2}
+# Sampling a treatment variable and creating testscores
+study_data <- list(treatment = sample(c(0, 1), 1000, replace = T), score = round(runif(1000, 0, 100)))
+study_data <- as.data.frame(study_data)
+
+# table showing the distribution of treated and untreated cases
+table(study_data$treatment)
+
+# Summary of student schore
+summary(study_data$score)
+
+# Graph of scores
+study_data %>%
+  mutate(treatment = factor(treatment, levels = c(0, 1), labels = c("No", "Yes"))) %>%
+  group_by(treatment) %>%
+  ggplot(aes(x = score, fill = treatment)) +
+  geom_bar(alpha = .5) +
+  facet_grid(. ~ treatment)
+```
+
+Suppose that there was another piece of your study. All students who did not receive the treatment were instead provided with free metro cards. Some of the private school students got free metro cards, but they got them through other sources. We can represent this in the data using `ifelse()` and `mutate()`.
+
+```{r l5_1_3}
+private_students <- nrow(study_data[study_data$treatment == 1,])
+study_data <-
+  study_data %>%
+    # In English: If a student was not treated then they received a metro card, otherwise they may have had a metro card and generate those values randomly
+    mutate(metro_card = ifelse(treatment == 0, 1, sample(c(0, 1), private_students, replace =T)))
+
+study_data %>%
+  group_by(treatment) %>%
+  summarize(sum(metro_card),
+            n(),
+            mean(metro_card))
+```
+
+Everyone without the treatment received a metro card and about half of the private school students received a free metro card through some other means.
+
+#### **While loops**
+
+Sometimes it is useful to do something until a certain condition is met. `while` loops can be used for this purpose. Suppose, for example, you wanted to sum all of the numbers from 0 to 100:
+
+```{r l5_2_1}
+i <- 0
+total <- 0
+while (i <= 100) {
+  total <- total + i
+  i <- i + 1
+}
+total
+i
+```
+
+Outside of the loop we defined the variables to i and total to track the iteration of the loop that we are on and the total respectively. The while loop is made up of the statement `while`, the condition wrapped in parentheses, and the curly braces `{}` which enclose the code to be executed while the condition is TRUE. As soon as the condition becomes false--that is, i > 100, then the while loop stops executing.
+
+When working with `while` loops, be careful not to create an infinite loop. If you create a condition which is always true then your code will run forever and you will have to manually break the program.
+
+```{r l5_2_2}
+#' i <- 1
+#' while (i > 0) {
+#'  i <- i + 1
+#' }
+#' The code above will run forever because i will always be greater than 0
+```
+
+#### **For loops**
+
+It is often the case that you will want to repeat the same code when performing data analysis. One way to do this is with the for loop.
+
+```{r l5_3_1}
+for (i in c(0, 1)) {
+  print(i)
+}
+```
+
+We begin with the `for` statement, then in parentheses we set the range or values that we want `for` to operate over, and then in the curly braces `{}` we place the code that we would like repeated. People often create for loops using the `seq()` function:
+
+```{r l5_3_2}
+sum <- 0
+for (i in seq(from = 2, to = 10, by = 2)) {
+  sum <- sum + i
+}
+sum
+```
+But you can loop over any vector.
+
+```{r l5_3_3}
+names <- c("Reggie", "Gilliard", "Jr.")
+for (i in names) {
+  print(i)
+}
+```
+
+#### **map**
+
+Surprisingly, `for` loops are not that common in R. Most often, people use a family functions called the apply functions. These functions loop over lists, vectors, matrices, and data frames and return objects of the same type. But purrr, a package in the tidyverse suite, has its own versions of these functions. I'll only introduce you to one here, `map`.
+
+With the `map` function you provide a vector of values that you would like to loop over, and then a function to apply to those values. You can provide the function to map in 3 different ways.
+
+```{r l5_4_1}
+# Defining a function that will multiply a value by 10
+mult10 <- function(x) {
+  return(x*10)
+}
+
+# Use the tilde to create an anonymous funciton
+map(1:10, ~ .x * 10)
+
+# Defining an anonymous function inline
+map(1:10, function(x) x*10)
+
+# Using an extant function
+map(1:10, mult10)
+
+# Each of these is equivalent to running
+list(1 * 10, 2 * 10, 3 * 10, 4 * 10, 5 * 10, 6 * 10, 7 * 10, 8 * 10, 9 * 10, 10 * 10)
+```
+
+Even in these examples it is clear that functions like `map()` (formally called functionals) make repeating tasks much more efficient. You are much more likely to see functions like map, or lapply when working with code in R, so as you continue your coding journey it is worthwhile to investigate them more deeply.
+
+### **Helpful Links**
+
+* [Codecademy Lesson](https://www.codecademy.com/courses/learn-r/lessons/intro-visualization-ggplot2-r/exercises/review)
+* [W3 Schools](https://www.w3schools.com/r/r_if_else.asp)
+* [Functionals](https://adv-r.hadley.nz/functionals.html#map)
 
 ## Lesson 6 - Functions {.tabset .tabset-fade .tabset-pills}
 

@@ -1103,7 +1103,7 @@ for (i in names) {
 
 #### **map**
 
-Surprisingly, `for` loops are not that common in R. Most often, people use a family functions called the apply functions. These functions loop over lists, vectors, matrices, and data frames and return objects of the same type. But dplyr has its own versions of these functions. I'll only introduce you to one here, `map`.
+Surprisingly, `for` loops are not that common in R. Most often, people use a family functions called the apply functions. These functions loop over lists, vectors, matrices, and data frames and return objects of the same type. But purrr, a package in the tidyverse suite, has its own versions of these functions. I'll only introduce you to one here, `map`.
 
 With the `map` function you provide a vector of values that you would like to loop over, and then a function to apply to those values. You can provide the function to map in 3 different ways.
 
