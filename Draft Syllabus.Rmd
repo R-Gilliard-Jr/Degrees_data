@@ -569,7 +569,7 @@ It is important to be aware of how values will be coerced when working with vect
 
 #### **Using vectors**
 
-Until now we have stored a single number, string, or TRUE/FALSE value in each object we created. But, if we were faced with a more complex problem, we could use vectors instead to solve it. Let's consider the task of figuring out who the tallest student is in a class. First, I'll generate some data. It is not important for you to know how to do this.
+Until now we have almost always stored a single number, string, or TRUE/FALSE value in each object we created. But, if we were faced with a more complex problem, we could use vectors instead to solve it. Let's consider the task of figuring out who the tallest student is in a class. First, I'll generate some data. It is not important for you to know how to do this.
 
 ```{r l3_4_1}
 set.seed(89329)
@@ -633,7 +633,7 @@ Now suppose we wanted to know the total number of snacks each student ate and th
 (sweet <- sample(1:10, 10, replace = T))
 ```
 
-We could get the number of snacks eaten by each student by going throw the indices of the two vectors one-by-one and summing the values like so:
+We could get the number of snacks eaten by each student by going through the indices of the two vectors one-by-one and summing the values like so:
 
 ```{r l3_4_10}
 salty[1] + sweet[1]
