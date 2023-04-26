@@ -95,14 +95,14 @@ This syllabus will be the repository for everything course-related. Information 
 
 ## Lesson 1 - An introduction to R (what, why, how) {.tabset .tabset-fade .tabset-pills}
 
-### Topics Covered
+### **Topics Covered**
 
 1. What is R?
 2. Why use R?
 3. How do I install R?
 4. The tools of the class.
 
-### Lesson
+### **Lesson**
 
 #### **What is R?**
 
@@ -193,7 +193,7 @@ try(swirl::uninstall_course("DegreesNYC_RCourse"), silent = T)
 try(swirl::install_course_github("R-Gilliard-Jr", "DegreesNYC_RCourse", branch = "main"))
 ```
 
-### Helpful Links
+### **Helpful Links**
 
 * [Codecademy](https://www.codecademy.com/login)
 * [Why use R](https://www.youtube.com/watch?v=9kYUGMg_14s)
@@ -201,7 +201,7 @@ try(swirl::install_course_github("R-Gilliard-Jr", "DegreesNYC_RCourse", branch =
 
 ## Lesson 2 - Variables, data types, and operators {.tabset .tabset-fade .tabset-pills}
 
-### Topics Covered
+### **Topics Covered**
 
 1. What are variables and why are they useful?
 2. Assigning variables in R (=, <-, ->)
@@ -211,7 +211,7 @@ try(swirl::install_course_github("R-Gilliard-Jr", "DegreesNYC_RCourse", branch =
 4. Mathematical operators
 5. Logical operators
 
-### Lesson
+### **Lesson**
 
 #### **Printing output**
 
@@ -445,7 +445,7 @@ numlist[!(numlist >= 5)]
 ```
 
 
-### Helpful Links
+### **Helpful Links**
 
 * [Codecademy Lesson (through the Variables section)](https://www.codecademy.com/courses/learn-r/lessons/introduction-to-r/exercises/why-r)
 * [You can read more about the data types that we do not cover here.](https://www.programiz.com/r/data-types)
@@ -454,7 +454,7 @@ numlist[!(numlist >= 5)]
 
 ## Lesson 3 - Vectors {.tabset .tabset-fade .tabset-pills}
 
-### Topics Covered
+### **Topics Covered**
 
 1. What is a vector?
     + Types of vectors
@@ -466,7 +466,7 @@ numlist[!(numlist >= 5)]
     + Subsetting
     + Vectorized operations
 
-### Lesson
+### **Lesson**
 
 #### **What is a vector?**
 
@@ -645,7 +645,7 @@ salty + sweet
 ```
 This is much simpler and much more efficient.
 
-### Helpful Links
+### **Helpful Links**
 
 * [Codecademy Lesson (beginning from the vectors section)](https://www.codecademy.com/courses/learn-r/lessons/introduction-to-r/exercises/why-r)
 * [R for Data Science](https://r4ds.had.co.nz/vectors.html)
@@ -653,7 +653,7 @@ This is much simpler and much more efficient.
 
 ## Lesson 4 - Tidy data and dplyr {.tabset .tabset-fade .tabset-pills}
 
-### Topics Covered
+### **Topics Covered**
 
 1. The dplyr package
 2. Working in dplyr
@@ -663,7 +663,7 @@ This is much simpler and much more efficient.
     + What is tidy data?
     + Why is it useful?
     
-### Lesson
+### **Lesson**
 
 #### **Why dplyr?**
 
@@ -955,14 +955,14 @@ As you begin to work with more sophisticated data sets, keep these rules in mind
 
 ## Lesson 5 - Control Flow {.tabset .tabset-fade .tabset-pills}
 
-### Topics Covered
+### **Topics Covered**
 
 1. If/then conditionals and their use
 2. While loops
 3. For loops
 4. A brief discussion of map
 
-### Lesson
+### **Lesson**
 
 #### **Conditionals and their Use**
 
@@ -1136,10 +1136,104 @@ Even in these examples it is clear that functions like `map()` (formally called 
 
 ## Lesson 6 - Functions {.tabset .tabset-fade .tabset-pills}
 
-1. What is a function?
-2. When to use functions.
-3. Writing functions in R.
+### **Topics Covered**
 
+1. What is a function?
+    + When to use functions.
+2. Writing functions in R.
+3. When to write a function.
+
+### **Lesson**
+
+#### **Functions Defined**
+
+You have been using functions since you began working in R. `paste()`, `mutate()`, `sum()`, and even `%>%` are examples of functions. Fundamentally, a function just contains some uniform code that can be applied multiple times without typing. Theoretically you do not need to write functions, but neglecting them make your code far longer, less readable, and less easy to understand. Functions are incredibly important for repetitive or complex work.
+
+Let's look at some examples:
+
+Adding numbers:
+```{r l6_1_1}
+# You can add numbers directly, using the Mathematical operators we discussed in Lesson 3
+4 + 4
+
+# But you can also just use the sum function
+sum(4, 4)
+
+# This does not save much time with 2 numbers, but what about with 25
+some_numbers <- round(runif(25, 0, 100))
+
+# With addition signs
+1+31+55+78+24+78+46+65+73+74+86+3+74+31+65+51+55+45+41+21+86+44+54+62+71
+
+# With sum
+sum(some_numbers)
+```
+
+Creating new variables:
+```{r l6_1_2}
+# Built-in data set
+mtcars
+
+# Creating variables
+mtcars$cyl_mpg <- mtcars$cyl/mtcars$mpg
+
+# Creating variables with mutate
+mtcars <- mtcars %>%
+  mutate(cyl_mpg2 = cyl/mpg)
+
+# Identical. Time savings can be seen if you want to create more than one variable
+mtcars[, c("cyl_mpg", "cyl_mpg2")]
+
+# Add 2 to every variable with mutate and across
+mtcars %>%
+  mutate(across(everything(), ~ . + 2))
+```
+
+Performing multiple data transformations:
+```{r l6_1_3}
+# Reset mtcars data set
+rm(mtcars)
+
+# Keep only mpg
+mtcars <- data.frame(mpg = mtcars$mpg)
+
+# Multiply mpg by 2
+mtcars$mpg2 <- mtcars$mpg * 2
+
+# Keep if mpg2 greater than or equal to 40
+(mtcars <- mtcars[mtcars$mpg2 >= 40, ])
+
+# Same steps, using the pipe
+rm(mtcars)
+
+mtcars %>%
+  # Keep only mpg
+  select(mpg) %>%
+  # Multiply mpg by 2
+  mutate(mpg2 = mpg*2) %>%
+  # Keep if mpg2 greater than or equal to 40
+  filter(mpg2 >= 40)
+```
+
+Functions make working in R a lot easier and often more intuitive. You should use them as often as makes sense. If you find yourself repeating tasks, you should consider replacing that code with a function. This is especially true if the task is complex, using a function guarantees that you are applying the same code every time you want to perform that task.
+
+#### **Writing Funcitons**
+
+You can create a function (often called it *defining* the function) using the following syntax:
+
+name_of_function <- function(arguments_of_function) {
+  operations performed by function
+}
+
+The first thing you will type will be the name that you want to give to your function. You can think of this as assigning the code that follows the assignment operator `<-` to the name. That name will now be associated with that code. 
+
+Next, you will write `function()`, and inside the parentheses you will write all of the arguments that can be provided to your function. For example, the function `is.na()` takes just one argument, x, which can be a list, atomic vector, or data frame (as well as some other object classes); the function `str_to_upper()`  has two arguments, a string and a locale.
+
+Then you will open a curly brace (and when you type the first one in R studio, it will automatically create a second for you; press enter and it will also nicely split them across lines for you). On a new line, begin writing what you want your function to do. When you are done with the function definition, on a new line type a closing brace (this is likely unnecessary if you are using R studio, since it has probably already created the closing brace for you). Run the entire block of code, starting from the name through the ending curly brace and you will have created a function!
+
+Here are some simple example functions:
+
+### **Helpful Links**
 ```{r lesson6}
 
 ```
