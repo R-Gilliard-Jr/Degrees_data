@@ -1130,7 +1130,8 @@ Even in these examples it is clear that functions like `map()` (formally called 
 
 ### **Helpful Links**
 
-* [Codecademy Lesson](https://www.codecademy.com/courses/learn-r/lessons/intro-visualization-ggplot2-r/exercises/review)
+* [Codecademy Lesson Pt1](https://www.codecademy.com/courses/learn-r/lessons/r-data-cleaning/exercises/introduction)
+* [Codecademy Lesson Pt2](https://www.codecademy.com/courses/learn-r/lessons/intro-visualization-ggplot2-r/exercises/review)
 * [W3 Schools](https://www.w3schools.com/r/r_if_else.asp)
 * [Functionals](https://adv-r.hadley.nz/functionals.html#map)
 
@@ -1141,7 +1142,9 @@ Even in these examples it is clear that functions like `map()` (formally called 
 1. What is a function?
     + When to use functions.
 2. Writing functions in R.
-3. When to write a function.
+3. Function nuances
+    + Default values
+    + Returning values
 
 ### **Lesson**
 
@@ -1233,8 +1236,156 @@ Then you will open a curly brace (and when you type the first one in R studio, i
 
 Here are some simple example functions:
 
-### **Helpful Links**
-```{r lesson6}
+```{r l6_2_1}
+# A function that multiplies any number or vector by 10
+mult10 <- function(x) {
+  x <- x * 10
+  return(x)
+}
 
+mult10(3)
+mult10(20:22)
 ```
+
+```{r l6_2_2}
+# A function that counts the number of letters in a word
+letter_count <- function(x) {
+  # Stop if more than one word is provided
+  if (length(x) > 1) stop("Error: You must provide a charcter vector of length 1")
+  # Split the string
+  x <- strsplit(x, ".", perl = T)
+  # Count the number of splits
+  return(length(x[[1]]))
+}
+
+letter_count("Reggie")
+letter_count("supercalifragilisticexpialidocious")
+try(letter_count(c("RG", "CG")))
+```
+
+```{r l6_2_3}
+# A function to reverse the order of elements in a vector
+vec_reverse <- function(x) {
+  # Get the length of the vector
+  vec_length <- length(x)
+  # Get the class of the vector to create the appropriate container for the new vector
+  mode <- class(x)
+  
+  # If x has length less than or equal to 1, no reversing is necessary
+  if (vec_length <= 1) return(x)
+  # Otherwise we reverse
+  else {
+    # Create an empty vector
+    new_vec <- vector(mode = mode, length = vec_length)
+    # Loop over the elements of the vector x
+    for (i in seq(vec_length)) {
+      # Element i in the new vector is element vec_length - (i-1) in the original vector.
+      # For example if the original vector has length 5 then element 1 in the new vector is element
+      # 5 - (1-1) = 5 in the original vector
+      new_vec[i] <- x[vec_length - (i -1)]
+    }
+  }
+  # Return the new vector
+  return(new_vec)
+}
+
+vec_reverse(1:10)
+vec_reverse(c(TRUE, TRUE, FALSE, TRUE, FALSE))
+vec_reverse(as.numeric())
+```
+
+As you can see, after I put this code in a function I can call it any number of times. Be careful about assigning new things to the same name as was used to define a function. If you do this, your function will cease to work. Names in R can only be assigned to one object. For example, see what happens if I overwrite letter_count:
+
+```{r l6_2_4}
+# Assign the number of letters to letter_count
+letters
+letter_count <- length(letters)
+
+# Try to call the function letter_count
+try(letter_count("Hello"))
+```
+
+R tells me that the function does not exist!
+
+#### **Function Nuances**
+
+##### **Notes on arguments**
+
+Each of the functions I've written thus far has required one argument, but you can write functions without arguments in R:
+
+```{r l6_3_1}
+no_args <- function() {
+  "This is a function without arguments"
+}
+```
+
+When you call such a function, it simply executes the code inside:
+
+```{r l6_3_2}
+no_args()
+```
+
+But most often, you will want to have arguments for your functions. This is because you will want your functions to be flexible--able to work under different circumstances and with varied input. You've already seen how to create a function that requires arguments:
+
+```{r l6_3_3}
+has_args <- function(x, y) {
+  args <- match.call()
+  num <- length(paste(args)) - 1
+  paste("This function has", num, "argument(s)")
+}
+
+has_args(x = 1, y = 2)
+```
+
+Such a function fails if the user does not provide the correct number of arguments.
+
+```{r l6_3_4}
+try(has_args(1, 2, 3))
+try(mult10())
+```
+
+To prevent this from happening, you can provide default arguments. If the user of the function does not provide an value to an argument, R will use the default you've provided. Let's update mult10 so that if the user does not provide a number or vector to be multiplied, it just returns `NA`.
+
+```{r l6_3_5}
+mult10 <- function(x = NA) {
+  x <- x * 10
+  return(x)
+}
+mult10()
+```
+
+You can provide as many defaults as you have arguments. Use these to help yourself or those who will be using your code down the line.
+
+##### **Returning values**
+
+If you want R to return a value to you after it finishes running your code, you can tell it that in several ways. Here are two:
+
+1) End your function with the object you want returned:
+
+```{r l6_3_6}
+div2 <- function(x) {
+  x <- x/2
+  x
+}
+div2(30)
+```
+
+2) End your function with the a `return()` statement:
+
+```{r l6_3_7}
+square <- function(x) {
+  x <- x^2
+  return(x)
+}
+square(5)
+```
+
+Either is okay, but I recommend you get in the habit of using `return()`. It is clearer what you are doing and it will allow you to write code that can exit in multiple places if necessary.
+
+### **Helpful Links**
+
+* [Codecademy Lesson Pt1](https://www.codecademy.com/courses/learn-r/lessons/r-aggregates/exercises/introduction)
+* [Codecademy Lesson Pt2](https://www.codecademy.com/courses/learn-r/lessons/r-multiple-tables/exercises/introduction)
+* [W3 Schools](https://www.w3schools.com/r/r_functions.asp)
+* [Functions](https://adv-r.hadley.nz/functions.html#functions)
 
