@@ -1142,11 +1142,254 @@ Even in these examples it is clear that functions like `map()` (formally called 
 
 ## Lesson 6 - Functions {.tabset .tabset-fade .tabset-pills}
 
+### **Topics Covered**
+
 1. What is a function?
-2. When to use functions.
-3. Writing functions in R.
+    + When to use functions.
+2. Writing functions in R.
+3. Function nuances
+    + Default values
+    + Returning values
 
-```{r lesson6}
+### **Lesson**
 
+#### **Functions Defined**
+
+You have been using functions since you began working in R. `paste()`, `mutate()`, `sum()`, and even `%>%` are examples of functions. Fundamentally, a function just contains some uniform code that can be applied multiple times without typing. Theoretically you do not need to write functions, but neglecting them make your code far longer, less readable, and less easy to understand. Functions are incredibly important for repetitive or complex work.
+
+Let's look at some examples:
+
+Adding numbers:
+```{r l6_1_1}
+# You can add numbers directly, using the Mathematical operators we discussed in Lesson 3
+4 + 4
+
+# But you can also just use the sum function
+sum(4, 4)
+
+# This does not save much time with 2 numbers, but what about with 25
+some_numbers <- round(runif(25, 0, 100))
+
+# With addition signs
+1+31+55+78+24+78+46+65+73+74+86+3+74+31+65+51+55+45+41+21+86+44+54+62+71
+
+# With sum
+sum(some_numbers)
 ```
 
+Creating new variables:
+```{r l6_1_2}
+# Built-in data set
+mtcars
+
+# Creating variables
+mtcars$cyl_mpg <- mtcars$cyl/mtcars$mpg
+
+# Creating variables with mutate
+mtcars <- mtcars %>%
+  mutate(cyl_mpg2 = cyl/mpg)
+
+# Identical. Time savings can be seen if you want to create more than one variable
+mtcars[, c("cyl_mpg", "cyl_mpg2")]
+
+# Add 2 to every variable with mutate and across
+mtcars %>%
+  mutate(across(everything(), ~ . + 2))
+```
+
+Performing multiple data transformations:
+```{r l6_1_3}
+# Reset mtcars data set
+rm(mtcars)
+
+# Keep only mpg
+mtcars <- data.frame(mpg = mtcars$mpg)
+
+# Multiply mpg by 2
+mtcars$mpg2 <- mtcars$mpg * 2
+
+# Keep if mpg2 greater than or equal to 40
+(mtcars <- mtcars[mtcars$mpg2 >= 40, ])
+
+# Same steps, using the pipe
+rm(mtcars)
+
+mtcars %>%
+  # Keep only mpg
+  select(mpg) %>%
+  # Multiply mpg by 2
+  mutate(mpg2 = mpg*2) %>%
+  # Keep if mpg2 greater than or equal to 40
+  filter(mpg2 >= 40)
+```
+
+Functions make working in R a lot easier and often more intuitive. You should use them as often as makes sense. If you find yourself repeating tasks, you should consider replacing that code with a function. This is especially true if the task is complex, using a function guarantees that you are applying the same code every time you want to perform that task.
+
+#### **Writing Funcitons**
+
+You can create a function (often called it *defining* the function) using the following syntax:
+
+name_of_function <- function(arguments_of_function) {
+  operations performed by function
+}
+
+The first thing you will type will be the name that you want to give to your function. You can think of this as assigning the code that follows the assignment operator `<-` to the name. That name will now be associated with that code. 
+
+Next, you will write `function()`, and inside the parentheses you will write all of the arguments that can be provided to your function. For example, the function `is.na()` takes just one argument, x, which can be a list, atomic vector, or data frame (as well as some other object classes); the function `str_to_upper()`  has two arguments, a string and a locale.
+
+Then you will open a curly brace (and when you type the first one in R studio, it will automatically create a second for you; press enter and it will also nicely split them across lines for you). On a new line, begin writing what you want your function to do. When you are done with the function definition, on a new line type a closing brace (this is likely unnecessary if you are using R studio, since it has probably already created the closing brace for you). Run the entire block of code, starting from the name through the ending curly brace and you will have created a function!
+
+Here are some simple example functions:
+
+```{r l6_2_1}
+# A function that multiplies any number or vector by 10
+mult10 <- function(x) {
+  x <- x * 10
+  return(x)
+}
+
+mult10(3)
+mult10(20:22)
+```
+
+```{r l6_2_2}
+# A function that counts the number of letters in a word
+letter_count <- function(x) {
+  # Stop if more than one word is provided
+  if (length(x) > 1) stop("Error: You must provide a charcter vector of length 1")
+  # Split the string
+  x <- strsplit(x, ".", perl = T)
+  # Count the number of splits
+  return(length(x[[1]]))
+}
+
+letter_count("Reggie")
+letter_count("supercalifragilisticexpialidocious")
+try(letter_count(c("RG", "CG")))
+```
+
+```{r l6_2_3}
+# A function to reverse the order of elements in a vector
+vec_reverse <- function(x) {
+  # Get the length of the vector
+  vec_length <- length(x)
+  # Get the class of the vector to create the appropriate container for the new vector
+  mode <- class(x)
+  
+  # If x has length less than or equal to 1, no reversing is necessary
+  if (vec_length <= 1) return(x)
+  # Otherwise we reverse
+  else {
+    # Create an empty vector
+    new_vec <- vector(mode = mode, length = vec_length)
+    # Loop over the elements of the vector x
+    for (i in seq(vec_length)) {
+      # Element i in the new vector is element vec_length - (i-1) in the original vector.
+      # For example if the original vector has length 5 then element 1 in the new vector is element
+      # 5 - (1-1) = 5 in the original vector
+      new_vec[i] <- x[vec_length - (i -1)]
+    }
+  }
+  # Return the new vector
+  return(new_vec)
+}
+
+vec_reverse(1:10)
+vec_reverse(c(TRUE, TRUE, FALSE, TRUE, FALSE))
+vec_reverse(as.numeric())
+```
+
+As you can see, after I put this code in a function I can call it any number of times. Be careful about assigning new things to the same name as was used to define a function. If you do this, your function will cease to work. Names in R can only be assigned to one object. For example, see what happens if I overwrite letter_count:
+
+```{r l6_2_4}
+# Assign the number of letters to letter_count
+letters
+letter_count <- length(letters)
+
+# Try to call the function letter_count
+try(letter_count("Hello"))
+```
+
+R tells me that the function does not exist!
+
+#### **Function Nuances**
+
+##### **Notes on arguments**
+
+Each of the functions I've written thus far has required one argument, but you can write functions without arguments in R:
+
+```{r l6_3_1}
+no_args <- function() {
+  "This is a function without arguments"
+}
+```
+
+When you call such a function, it simply executes the code inside:
+
+```{r l6_3_2}
+no_args()
+```
+
+But most often, you will want to have arguments for your functions. This is because you will want your functions to be flexible--able to work under different circumstances and with varied input. You've already seen how to create a function that requires arguments:
+
+```{r l6_3_3}
+has_args <- function(x, y) {
+  args <- match.call()
+  num <- length(paste(args)) - 1
+  paste("This function has", num, "argument(s)")
+}
+
+has_args(x = 1, y = 2)
+```
+
+Such a function fails if the user does not provide the correct number of arguments.
+
+```{r l6_3_4}
+try(has_args(1, 2, 3))
+try(mult10())
+```
+
+To prevent this from happening, you can provide default arguments. If the user of the function does not provide an value to an argument, R will use the default you've provided. Let's update mult10 so that if the user does not provide a number or vector to be multiplied, it just returns `NA`.
+
+```{r l6_3_5}
+mult10 <- function(x = NA) {
+  x <- x * 10
+  return(x)
+}
+mult10()
+```
+
+You can provide as many defaults as you have arguments. Use these to help yourself or those who will be using your code down the line.
+
+##### **Returning values**
+
+If you want R to return a value to you after it finishes running your code, you can tell it that in several ways. Here are two:
+
+1) End your function with the object you want returned:
+
+```{r l6_3_6}
+div2 <- function(x) {
+  x <- x/2
+  x
+}
+div2(30)
+```
+
+2) End your function with the a `return()` statement:
+
+```{r l6_3_7}
+square <- function(x) {
+  x <- x^2
+  return(x)
+}
+square(5)
+```
+
+Either is okay, but I recommend you get in the habit of using `return()`. It is clearer what you are doing and it will allow you to write code that can exit in multiple places if necessary.
+
+### **Helpful Links**
+
+* [Codecademy Lesson Pt1](https://www.codecademy.com/courses/learn-r/lessons/r-aggregates/exercises/introduction)
+* [Codecademy Lesson Pt2](https://www.codecademy.com/courses/learn-r/lessons/r-multiple-tables/exercises/introduction)
+* [W3 Schools](https://www.w3schools.com/r/r_functions.asp)
+* [Functions](https://adv-r.hadley.nz/functions.html#functions)
