@@ -795,7 +795,7 @@ mtcars %>%
   arrange(desc(mpg))
 ```
 
-Providing multiple columns to arrange will break ties on using succeeding columns:
+Providing multiple columns to arrange will break ties using succeeding columns:
 
 ```{r l4_2_ex11}
 mtcars %>%
@@ -958,6 +958,7 @@ As you begin to work with more sophisticated data sets, keep these rules in mind
 * [Codecademy Lesson Pt. 1](https://www.codecademy.com/courses/learn-r/lessons/r-data-frames-intro/exercises/introduction)
 * [Codecademy Lesson Pt. 2](https://www.codecademy.com/courses/learn-r/lessons/r-data-frames-modifying/exercises/introduction)
 * [More about dplyr](https://dplyr.tidyverse.org/)
+* [dplyr function cheat sheet](https://dplyr.tidyverse.org/reference/index.html)
 
 ## Lesson 5 - Control Flow {.tabset .tabset-fade .tabset-pills}
 
