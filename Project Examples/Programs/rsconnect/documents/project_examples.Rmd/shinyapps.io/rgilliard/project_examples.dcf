@@ -1,0 +1,13 @@
+name: project_examples
+title: project_examples
+username:
+account: rgilliard
+server: shinyapps.io
+hostUrl: https://api.shinyapps.io/v1
+appId: 9077333
+bundleId: 7199023
+url: https://rgilliard.shinyapps.io/project_examples/
+when: 1683719651.02525
+lastSyncTime: 1683719651.02528
+asMultiple: FALSE
+asStatic: FALSE

@@ -1,0 +1,103 @@
+---
+title: "Project Examples"
+output: html_document
+date: "2023-05-01"
+runtime: shiny
+---
+
+# Setup
+```{r setup}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Packages
+```{r packages}
+pkgs <- c("tidyverse", "kableExtra", "plotly")
+invisible(lapply(pkgs, library, character.only = T))
+```
+
+## Paths
+```{r paths}
+root <- "D:/Documents/DegreesNYC/Degrees_data/Project Examples"
+indir <- file.path(root, "Data")
+intdir <- file.path(root, "Intermediate")
+outdir <- file.path(root, "Output")
+```
+
+# Project
+
+## Load Data
+
+```{r load_data}
+# data <- read.csv(file.path(indir, "mock_data.csv"))
+data <- readxl::read_xlsx(file.path(intdir, "nyc_student_survey_2022.xlsx"), sheet = "Total")
+data
+```
+
+## clean Data
+
+```{r clean_data}
+data %>%
+  # Keep only Manhattan schools
+  filter(grepl("\\d{2}M\\d{3}", DBN)) %>%
+  select(-c(ends_with("Score"))) %>%
+  # Extract district
+  mutate(district = substr(DBN, 1, 2)) %>%
+  {data <<- .}
+```
+
+## Descriptive Statistics
+
+```{r school_table}
+radioButtons("district", "Data for which District?", unique(data$district))
+
+renderTable({
+  data %>%
+    filter(district == input$district) %>%
+    mutate(across(ends_with("Rate"), ~ . * 100))
+})
+```
+
+```{r descriptive_statistics}
+
+dstats <- function(x, y) {
+  name <- str_remove_all(y, "\\s")
+  mean_name <- paste0(name, "_mean")
+  min_name <- paste0(name, "_min")
+  max_name <- paste0(name, "_max")
+  x %>%
+    group_by(district) %>%
+    summarize(mean_name = mean(!!sym(y)),
+              min_name = min(!!sym(y)),
+              max_name = max(!!sym(y))) %>%
+    setNames(c("District", mean_name, min_name, max_name))
+}
+
+map_dfc(c("Total Parent Response Rate", "Total Student Response Rate", "Total Teacher Response Rate"), function(x) dstats(data, x)) %>%
+  select(-matches("District...[^1]")) %>%
+  rename(District = `District...1`) %>%
+  kable() %>%
+  kable_paper()
+
+data_dist <- map_dfc(c("Total Parent Response Rate", "Total Student Response Rate", "Total Teacher Response Rate"), function(x) dstats(data, x)) %>%
+  select(-matches("District...[^1]")) %>%
+  rename(District = `District...1`)
+```
+
+## Visualizations
+
+```{r visualization, fig.dim=c(10, 8)}
+
+heatmap <- data_dist %>%
+  group_by(District) %>%
+  rename_with(~ str_to_title(gsub("(Total)(\\w+)(Response)(Rate)_(\\w+)$", "\\1 \\2 \\3 \\4 \\5", .x, perl = T)), starts_with("Total")) %>%
+  select(District, ends_with("Mean")) %>%
+  pivot_longer(ends_with("Mean"), names_to = "Outcome", values_to = "Value") %>%
+  ggplot(aes(x = District, y = Outcome, fill = Value)) +
+  geom_tile() +
+  ggtitle("Mean Response Rate by District")
+
+ggplotly(heatmap)
+
+```
+
