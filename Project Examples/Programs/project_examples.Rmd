@@ -2,7 +2,6 @@
 title: "Project Examples"
 output: html_document
 date: "2023-05-01"
-runtime: shiny
 ---
 
 # Setup
@@ -48,16 +47,6 @@ data %>%
 
 ## Descriptive Statistics
 
-```{r school_table}
-radioButtons("district", "Data for which District?", unique(data$district))
-
-renderTable({
-  data %>%
-    filter(district == input$district) %>%
-    mutate(across(ends_with("Rate"), ~ . * 100))
-})
-```
-
 ```{r descriptive_statistics}
 
 dstats <- function(x, y) {
@@ -86,7 +75,25 @@ data_dist <- map_dfc(c("Total Parent Response Rate", "Total Student Response Rat
 
 ## Visualizations
 
-```{r visualization, fig.dim=c(10, 8)}
+```{r bargraph, fig.dim=c(10, 8)}
+
+data_dist %>%
+  rename_with(~ str_to_title(gsub("(Total)(\\w+)(Response)(Rate)_(\\w+)$", "\\1 \\2 \\3 \\4 \\5", .x, perl = T)), starts_with("Total")) %>%
+  select(District, `Total Student Response Rate Mean`) %>%
+  ggplot(aes(x = District, y = `Total Student Response Rate Mean`*100, fill = District, label = round(`Total Student Response Rate Mean`*100, 2))) +
+  geom_bar(stat = "identity") +
+  geom_text(vjust= -.5) +
+  scale_y_continuous(limits = c(0, 100)) +
+  ggtitle("Mean Student Response Rate by District") +
+  ylab("Response Rate") +
+  theme(axis.title.x = element_blank(),
+        axis.text.x = element_blank(),
+        axis.ticks.x = element_blank())
+  
+```
+
+
+```{r heatmap, fig.dim=c(10, 8)}
 
 heatmap <- data_dist %>%
   group_by(District) %>%
