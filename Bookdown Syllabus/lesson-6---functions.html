@@ -218,7 +218,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h3><span class="header-section-number">2.6.2</span> <strong>Lesson</strong><a href="lesson-6---functions.html#lesson-5" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <div id="functions-defined" class="section level4 hasAnchor" number="2.6.2.1">
 <h4><span class="header-section-number">2.6.2.1</span> <strong>Functions Defined</strong><a href="lesson-6---functions.html#functions-defined" class="anchor-section" aria-label="Anchor link to header"></a></h4>
-<p>You have been using functions since you began working in R. <code>paste()</code>, <code>mutate()</code>, <code>sum()</code>, and even <code>%&gt;%</code> are examples of functions. Fundamentally, a function just contains some uniform code that can be applied multiple times without typing. Theoretically you do not need to write functions, but neglecting them make your code far longer, less readable, and less easy to understand. Functions are incredibly important for repetitive or complex work.</p>
+<p>You have been using functions since you began working in R. <code>paste()</code>, <code>mutate()</code>, <code>sum()</code>, and even <code>%&gt;%</code> are examples of functions. Fundamentally, a function just contains some uniform code that can be applied multiple times without typing. Theoretically you do not need to write functions, but neglecting them makes your code far longer, less readable, and less easy to understand. Functions are incredibly important for repetitive or complex work.</p>
 <p>Let’s look at some examples:</p>
 <p>Adding numbers:</p>
 <div class="sourceCode" id="cb264"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb264-1"><a href="lesson-6---functions.html#cb264-1" aria-hidden="true" tabindex="-1"></a><span class="co"># You can add numbers directly, using the Mathematical operators we discussed in Lesson 3</span></span>
@@ -228,17 +228,18 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb266-2"><a href="lesson-6---functions.html#cb266-2" aria-hidden="true" tabindex="-1"></a><span class="fu">sum</span>(<span class="dv">4</span>, <span class="dv">4</span>)</span></code></pre></div>
 <pre><code>## [1] 8</code></pre>
 <div class="sourceCode" id="cb268"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb268-1"><a href="lesson-6---functions.html#cb268-1" aria-hidden="true" tabindex="-1"></a><span class="co"># This does not save much time with 2 numbers, but what about with 25</span></span>
-<span id="cb268-2"><a href="lesson-6---functions.html#cb268-2" aria-hidden="true" tabindex="-1"></a>some_numbers <span class="ot">&lt;-</span> <span class="fu">round</span>(<span class="fu">runif</span>(<span class="dv">25</span>, <span class="dv">0</span>, <span class="dv">100</span>))</span>
-<span id="cb268-3"><a href="lesson-6---functions.html#cb268-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb268-4"><a href="lesson-6---functions.html#cb268-4" aria-hidden="true" tabindex="-1"></a><span class="co"># With addition signs</span></span>
-<span id="cb268-5"><a href="lesson-6---functions.html#cb268-5" aria-hidden="true" tabindex="-1"></a><span class="dv">1</span><span class="sc">+</span><span class="dv">31</span><span class="sc">+</span><span class="dv">55</span><span class="sc">+</span><span class="dv">78</span><span class="sc">+</span><span class="dv">24</span><span class="sc">+</span><span class="dv">78</span><span class="sc">+</span><span class="dv">46</span><span class="sc">+</span><span class="dv">65</span><span class="sc">+</span><span class="dv">73</span><span class="sc">+</span><span class="dv">74</span><span class="sc">+</span><span class="dv">86</span><span class="sc">+</span><span class="dv">3</span><span class="sc">+</span><span class="dv">74</span><span class="sc">+</span><span class="dv">31</span><span class="sc">+</span><span class="dv">65</span><span class="sc">+</span><span class="dv">51</span><span class="sc">+</span><span class="dv">55</span><span class="sc">+</span><span class="dv">45</span><span class="sc">+</span><span class="dv">41</span><span class="sc">+</span><span class="dv">21</span><span class="sc">+</span><span class="dv">86</span><span class="sc">+</span><span class="dv">44</span><span class="sc">+</span><span class="dv">54</span><span class="sc">+</span><span class="dv">62</span><span class="sc">+</span><span class="dv">71</span></span></code></pre></div>
-<pre><code>## [1] 1314</code></pre>
-<div class="sourceCode" id="cb270"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb270-1"><a href="lesson-6---functions.html#cb270-1" aria-hidden="true" tabindex="-1"></a><span class="co"># With sum</span></span>
-<span id="cb270-2"><a href="lesson-6---functions.html#cb270-2" aria-hidden="true" tabindex="-1"></a><span class="fu">sum</span>(some_numbers)</span></code></pre></div>
+<span id="cb268-2"><a href="lesson-6---functions.html#cb268-2" aria-hidden="true" tabindex="-1"></a>some_numbers <span class="ot">&lt;-</span> <span class="fu">round</span>(<span class="fu">runif</span>(<span class="dv">25</span>, <span class="dv">0</span>, <span class="dv">100</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb269"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb269-1"><a href="lesson-6---functions.html#cb269-1" aria-hidden="true" tabindex="-1"></a><span class="co"># With addition signs</span></span>
+<span id="cb269-2"><a href="lesson-6---functions.html#cb269-2" aria-hidden="true" tabindex="-1"></a>addlist</span></code></pre></div>
+<pre><code>## [1] &quot;78+59+7+72+62+70+2+40+72+86+40+25+26+65+55+6+11+39+46+55+98+57+40+85+59&quot;</code></pre>
+<div class="sourceCode" id="cb271"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb271-1"><a href="lesson-6---functions.html#cb271-1" aria-hidden="true" tabindex="-1"></a><span class="fu">eval</span>(<span class="fu">parse</span>(<span class="at">text =</span> addlist))</span></code></pre></div>
+<pre><code>## [1] 1255</code></pre>
+<div class="sourceCode" id="cb273"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb273-1"><a href="lesson-6---functions.html#cb273-1" aria-hidden="true" tabindex="-1"></a><span class="co"># With sum</span></span>
+<span id="cb273-2"><a href="lesson-6---functions.html#cb273-2" aria-hidden="true" tabindex="-1"></a><span class="fu">sum</span>(some_numbers)</span></code></pre></div>
 <pre><code>## [1] 1255</code></pre>
 <p>Creating new variables:</p>
-<div class="sourceCode" id="cb272"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb272-1"><a href="lesson-6---functions.html#cb272-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Built-in data set</span></span>
-<span id="cb272-2"><a href="lesson-6---functions.html#cb272-2" aria-hidden="true" tabindex="-1"></a>mtcars</span></code></pre></div>
+<div class="sourceCode" id="cb275"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb275-1"><a href="lesson-6---functions.html#cb275-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Built-in data set</span></span>
+<span id="cb275-2"><a href="lesson-6---functions.html#cb275-2" aria-hidden="true" tabindex="-1"></a>mtcars</span></code></pre></div>
 <pre><code>##                      mpg cyl  disp  hp drat    wt  qsec vs am gear carb
 ## Mazda RX4           21.0   6 160.0 110 3.90 2.620 16.46  0  1    4    4
 ## Mazda RX4 Wag       21.0   6 160.0 110 3.90 2.875 17.02  0  1    4    4
@@ -272,15 +273,15 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## Ferrari Dino        19.7   6 145.0 175 3.62 2.770 15.50  0  1    5    6
 ## Maserati Bora       15.0   8 301.0 335 3.54 3.570 14.60  0  1    5    8
 ## Volvo 142E          21.4   4 121.0 109 4.11 2.780 18.60  1  1    4    2</code></pre>
-<div class="sourceCode" id="cb274"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb274-1"><a href="lesson-6---functions.html#cb274-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Creating variables</span></span>
-<span id="cb274-2"><a href="lesson-6---functions.html#cb274-2" aria-hidden="true" tabindex="-1"></a>mtcars<span class="sc">$</span>cyl_mpg <span class="ot">&lt;-</span> mtcars<span class="sc">$</span>cyl<span class="sc">/</span>mtcars<span class="sc">$</span>mpg</span>
-<span id="cb274-3"><a href="lesson-6---functions.html#cb274-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb274-4"><a href="lesson-6---functions.html#cb274-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Creating variables with mutate</span></span>
-<span id="cb274-5"><a href="lesson-6---functions.html#cb274-5" aria-hidden="true" tabindex="-1"></a>mtcars <span class="ot">&lt;-</span> mtcars <span class="sc">%&gt;%</span></span>
-<span id="cb274-6"><a href="lesson-6---functions.html#cb274-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">cyl_mpg2 =</span> cyl<span class="sc">/</span>mpg)</span>
-<span id="cb274-7"><a href="lesson-6---functions.html#cb274-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb274-8"><a href="lesson-6---functions.html#cb274-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Identical. Time savings can be seen if you want to create more than one variable</span></span>
-<span id="cb274-9"><a href="lesson-6---functions.html#cb274-9" aria-hidden="true" tabindex="-1"></a>mtcars[, <span class="fu">c</span>(<span class="st">&quot;cyl_mpg&quot;</span>, <span class="st">&quot;cyl_mpg2&quot;</span>)]</span></code></pre></div>
+<div class="sourceCode" id="cb277"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb277-1"><a href="lesson-6---functions.html#cb277-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Creating variables</span></span>
+<span id="cb277-2"><a href="lesson-6---functions.html#cb277-2" aria-hidden="true" tabindex="-1"></a>mtcars<span class="sc">$</span>cyl_mpg <span class="ot">&lt;-</span> mtcars<span class="sc">$</span>cyl<span class="sc">/</span>mtcars<span class="sc">$</span>mpg</span>
+<span id="cb277-3"><a href="lesson-6---functions.html#cb277-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb277-4"><a href="lesson-6---functions.html#cb277-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Creating variables with mutate</span></span>
+<span id="cb277-5"><a href="lesson-6---functions.html#cb277-5" aria-hidden="true" tabindex="-1"></a>mtcars <span class="ot">&lt;-</span> mtcars <span class="sc">%&gt;%</span></span>
+<span id="cb277-6"><a href="lesson-6---functions.html#cb277-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">cyl_mpg2 =</span> cyl<span class="sc">/</span>mpg)</span>
+<span id="cb277-7"><a href="lesson-6---functions.html#cb277-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb277-8"><a href="lesson-6---functions.html#cb277-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Identical. Time savings can be seen if you want to create more than one variable</span></span>
+<span id="cb277-9"><a href="lesson-6---functions.html#cb277-9" aria-hidden="true" tabindex="-1"></a>mtcars[, <span class="fu">c</span>(<span class="st">&quot;cyl_mpg&quot;</span>, <span class="st">&quot;cyl_mpg2&quot;</span>)]</span></code></pre></div>
 <pre><code>##                       cyl_mpg  cyl_mpg2
 ## Mazda RX4           0.2857143 0.2857143
 ## Mazda RX4 Wag       0.2857143 0.2857143
@@ -314,9 +315,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## Ferrari Dino        0.3045685 0.3045685
 ## Maserati Bora       0.5333333 0.5333333
 ## Volvo 142E          0.1869159 0.1869159</code></pre>
-<div class="sourceCode" id="cb276"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb276-1"><a href="lesson-6---functions.html#cb276-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Add 2 to every variable with mutate and across</span></span>
-<span id="cb276-2"><a href="lesson-6---functions.html#cb276-2" aria-hidden="true" tabindex="-1"></a>mtcars <span class="sc">%&gt;%</span></span>
-<span id="cb276-3"><a href="lesson-6---functions.html#cb276-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="fu">across</span>(<span class="fu">everything</span>(), <span class="sc">~</span> . <span class="sc">+</span> <span class="dv">2</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb279"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb279-1"><a href="lesson-6---functions.html#cb279-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Add 2 to every variable with mutate and across</span></span>
+<span id="cb279-2"><a href="lesson-6---functions.html#cb279-2" aria-hidden="true" tabindex="-1"></a>mtcars <span class="sc">%&gt;%</span></span>
+<span id="cb279-3"><a href="lesson-6---functions.html#cb279-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="fu">across</span>(<span class="fu">everything</span>(), <span class="sc">~</span> . <span class="sc">+</span> <span class="dv">2</span>))</span></code></pre></div>
 <pre><code>##                      mpg cyl  disp  hp drat    wt  qsec vs am gear carb
 ## Mazda RX4           23.0   8 162.0 112 5.90 4.620 18.46  2  3    6    6
 ## Mazda RX4 Wag       23.0   8 162.0 112 5.90 4.875 19.02  2  3    6    6
@@ -384,17 +385,17 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## Maserati Bora       2.533333 2.533333
 ## Volvo 142E          2.186916 2.186916</code></pre>
 <p>Performing multiple data transformations:</p>
-<div class="sourceCode" id="cb278"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb278-1"><a href="lesson-6---functions.html#cb278-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Reset mtcars data set</span></span>
-<span id="cb278-2"><a href="lesson-6---functions.html#cb278-2" aria-hidden="true" tabindex="-1"></a><span class="fu">rm</span>(mtcars)</span>
-<span id="cb278-3"><a href="lesson-6---functions.html#cb278-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb278-4"><a href="lesson-6---functions.html#cb278-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Keep only mpg</span></span>
-<span id="cb278-5"><a href="lesson-6---functions.html#cb278-5" aria-hidden="true" tabindex="-1"></a>mtcars <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">mpg =</span> mtcars<span class="sc">$</span>mpg)</span>
-<span id="cb278-6"><a href="lesson-6---functions.html#cb278-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb278-7"><a href="lesson-6---functions.html#cb278-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Multiply mpg by 2</span></span>
-<span id="cb278-8"><a href="lesson-6---functions.html#cb278-8" aria-hidden="true" tabindex="-1"></a>mtcars<span class="sc">$</span>mpg2 <span class="ot">&lt;-</span> mtcars<span class="sc">$</span>mpg <span class="sc">*</span> <span class="dv">2</span></span>
-<span id="cb278-9"><a href="lesson-6---functions.html#cb278-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb278-10"><a href="lesson-6---functions.html#cb278-10" aria-hidden="true" tabindex="-1"></a><span class="co"># Keep if mpg2 greater than or equal to 40</span></span>
-<span id="cb278-11"><a href="lesson-6---functions.html#cb278-11" aria-hidden="true" tabindex="-1"></a>(mtcars <span class="ot">&lt;-</span> mtcars[mtcars<span class="sc">$</span>mpg2 <span class="sc">&gt;=</span> <span class="dv">40</span>, ])</span></code></pre></div>
+<div class="sourceCode" id="cb281"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb281-1"><a href="lesson-6---functions.html#cb281-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Reset mtcars data set</span></span>
+<span id="cb281-2"><a href="lesson-6---functions.html#cb281-2" aria-hidden="true" tabindex="-1"></a><span class="fu">rm</span>(mtcars)</span>
+<span id="cb281-3"><a href="lesson-6---functions.html#cb281-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb281-4"><a href="lesson-6---functions.html#cb281-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Keep only mpg</span></span>
+<span id="cb281-5"><a href="lesson-6---functions.html#cb281-5" aria-hidden="true" tabindex="-1"></a>mtcars <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">mpg =</span> mtcars<span class="sc">$</span>mpg)</span>
+<span id="cb281-6"><a href="lesson-6---functions.html#cb281-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb281-7"><a href="lesson-6---functions.html#cb281-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Multiply mpg by 2</span></span>
+<span id="cb281-8"><a href="lesson-6---functions.html#cb281-8" aria-hidden="true" tabindex="-1"></a>mtcars<span class="sc">$</span>mpg2 <span class="ot">&lt;-</span> mtcars<span class="sc">$</span>mpg <span class="sc">*</span> <span class="dv">2</span></span>
+<span id="cb281-9"><a href="lesson-6---functions.html#cb281-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb281-10"><a href="lesson-6---functions.html#cb281-10" aria-hidden="true" tabindex="-1"></a><span class="co"># Keep if mpg2 greater than or equal to 40</span></span>
+<span id="cb281-11"><a href="lesson-6---functions.html#cb281-11" aria-hidden="true" tabindex="-1"></a>(mtcars <span class="ot">&lt;-</span> mtcars[mtcars<span class="sc">$</span>mpg2 <span class="sc">&gt;=</span> <span class="dv">40</span>, ])</span></code></pre></div>
 <pre><code>##     mpg mpg2
 ## 1  21.0 42.0
 ## 2  21.0 42.0
@@ -410,16 +411,16 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## 27 26.0 52.0
 ## 28 30.4 60.8
 ## 32 21.4 42.8</code></pre>
-<div class="sourceCode" id="cb280"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb280-1"><a href="lesson-6---functions.html#cb280-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Same steps, using the pipe</span></span>
-<span id="cb280-2"><a href="lesson-6---functions.html#cb280-2" aria-hidden="true" tabindex="-1"></a><span class="fu">rm</span>(mtcars)</span>
-<span id="cb280-3"><a href="lesson-6---functions.html#cb280-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb280-4"><a href="lesson-6---functions.html#cb280-4" aria-hidden="true" tabindex="-1"></a>mtcars <span class="sc">%&gt;%</span></span>
-<span id="cb280-5"><a href="lesson-6---functions.html#cb280-5" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Keep only mpg</span></span>
-<span id="cb280-6"><a href="lesson-6---functions.html#cb280-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(mpg) <span class="sc">%&gt;%</span></span>
-<span id="cb280-7"><a href="lesson-6---functions.html#cb280-7" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Multiply mpg by 2</span></span>
-<span id="cb280-8"><a href="lesson-6---functions.html#cb280-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">mpg2 =</span> mpg<span class="sc">*</span><span class="dv">2</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb280-9"><a href="lesson-6---functions.html#cb280-9" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Keep if mpg2 greater than or equal to 40</span></span>
-<span id="cb280-10"><a href="lesson-6---functions.html#cb280-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(mpg2 <span class="sc">&gt;=</span> <span class="dv">40</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb283"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb283-1"><a href="lesson-6---functions.html#cb283-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Same steps, using the pipe</span></span>
+<span id="cb283-2"><a href="lesson-6---functions.html#cb283-2" aria-hidden="true" tabindex="-1"></a><span class="fu">rm</span>(mtcars)</span>
+<span id="cb283-3"><a href="lesson-6---functions.html#cb283-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb283-4"><a href="lesson-6---functions.html#cb283-4" aria-hidden="true" tabindex="-1"></a>mtcars <span class="sc">%&gt;%</span></span>
+<span id="cb283-5"><a href="lesson-6---functions.html#cb283-5" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Keep only mpg</span></span>
+<span id="cb283-6"><a href="lesson-6---functions.html#cb283-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(mpg) <span class="sc">%&gt;%</span></span>
+<span id="cb283-7"><a href="lesson-6---functions.html#cb283-7" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Multiply mpg by 2</span></span>
+<span id="cb283-8"><a href="lesson-6---functions.html#cb283-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">mpg2 =</span> mpg<span class="sc">*</span><span class="dv">2</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb283-9"><a href="lesson-6---functions.html#cb283-9" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Keep if mpg2 greater than or equal to 40</span></span>
+<span id="cb283-10"><a href="lesson-6---functions.html#cb283-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(mpg2 <span class="sc">&gt;=</span> <span class="dv">40</span>)</span></code></pre></div>
 <pre><code>##                 mpg mpg2
 ## Mazda RX4      21.0 42.0
 ## Mazda RX4 Wag  21.0 42.0
@@ -439,81 +440,81 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 <div id="writing-funcitons" class="section level4 hasAnchor" number="2.6.2.2">
 <h4><span class="header-section-number">2.6.2.2</span> <strong>Writing Funcitons</strong><a href="lesson-6---functions.html#writing-funcitons" class="anchor-section" aria-label="Anchor link to header"></a></h4>
-<p>You can create a function (often called it <em>defining</em> the function) using the following syntax:</p>
-<p>name_of_function &lt;- function(arguments_of_function) {
-operations performed by function
-}</p>
+<p>You can create a function (often called <em>defining</em> the function) using the following syntax:</p>
+<div class="sourceCode" id="cb285"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb285-1"><a href="lesson-6---functions.html#cb285-1" aria-hidden="true" tabindex="-1"></a><span class="co"># name_of_function &lt;- function(arguments_of_function) {</span></span>
+<span id="cb285-2"><a href="lesson-6---functions.html#cb285-2" aria-hidden="true" tabindex="-1"></a><span class="co">#   operations performed by function</span></span>
+<span id="cb285-3"><a href="lesson-6---functions.html#cb285-3" aria-hidden="true" tabindex="-1"></a><span class="co"># }</span></span></code></pre></div>
 <p>The first thing you will type will be the name that you want to give to your function. You can think of this as assigning the code that follows the assignment operator <code>&lt;-</code> to the name. That name will now be associated with that code.</p>
 <p>Next, you will write <code>function()</code>, and inside the parentheses you will write all of the arguments that can be provided to your function. For example, the function <code>is.na()</code> takes just one argument, x, which can be a list, atomic vector, or data frame (as well as some other object classes); the function <code>str_to_upper()</code> has two arguments, a string and a locale.</p>
 <p>Then you will open a curly brace (and when you type the first one in R studio, it will automatically create a second for you; press enter and it will also nicely split them across lines for you). On a new line, begin writing what you want your function to do. When you are done with the function definition, on a new line type a closing brace (this is likely unnecessary if you are using R studio, since it has probably already created the closing brace for you). Run the entire block of code, starting from the name through the ending curly brace and you will have created a function!</p>
 <p>Here are some simple example functions:</p>
-<div class="sourceCode" id="cb282"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb282-1"><a href="lesson-6---functions.html#cb282-1" aria-hidden="true" tabindex="-1"></a><span class="co"># A function that multiplies any number or vector by 10</span></span>
-<span id="cb282-2"><a href="lesson-6---functions.html#cb282-2" aria-hidden="true" tabindex="-1"></a>mult10 <span class="ot">&lt;-</span> <span class="cf">function</span>(x) {</span>
-<span id="cb282-3"><a href="lesson-6---functions.html#cb282-3" aria-hidden="true" tabindex="-1"></a>  x <span class="ot">&lt;-</span> x <span class="sc">*</span> <span class="dv">10</span></span>
-<span id="cb282-4"><a href="lesson-6---functions.html#cb282-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">return</span>(x)</span>
-<span id="cb282-5"><a href="lesson-6---functions.html#cb282-5" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb282-6"><a href="lesson-6---functions.html#cb282-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb282-7"><a href="lesson-6---functions.html#cb282-7" aria-hidden="true" tabindex="-1"></a><span class="fu">mult10</span>(<span class="dv">3</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb286"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb286-1"><a href="lesson-6---functions.html#cb286-1" aria-hidden="true" tabindex="-1"></a><span class="co"># A function that multiplies any number or vector by 10</span></span>
+<span id="cb286-2"><a href="lesson-6---functions.html#cb286-2" aria-hidden="true" tabindex="-1"></a>mult10 <span class="ot">&lt;-</span> <span class="cf">function</span>(x) {</span>
+<span id="cb286-3"><a href="lesson-6---functions.html#cb286-3" aria-hidden="true" tabindex="-1"></a>  x <span class="ot">&lt;-</span> x <span class="sc">*</span> <span class="dv">10</span></span>
+<span id="cb286-4"><a href="lesson-6---functions.html#cb286-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">return</span>(x)</span>
+<span id="cb286-5"><a href="lesson-6---functions.html#cb286-5" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb286-6"><a href="lesson-6---functions.html#cb286-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb286-7"><a href="lesson-6---functions.html#cb286-7" aria-hidden="true" tabindex="-1"></a><span class="fu">mult10</span>(<span class="dv">3</span>)</span></code></pre></div>
 <pre><code>## [1] 30</code></pre>
-<div class="sourceCode" id="cb284"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb284-1"><a href="lesson-6---functions.html#cb284-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mult10</span>(<span class="dv">20</span><span class="sc">:</span><span class="dv">22</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb288"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb288-1"><a href="lesson-6---functions.html#cb288-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mult10</span>(<span class="dv">20</span><span class="sc">:</span><span class="dv">22</span>)</span></code></pre></div>
 <pre><code>## [1] 200 210 220</code></pre>
-<div class="sourceCode" id="cb286"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb286-1"><a href="lesson-6---functions.html#cb286-1" aria-hidden="true" tabindex="-1"></a><span class="co"># A function that counts the number of letters in a word</span></span>
-<span id="cb286-2"><a href="lesson-6---functions.html#cb286-2" aria-hidden="true" tabindex="-1"></a>letter_count <span class="ot">&lt;-</span> <span class="cf">function</span>(x) {</span>
-<span id="cb286-3"><a href="lesson-6---functions.html#cb286-3" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Stop if more than one word is provided</span></span>
-<span id="cb286-4"><a href="lesson-6---functions.html#cb286-4" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> (<span class="fu">length</span>(x) <span class="sc">&gt;</span> <span class="dv">1</span>) <span class="fu">stop</span>(<span class="st">&quot;Error: You must provide a charcter vector of length 1&quot;</span>)</span>
-<span id="cb286-5"><a href="lesson-6---functions.html#cb286-5" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Split the string</span></span>
-<span id="cb286-6"><a href="lesson-6---functions.html#cb286-6" aria-hidden="true" tabindex="-1"></a>  x <span class="ot">&lt;-</span> <span class="fu">strsplit</span>(x, <span class="st">&quot;.&quot;</span>, <span class="at">perl =</span> T)</span>
-<span id="cb286-7"><a href="lesson-6---functions.html#cb286-7" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Count the number of splits</span></span>
-<span id="cb286-8"><a href="lesson-6---functions.html#cb286-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">return</span>(<span class="fu">length</span>(x[[<span class="dv">1</span>]]))</span>
-<span id="cb286-9"><a href="lesson-6---functions.html#cb286-9" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb286-10"><a href="lesson-6---functions.html#cb286-10" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb286-11"><a href="lesson-6---functions.html#cb286-11" aria-hidden="true" tabindex="-1"></a><span class="fu">letter_count</span>(<span class="st">&quot;Reggie&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb290"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb290-1"><a href="lesson-6---functions.html#cb290-1" aria-hidden="true" tabindex="-1"></a><span class="co"># A function that counts the number of letters in a word</span></span>
+<span id="cb290-2"><a href="lesson-6---functions.html#cb290-2" aria-hidden="true" tabindex="-1"></a>letter_count <span class="ot">&lt;-</span> <span class="cf">function</span>(x) {</span>
+<span id="cb290-3"><a href="lesson-6---functions.html#cb290-3" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Stop if more than one word is provided</span></span>
+<span id="cb290-4"><a href="lesson-6---functions.html#cb290-4" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> (<span class="fu">length</span>(x) <span class="sc">&gt;</span> <span class="dv">1</span>) <span class="fu">stop</span>(<span class="st">&quot;Error: You must provide a charcter vector of length 1&quot;</span>)</span>
+<span id="cb290-5"><a href="lesson-6---functions.html#cb290-5" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Split the string</span></span>
+<span id="cb290-6"><a href="lesson-6---functions.html#cb290-6" aria-hidden="true" tabindex="-1"></a>  x <span class="ot">&lt;-</span> <span class="fu">strsplit</span>(x, <span class="st">&quot;.&quot;</span>, <span class="at">perl =</span> T)</span>
+<span id="cb290-7"><a href="lesson-6---functions.html#cb290-7" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Count the number of splits</span></span>
+<span id="cb290-8"><a href="lesson-6---functions.html#cb290-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">return</span>(<span class="fu">length</span>(x[[<span class="dv">1</span>]]))</span>
+<span id="cb290-9"><a href="lesson-6---functions.html#cb290-9" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb290-10"><a href="lesson-6---functions.html#cb290-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb290-11"><a href="lesson-6---functions.html#cb290-11" aria-hidden="true" tabindex="-1"></a><span class="fu">letter_count</span>(<span class="st">&quot;Reggie&quot;</span>)</span></code></pre></div>
 <pre><code>## [1] 6</code></pre>
-<div class="sourceCode" id="cb288"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb288-1"><a href="lesson-6---functions.html#cb288-1" aria-hidden="true" tabindex="-1"></a><span class="fu">letter_count</span>(<span class="st">&quot;supercalifragilisticexpialidocious&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb292"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb292-1"><a href="lesson-6---functions.html#cb292-1" aria-hidden="true" tabindex="-1"></a><span class="fu">letter_count</span>(<span class="st">&quot;supercalifragilisticexpialidocious&quot;</span>)</span></code></pre></div>
 <pre><code>## [1] 34</code></pre>
-<div class="sourceCode" id="cb290"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb290-1"><a href="lesson-6---functions.html#cb290-1" aria-hidden="true" tabindex="-1"></a><span class="fu">try</span>(<span class="fu">letter_count</span>(<span class="fu">c</span>(<span class="st">&quot;RG&quot;</span>, <span class="st">&quot;CG&quot;</span>)))</span></code></pre></div>
+<div class="sourceCode" id="cb294"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb294-1"><a href="lesson-6---functions.html#cb294-1" aria-hidden="true" tabindex="-1"></a><span class="fu">try</span>(<span class="fu">letter_count</span>(<span class="fu">c</span>(<span class="st">&quot;RG&quot;</span>, <span class="st">&quot;CG&quot;</span>)))</span></code></pre></div>
 <pre><code>## Error in letter_count(c(&quot;RG&quot;, &quot;CG&quot;)) : 
 ##   Error: You must provide a charcter vector of length 1</code></pre>
-<div class="sourceCode" id="cb292"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb292-1"><a href="lesson-6---functions.html#cb292-1" aria-hidden="true" tabindex="-1"></a><span class="co"># A function to reverse the order of elements in a vector</span></span>
-<span id="cb292-2"><a href="lesson-6---functions.html#cb292-2" aria-hidden="true" tabindex="-1"></a>vec_reverse <span class="ot">&lt;-</span> <span class="cf">function</span>(x) {</span>
-<span id="cb292-3"><a href="lesson-6---functions.html#cb292-3" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Get the length of the vector</span></span>
-<span id="cb292-4"><a href="lesson-6---functions.html#cb292-4" aria-hidden="true" tabindex="-1"></a>  vec_length <span class="ot">&lt;-</span> <span class="fu">length</span>(x)</span>
-<span id="cb292-5"><a href="lesson-6---functions.html#cb292-5" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Get the class of the vector to create the appropriate container for the new vector</span></span>
-<span id="cb292-6"><a href="lesson-6---functions.html#cb292-6" aria-hidden="true" tabindex="-1"></a>  mode <span class="ot">&lt;-</span> <span class="fu">class</span>(x)</span>
-<span id="cb292-7"><a href="lesson-6---functions.html#cb292-7" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb292-8"><a href="lesson-6---functions.html#cb292-8" aria-hidden="true" tabindex="-1"></a>  <span class="co"># If x has length less than or equal to 1, no reversing is necessary</span></span>
-<span id="cb292-9"><a href="lesson-6---functions.html#cb292-9" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> (vec_length <span class="sc">&lt;=</span> <span class="dv">1</span>) <span class="fu">return</span>(x)</span>
-<span id="cb292-10"><a href="lesson-6---functions.html#cb292-10" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Otherwise we reverse</span></span>
-<span id="cb292-11"><a href="lesson-6---functions.html#cb292-11" aria-hidden="true" tabindex="-1"></a>  <span class="cf">else</span> {</span>
-<span id="cb292-12"><a href="lesson-6---functions.html#cb292-12" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Create an empty vector</span></span>
-<span id="cb292-13"><a href="lesson-6---functions.html#cb292-13" aria-hidden="true" tabindex="-1"></a>    new_vec <span class="ot">&lt;-</span> <span class="fu">vector</span>(<span class="at">mode =</span> mode, <span class="at">length =</span> vec_length)</span>
-<span id="cb292-14"><a href="lesson-6---functions.html#cb292-14" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Loop over the elements of the vector x</span></span>
-<span id="cb292-15"><a href="lesson-6---functions.html#cb292-15" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> (i <span class="cf">in</span> <span class="fu">seq</span>(vec_length)) {</span>
-<span id="cb292-16"><a href="lesson-6---functions.html#cb292-16" aria-hidden="true" tabindex="-1"></a>      <span class="co"># Element i in the new vector is element vec_length - (i-1) in the original vector.</span></span>
-<span id="cb292-17"><a href="lesson-6---functions.html#cb292-17" aria-hidden="true" tabindex="-1"></a>      <span class="co"># For example if the original vector has length 5 then element 1 in the new vector is element</span></span>
-<span id="cb292-18"><a href="lesson-6---functions.html#cb292-18" aria-hidden="true" tabindex="-1"></a>      <span class="co"># 5 - (1-1) = 5 in the original vector</span></span>
-<span id="cb292-19"><a href="lesson-6---functions.html#cb292-19" aria-hidden="true" tabindex="-1"></a>      new_vec[i] <span class="ot">&lt;-</span> x[vec_length <span class="sc">-</span> (i <span class="sc">-</span><span class="dv">1</span>)]</span>
-<span id="cb292-20"><a href="lesson-6---functions.html#cb292-20" aria-hidden="true" tabindex="-1"></a>    }</span>
-<span id="cb292-21"><a href="lesson-6---functions.html#cb292-21" aria-hidden="true" tabindex="-1"></a>  }</span>
-<span id="cb292-22"><a href="lesson-6---functions.html#cb292-22" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Return the new vector</span></span>
-<span id="cb292-23"><a href="lesson-6---functions.html#cb292-23" aria-hidden="true" tabindex="-1"></a>  <span class="fu">return</span>(new_vec)</span>
-<span id="cb292-24"><a href="lesson-6---functions.html#cb292-24" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb292-25"><a href="lesson-6---functions.html#cb292-25" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb292-26"><a href="lesson-6---functions.html#cb292-26" aria-hidden="true" tabindex="-1"></a><span class="fu">vec_reverse</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb296"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb296-1"><a href="lesson-6---functions.html#cb296-1" aria-hidden="true" tabindex="-1"></a><span class="co"># A function to reverse the order of elements in a vector</span></span>
+<span id="cb296-2"><a href="lesson-6---functions.html#cb296-2" aria-hidden="true" tabindex="-1"></a>vec_reverse <span class="ot">&lt;-</span> <span class="cf">function</span>(x) {</span>
+<span id="cb296-3"><a href="lesson-6---functions.html#cb296-3" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Get the length of the vector</span></span>
+<span id="cb296-4"><a href="lesson-6---functions.html#cb296-4" aria-hidden="true" tabindex="-1"></a>  vec_length <span class="ot">&lt;-</span> <span class="fu">length</span>(x)</span>
+<span id="cb296-5"><a href="lesson-6---functions.html#cb296-5" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Get the class of the vector to create the appropriate container for the new vector</span></span>
+<span id="cb296-6"><a href="lesson-6---functions.html#cb296-6" aria-hidden="true" tabindex="-1"></a>  mode <span class="ot">&lt;-</span> <span class="fu">class</span>(x)</span>
+<span id="cb296-7"><a href="lesson-6---functions.html#cb296-7" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb296-8"><a href="lesson-6---functions.html#cb296-8" aria-hidden="true" tabindex="-1"></a>  <span class="co"># If x has length less than or equal to 1, no reversing is necessary</span></span>
+<span id="cb296-9"><a href="lesson-6---functions.html#cb296-9" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> (vec_length <span class="sc">&lt;=</span> <span class="dv">1</span>) <span class="fu">return</span>(x)</span>
+<span id="cb296-10"><a href="lesson-6---functions.html#cb296-10" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Otherwise we reverse</span></span>
+<span id="cb296-11"><a href="lesson-6---functions.html#cb296-11" aria-hidden="true" tabindex="-1"></a>  <span class="cf">else</span> {</span>
+<span id="cb296-12"><a href="lesson-6---functions.html#cb296-12" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Create an empty vector</span></span>
+<span id="cb296-13"><a href="lesson-6---functions.html#cb296-13" aria-hidden="true" tabindex="-1"></a>    new_vec <span class="ot">&lt;-</span> <span class="fu">vector</span>(<span class="at">mode =</span> mode, <span class="at">length =</span> vec_length)</span>
+<span id="cb296-14"><a href="lesson-6---functions.html#cb296-14" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Loop over the elements of the vector x</span></span>
+<span id="cb296-15"><a href="lesson-6---functions.html#cb296-15" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> (i <span class="cf">in</span> <span class="fu">seq</span>(vec_length)) {</span>
+<span id="cb296-16"><a href="lesson-6---functions.html#cb296-16" aria-hidden="true" tabindex="-1"></a>      <span class="co"># Element i in the new vector is element vec_length - (i-1) in the original vector.</span></span>
+<span id="cb296-17"><a href="lesson-6---functions.html#cb296-17" aria-hidden="true" tabindex="-1"></a>      <span class="co"># For example if the original vector has length 5 then element 1 in the new vector is element</span></span>
+<span id="cb296-18"><a href="lesson-6---functions.html#cb296-18" aria-hidden="true" tabindex="-1"></a>      <span class="co"># 5 - (1-1) = 5 in the original vector</span></span>
+<span id="cb296-19"><a href="lesson-6---functions.html#cb296-19" aria-hidden="true" tabindex="-1"></a>      new_vec[i] <span class="ot">&lt;-</span> x[vec_length <span class="sc">-</span> (i <span class="sc">-</span><span class="dv">1</span>)]</span>
+<span id="cb296-20"><a href="lesson-6---functions.html#cb296-20" aria-hidden="true" tabindex="-1"></a>    }</span>
+<span id="cb296-21"><a href="lesson-6---functions.html#cb296-21" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb296-22"><a href="lesson-6---functions.html#cb296-22" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Return the new vector</span></span>
+<span id="cb296-23"><a href="lesson-6---functions.html#cb296-23" aria-hidden="true" tabindex="-1"></a>  <span class="fu">return</span>(new_vec)</span>
+<span id="cb296-24"><a href="lesson-6---functions.html#cb296-24" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb296-25"><a href="lesson-6---functions.html#cb296-25" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb296-26"><a href="lesson-6---functions.html#cb296-26" aria-hidden="true" tabindex="-1"></a><span class="fu">vec_reverse</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>)</span></code></pre></div>
 <pre><code>##  [1] 10  9  8  7  6  5  4  3  2  1</code></pre>
-<div class="sourceCode" id="cb294"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb294-1"><a href="lesson-6---functions.html#cb294-1" aria-hidden="true" tabindex="-1"></a><span class="fu">vec_reverse</span>(<span class="fu">c</span>(<span class="cn">TRUE</span>, <span class="cn">TRUE</span>, <span class="cn">FALSE</span>, <span class="cn">TRUE</span>, <span class="cn">FALSE</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb298"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb298-1"><a href="lesson-6---functions.html#cb298-1" aria-hidden="true" tabindex="-1"></a><span class="fu">vec_reverse</span>(<span class="fu">c</span>(<span class="cn">TRUE</span>, <span class="cn">TRUE</span>, <span class="cn">FALSE</span>, <span class="cn">TRUE</span>, <span class="cn">FALSE</span>))</span></code></pre></div>
 <pre><code>## [1] FALSE  TRUE FALSE  TRUE  TRUE</code></pre>
-<div class="sourceCode" id="cb296"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb296-1"><a href="lesson-6---functions.html#cb296-1" aria-hidden="true" tabindex="-1"></a><span class="fu">vec_reverse</span>(<span class="fu">as.numeric</span>())</span></code></pre></div>
+<div class="sourceCode" id="cb300"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb300-1"><a href="lesson-6---functions.html#cb300-1" aria-hidden="true" tabindex="-1"></a><span class="fu">vec_reverse</span>(<span class="fu">as.numeric</span>())</span></code></pre></div>
 <pre><code>## numeric(0)</code></pre>
 <p>As you can see, after I put this code in a function I can call it any number of times. Be careful about assigning new things to the same name as was used to define a function. If you do this, your function will cease to work. Names in R can only be assigned to one object. For example, see what happens if I overwrite letter_count:</p>
-<div class="sourceCode" id="cb298"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb298-1"><a href="lesson-6---functions.html#cb298-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Assign the number of letters to letter_count</span></span>
-<span id="cb298-2"><a href="lesson-6---functions.html#cb298-2" aria-hidden="true" tabindex="-1"></a>letters</span></code></pre></div>
+<div class="sourceCode" id="cb302"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb302-1"><a href="lesson-6---functions.html#cb302-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Assign the number of letters to letter_count</span></span>
+<span id="cb302-2"><a href="lesson-6---functions.html#cb302-2" aria-hidden="true" tabindex="-1"></a>letters</span></code></pre></div>
 <pre><code>##  [1] &quot;a&quot; &quot;b&quot; &quot;c&quot; &quot;d&quot; &quot;e&quot; &quot;f&quot; &quot;g&quot; &quot;h&quot; &quot;i&quot; &quot;j&quot; &quot;k&quot; &quot;l&quot; &quot;m&quot; &quot;n&quot; &quot;o&quot; &quot;p&quot; &quot;q&quot; &quot;r&quot; &quot;s&quot;
 ## [20] &quot;t&quot; &quot;u&quot; &quot;v&quot; &quot;w&quot; &quot;x&quot; &quot;y&quot; &quot;z&quot;</code></pre>
-<div class="sourceCode" id="cb300"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb300-1"><a href="lesson-6---functions.html#cb300-1" aria-hidden="true" tabindex="-1"></a>letter_count <span class="ot">&lt;-</span> <span class="fu">length</span>(letters)</span>
-<span id="cb300-2"><a href="lesson-6---functions.html#cb300-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb300-3"><a href="lesson-6---functions.html#cb300-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Try to call the function letter_count</span></span>
-<span id="cb300-4"><a href="lesson-6---functions.html#cb300-4" aria-hidden="true" tabindex="-1"></a><span class="fu">try</span>(<span class="fu">letter_count</span>(<span class="st">&quot;Hello&quot;</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb304"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb304-1"><a href="lesson-6---functions.html#cb304-1" aria-hidden="true" tabindex="-1"></a>letter_count <span class="ot">&lt;-</span> <span class="fu">length</span>(letters)</span>
+<span id="cb304-2"><a href="lesson-6---functions.html#cb304-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb304-3"><a href="lesson-6---functions.html#cb304-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Try to call the function letter_count</span></span>
+<span id="cb304-4"><a href="lesson-6---functions.html#cb304-4" aria-hidden="true" tabindex="-1"></a><span class="fu">try</span>(<span class="fu">letter_count</span>(<span class="st">&quot;Hello&quot;</span>))</span></code></pre></div>
 <pre><code>## Error in letter_count(&quot;Hello&quot;) : could not find function &quot;letter_count&quot;</code></pre>
 <p>R tells me that the function does not exist!</p>
 </div>
@@ -522,32 +523,32 @@ operations performed by function
 <div id="notes-on-arguments" class="section level5 hasAnchor" number="2.6.2.3.1">
 <h5><span class="header-section-number">2.6.2.3.1</span> <strong>Notes on arguments</strong><a href="lesson-6---functions.html#notes-on-arguments" class="anchor-section" aria-label="Anchor link to header"></a></h5>
 <p>Each of the functions I’ve written thus far has required one argument, but you can write functions without arguments in R:</p>
-<div class="sourceCode" id="cb302"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb302-1"><a href="lesson-6---functions.html#cb302-1" aria-hidden="true" tabindex="-1"></a>no_args <span class="ot">&lt;-</span> <span class="cf">function</span>() {</span>
-<span id="cb302-2"><a href="lesson-6---functions.html#cb302-2" aria-hidden="true" tabindex="-1"></a>  <span class="st">&quot;This is a function without arguments&quot;</span></span>
-<span id="cb302-3"><a href="lesson-6---functions.html#cb302-3" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
+<div class="sourceCode" id="cb306"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb306-1"><a href="lesson-6---functions.html#cb306-1" aria-hidden="true" tabindex="-1"></a>no_args <span class="ot">&lt;-</span> <span class="cf">function</span>() {</span>
+<span id="cb306-2"><a href="lesson-6---functions.html#cb306-2" aria-hidden="true" tabindex="-1"></a>  <span class="st">&quot;This is a function without arguments&quot;</span></span>
+<span id="cb306-3"><a href="lesson-6---functions.html#cb306-3" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
 <p>When you call such a function, it simply executes the code inside:</p>
-<div class="sourceCode" id="cb303"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb303-1"><a href="lesson-6---functions.html#cb303-1" aria-hidden="true" tabindex="-1"></a><span class="fu">no_args</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb307"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb307-1"><a href="lesson-6---functions.html#cb307-1" aria-hidden="true" tabindex="-1"></a><span class="fu">no_args</span>()</span></code></pre></div>
 <pre><code>## [1] &quot;This is a function without arguments&quot;</code></pre>
 <p>But most often, you will want to have arguments for your functions. This is because you will want your functions to be flexible–able to work under different circumstances and with varied input. You’ve already seen how to create a function that requires arguments:</p>
-<div class="sourceCode" id="cb305"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb305-1"><a href="lesson-6---functions.html#cb305-1" aria-hidden="true" tabindex="-1"></a>has_args <span class="ot">&lt;-</span> <span class="cf">function</span>(x, y) {</span>
-<span id="cb305-2"><a href="lesson-6---functions.html#cb305-2" aria-hidden="true" tabindex="-1"></a>  args <span class="ot">&lt;-</span> <span class="fu">match.call</span>()</span>
-<span id="cb305-3"><a href="lesson-6---functions.html#cb305-3" aria-hidden="true" tabindex="-1"></a>  num <span class="ot">&lt;-</span> <span class="fu">length</span>(<span class="fu">paste</span>(args)) <span class="sc">-</span> <span class="dv">1</span></span>
-<span id="cb305-4"><a href="lesson-6---functions.html#cb305-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">paste</span>(<span class="st">&quot;This function has&quot;</span>, num, <span class="st">&quot;argument(s)&quot;</span>)</span>
-<span id="cb305-5"><a href="lesson-6---functions.html#cb305-5" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb305-6"><a href="lesson-6---functions.html#cb305-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb305-7"><a href="lesson-6---functions.html#cb305-7" aria-hidden="true" tabindex="-1"></a><span class="fu">has_args</span>(<span class="at">x =</span> <span class="dv">1</span>, <span class="at">y =</span> <span class="dv">2</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb309"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb309-1"><a href="lesson-6---functions.html#cb309-1" aria-hidden="true" tabindex="-1"></a>has_args <span class="ot">&lt;-</span> <span class="cf">function</span>(x, y) {</span>
+<span id="cb309-2"><a href="lesson-6---functions.html#cb309-2" aria-hidden="true" tabindex="-1"></a>  args <span class="ot">&lt;-</span> <span class="fu">match.call</span>()</span>
+<span id="cb309-3"><a href="lesson-6---functions.html#cb309-3" aria-hidden="true" tabindex="-1"></a>  num <span class="ot">&lt;-</span> <span class="fu">length</span>(<span class="fu">paste</span>(args)) <span class="sc">-</span> <span class="dv">1</span></span>
+<span id="cb309-4"><a href="lesson-6---functions.html#cb309-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">paste</span>(<span class="st">&quot;This function has&quot;</span>, num, <span class="st">&quot;argument(s)&quot;</span>)</span>
+<span id="cb309-5"><a href="lesson-6---functions.html#cb309-5" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb309-6"><a href="lesson-6---functions.html#cb309-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb309-7"><a href="lesson-6---functions.html#cb309-7" aria-hidden="true" tabindex="-1"></a><span class="fu">has_args</span>(<span class="at">x =</span> <span class="dv">1</span>, <span class="at">y =</span> <span class="dv">2</span>)</span></code></pre></div>
 <pre><code>## [1] &quot;This function has 2 argument(s)&quot;</code></pre>
 <p>Such a function fails if the user does not provide the correct number of arguments.</p>
-<div class="sourceCode" id="cb307"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb307-1"><a href="lesson-6---functions.html#cb307-1" aria-hidden="true" tabindex="-1"></a><span class="fu">try</span>(<span class="fu">has_args</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb311"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb311-1"><a href="lesson-6---functions.html#cb311-1" aria-hidden="true" tabindex="-1"></a><span class="fu">try</span>(<span class="fu">has_args</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>))</span></code></pre></div>
 <pre><code>## Error in has_args(1, 2, 3) : unused argument (3)</code></pre>
-<div class="sourceCode" id="cb309"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb309-1"><a href="lesson-6---functions.html#cb309-1" aria-hidden="true" tabindex="-1"></a><span class="fu">try</span>(<span class="fu">mult10</span>())</span></code></pre></div>
+<div class="sourceCode" id="cb313"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb313-1"><a href="lesson-6---functions.html#cb313-1" aria-hidden="true" tabindex="-1"></a><span class="fu">try</span>(<span class="fu">mult10</span>())</span></code></pre></div>
 <pre><code>## Error in mult10() : argument &quot;x&quot; is missing, with no default</code></pre>
-<p>To prevent this from happening, you can provide default arguments. If the user of the function does not provide an value to an argument, R will use the default you’ve provided. Let’s update mult10 so that if the user does not provide a number or vector to be multiplied, it just returns <code>NA</code>.</p>
-<div class="sourceCode" id="cb311"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb311-1"><a href="lesson-6---functions.html#cb311-1" aria-hidden="true" tabindex="-1"></a>mult10 <span class="ot">&lt;-</span> <span class="cf">function</span>(<span class="at">x =</span> <span class="cn">NA</span>) {</span>
-<span id="cb311-2"><a href="lesson-6---functions.html#cb311-2" aria-hidden="true" tabindex="-1"></a>  x <span class="ot">&lt;-</span> x <span class="sc">*</span> <span class="dv">10</span></span>
-<span id="cb311-3"><a href="lesson-6---functions.html#cb311-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">return</span>(x)</span>
-<span id="cb311-4"><a href="lesson-6---functions.html#cb311-4" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb311-5"><a href="lesson-6---functions.html#cb311-5" aria-hidden="true" tabindex="-1"></a><span class="fu">mult10</span>()</span></code></pre></div>
+<p>To prevent this from happening, you can provide default arguments. If the user of the function does not provide a value to an argument, R will use the default you’ve provided. Let’s update mult10 so that if the user does not provide a number or vector to be multiplied, it just returns <code>NA</code>.</p>
+<div class="sourceCode" id="cb315"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb315-1"><a href="lesson-6---functions.html#cb315-1" aria-hidden="true" tabindex="-1"></a>mult10 <span class="ot">&lt;-</span> <span class="cf">function</span>(<span class="at">x =</span> <span class="cn">NA</span>) {</span>
+<span id="cb315-2"><a href="lesson-6---functions.html#cb315-2" aria-hidden="true" tabindex="-1"></a>  x <span class="ot">&lt;-</span> x <span class="sc">*</span> <span class="dv">10</span></span>
+<span id="cb315-3"><a href="lesson-6---functions.html#cb315-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">return</span>(x)</span>
+<span id="cb315-4"><a href="lesson-6---functions.html#cb315-4" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb315-5"><a href="lesson-6---functions.html#cb315-5" aria-hidden="true" tabindex="-1"></a><span class="fu">mult10</span>()</span></code></pre></div>
 <pre><code>## [1] NA</code></pre>
 <p>You can provide as many defaults as you have arguments. Use these to help yourself or those who will be using your code down the line.</p>
 </div>
@@ -557,20 +558,20 @@ operations performed by function
 <ol style="list-style-type: decimal">
 <li>End your function with the object you want returned:</li>
 </ol>
-<div class="sourceCode" id="cb313"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb313-1"><a href="lesson-6---functions.html#cb313-1" aria-hidden="true" tabindex="-1"></a>div2 <span class="ot">&lt;-</span> <span class="cf">function</span>(x) {</span>
-<span id="cb313-2"><a href="lesson-6---functions.html#cb313-2" aria-hidden="true" tabindex="-1"></a>  x <span class="ot">&lt;-</span> x<span class="sc">/</span><span class="dv">2</span></span>
-<span id="cb313-3"><a href="lesson-6---functions.html#cb313-3" aria-hidden="true" tabindex="-1"></a>  x</span>
-<span id="cb313-4"><a href="lesson-6---functions.html#cb313-4" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb313-5"><a href="lesson-6---functions.html#cb313-5" aria-hidden="true" tabindex="-1"></a><span class="fu">div2</span>(<span class="dv">30</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb317"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb317-1"><a href="lesson-6---functions.html#cb317-1" aria-hidden="true" tabindex="-1"></a>div2 <span class="ot">&lt;-</span> <span class="cf">function</span>(x) {</span>
+<span id="cb317-2"><a href="lesson-6---functions.html#cb317-2" aria-hidden="true" tabindex="-1"></a>  x <span class="ot">&lt;-</span> x<span class="sc">/</span><span class="dv">2</span></span>
+<span id="cb317-3"><a href="lesson-6---functions.html#cb317-3" aria-hidden="true" tabindex="-1"></a>  x</span>
+<span id="cb317-4"><a href="lesson-6---functions.html#cb317-4" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb317-5"><a href="lesson-6---functions.html#cb317-5" aria-hidden="true" tabindex="-1"></a><span class="fu">div2</span>(<span class="dv">30</span>)</span></code></pre></div>
 <pre><code>## [1] 15</code></pre>
 <ol start="2" style="list-style-type: decimal">
 <li>End your function with the a <code>return()</code> statement:</li>
 </ol>
-<div class="sourceCode" id="cb315"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb315-1"><a href="lesson-6---functions.html#cb315-1" aria-hidden="true" tabindex="-1"></a>square <span class="ot">&lt;-</span> <span class="cf">function</span>(x) {</span>
-<span id="cb315-2"><a href="lesson-6---functions.html#cb315-2" aria-hidden="true" tabindex="-1"></a>  x <span class="ot">&lt;-</span> x<span class="sc">^</span><span class="dv">2</span></span>
-<span id="cb315-3"><a href="lesson-6---functions.html#cb315-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">return</span>(x)</span>
-<span id="cb315-4"><a href="lesson-6---functions.html#cb315-4" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb315-5"><a href="lesson-6---functions.html#cb315-5" aria-hidden="true" tabindex="-1"></a><span class="fu">square</span>(<span class="dv">5</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb319"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb319-1"><a href="lesson-6---functions.html#cb319-1" aria-hidden="true" tabindex="-1"></a>square <span class="ot">&lt;-</span> <span class="cf">function</span>(x) {</span>
+<span id="cb319-2"><a href="lesson-6---functions.html#cb319-2" aria-hidden="true" tabindex="-1"></a>  x <span class="ot">&lt;-</span> x<span class="sc">^</span><span class="dv">2</span></span>
+<span id="cb319-3"><a href="lesson-6---functions.html#cb319-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">return</span>(x)</span>
+<span id="cb319-4"><a href="lesson-6---functions.html#cb319-4" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb319-5"><a href="lesson-6---functions.html#cb319-5" aria-hidden="true" tabindex="-1"></a><span class="fu">square</span>(<span class="dv">5</span>)</span></code></pre></div>
 <pre><code>## [1] 25</code></pre>
 <p>Either is okay, but I recommend you get in the habit of using <code>return()</code>. It is clearer what you are doing and it will allow you to write code that can exit in multiple places if necessary.</p>
 </div>

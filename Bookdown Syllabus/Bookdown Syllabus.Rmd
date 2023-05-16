@@ -1156,12 +1156,12 @@ Even in these examples it is clear that functions like `map()` (formally called 
 
 #### **Functions Defined**
 
-You have been using functions since you began working in R. `paste()`, `mutate()`, `sum()`, and even `%>%` are examples of functions. Fundamentally, a function just contains some uniform code that can be applied multiple times without typing. Theoretically you do not need to write functions, but neglecting them make your code far longer, less readable, and less easy to understand. Functions are incredibly important for repetitive or complex work.
+You have been using functions since you began working in R. `paste()`, `mutate()`, `sum()`, and even `%>%` are examples of functions. Fundamentally, a function just contains some uniform code that can be applied multiple times without typing. Theoretically you do not need to write functions, but neglecting them makes your code far longer, less readable, and less easy to understand. Functions are incredibly important for repetitive or complex work.
 
 Let's look at some examples:
 
 Adding numbers:
-```{r l6_1_1}
+```{r l6_1_1_1}
 # You can add numbers directly, using the Mathematical operators we discussed in Lesson 3
 4 + 4
 
@@ -1170,9 +1170,18 @@ sum(4, 4)
 
 # This does not save much time with 2 numbers, but what about with 25
 some_numbers <- round(runif(25, 0, 100))
+```
 
+```{r l6_1_1_2, echo = FALSE}
+invisible(
+  addlist <- paste(some_numbers, collapse = "+")
+)
+```
+
+```{r l6_1_1_3}
 # With addition signs
-1+31+55+78+24+78+46+65+73+74+86+3+74+31+65+51+55+45+41+21+86+44+54+62+71
+addlist
+eval(parse(text = addlist))
 
 # With sum
 sum(some_numbers)
@@ -1228,11 +1237,14 @@ Functions make working in R a lot easier and often more intuitive. You should us
 
 #### **Writing Funcitons**
 
-You can create a function (often called it *defining* the function) using the following syntax:
+You can create a function (often called *defining* the function) using the following syntax:
 
-name_of_function <- function(arguments_of_function) {
-  operations performed by function
-}
+
+```{r l6_func_syntax}
+# name_of_function <- function(arguments_of_function) {
+#   operations performed by function
+# }
+```
 
 The first thing you will type will be the name that you want to give to your function. You can think of this as assigning the code that follows the assignment operator `<-` to the name. That name will now be associated with that code. 
 
@@ -1350,7 +1362,7 @@ try(has_args(1, 2, 3))
 try(mult10())
 ```
 
-To prevent this from happening, you can provide default arguments. If the user of the function does not provide an value to an argument, R will use the default you've provided. Let's update mult10 so that if the user does not provide a number or vector to be multiplied, it just returns `NA`.
+To prevent this from happening, you can provide default arguments. If the user of the function does not provide a value to an argument, R will use the default you've provided. Let's update mult10 so that if the user does not provide a number or vector to be multiplied, it just returns `NA`.
 
 ```{r l6_3_5}
 mult10 <- function(x = NA) {
